@@ -13,8 +13,8 @@
         /* الألوان والهوية البصرية الدافئة والمريحة للعين */
         :root {
             --primary-color: #5c3d48; /* العنابي الملكي للمطرزات */
-            --accent-color: #b89424;  /* الذهبي الدافئ المريح */
-            --bg-color: #f7f4ed;      /* درجة كريمية دافئة جداً وناعمة للعين */
+            --accent-color: #3DB7B5;  /* الذهبي الدافئ المريح */
+            --bg-color: #FAF9F6;      /* درجة كريمية دافئة جداً وناعمة للعين */
             --card-bg: #f0eae1;       /* درجة دافئة للبطاقات والقوائم */
             --card-hover: #eae2d5;    /* درجة دافئة عند تمرير الماوس */
             --text-dark: #2d2d2d;     
@@ -25,12 +25,13 @@
 
         body {
             font-family: 'Cairo', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #FAF9F6 0%, #B7EBE3 100%);
             background-color: var(--bg-color);
             color: var(--text-dark);
             margin: 0;
             padding: 0;
             line-height: 1.8;
-            overflow-x: hidden;
+            overflow-x: clip;
             position: relative;
             perspective: 1000px;
         }
@@ -49,7 +50,8 @@
 
         .thread-3d {
             position: absolute;
-            width: 150%;
+            width: 100%;
+            max-width: 100%;
             height: 400px;
             fill: none;
             stroke-linecap: round;
@@ -58,16 +60,16 @@
 
         .t-gold {
             top: 5%;
-            left: -25%;
-            stroke: rgba(184, 148, 36, 0.35);
+            left: 0;
+            stroke: rgba(61, 183, 181, 0.24);
             stroke-width: 2.5;
             animation: weave3D-Gold 20s infinite ease-in-out alternate;
         }
 
         .t-burgundy {
             bottom: 5%;
-            right: -25%;
-            stroke: rgba(92, 61, 72, 0.3);
+            right: 0;
+            stroke: rgba(92, 61, 72, 0.22);
             stroke-width: 2;
             animation: weave3D-Burgundy 25s infinite ease-in-out alternate;
         }
@@ -139,7 +141,7 @@
             width: 100%;
             height: 3px;
             border-radius: 2px;
-            background: linear-gradient(270deg, var(--accent-color), var(--primary-color), #ca5cdd, var(--accent-color));
+            background: linear-gradient(270deg, var(--accent-color), var(--primary-color), #3DB7B5, var(--accent-color));
             background-size: 400% 400%;
             transform: scaleX(0);
             transform-origin: right;
@@ -176,7 +178,7 @@
             height: 5px;
             margin: 20px auto;
             border-radius: 10px;
-            background: linear-gradient(270deg, var(--primary-color), var(--accent-color), #ca5cdd, var(--primary-color));
+            background: linear-gradient(270deg, var(--primary-color), var(--accent-color), #3DB7B5, var(--primary-color));
             background-size: 600% 600%;
             animation: animateGradientStream 6s infinite linear;
         }
@@ -268,7 +270,7 @@
 
         /* 🌟 أزرار طلب الخدمة المحدثة مع تأثير اللمعان والوميض التفاعلي الفاخر */
         .btn-order-service {
-            background: linear-gradient(135deg, var(--accent-color) 0%, #a3811f 100%);
+            background: linear-gradient(135deg, var(--accent-color) 0%, #2F8F8B 100%);
             color: #fff;
             padding: 14px 45px;
             font-size: 19px;
@@ -335,14 +337,14 @@
 
         @keyframes weave3D-Gold {
             0% { transform: translate3d(0, 0, -100px) rotateX(10deg) rotateY(5deg); stroke-dashoffset: 0; }
-            50% { transform: translate3d(40px, 30px, 50px) rotateX(-5deg) rotateY(15deg); }
-            100% { transform: translate3d(-20px, -20px, -50px) rotateX(5deg) rotateY(-10deg); stroke-dashoffset: -300; }
+            50% { transform: translate3d(20px, 30px, 50px) rotateX(-5deg) rotateY(15deg); }
+            100% { transform: translate3d(-10px, -20px, -50px) rotateX(5deg) rotateY(-10deg); stroke-dashoffset: -300; }
         }
 
         @keyframes weave3D-Burgundy {
             0% { transform: translate3d(0, 0, -50px) rotateX(-10deg) rotateY(-10deg); stroke-dashoffset: 0; }
-            50% { transform: translate3d(-50px, -40px, 80px) rotateX(15deg) rotateY(5deg); }
-            100% { transform: translate3d(30px, 20px, -120px) rotateX(-5deg) rotateY(10deg); stroke-dashoffset: 300; }
+            50% { transform: translate3d(-20px, -40px, 80px) rotateX(15deg) rotateY(5deg); }
+            100% { transform: translate3d(15px, 20px, -120px) rotateX(-5deg) rotateY(10deg); stroke-dashoffset: 300; }
         }
 
         @media (max-width: 768px) {
@@ -355,18 +357,41 @@
         }
     </style>
     <link rel="icon" type="image/png" href="lo.png">
+
+<style id="thread-motion">
+.thread-motion{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;opacity:.38;}
+.thread-motion span{position:absolute;width:42vw;height:2px;background:linear-gradient(90deg,transparent,rgba(61,183,181,.28),transparent);border-radius:999px;transform-origin:center;animation:threadDrift 14s ease-in-out infinite;}
+.thread-motion span:nth-child(1){top:22%;left:-12%;transform:rotate(18deg);animation-delay:-2s;}
+.thread-motion span:nth-child(2){top:48%;left:45%;width:35vw;transform:rotate(-24deg);animation-delay:-7s;}
+.thread-motion span:nth-child(3){top:72%;left:-8%;width:48vw;transform:rotate(12deg);animation-delay:-10s;}
+.thread-motion span:nth-child(4){top:34%;left:68%;width:30vw;transform:rotate(32deg);animation-delay:-5s;}
+@keyframes threadDrift{0%,100%{translate:0 0;scale:1;opacity:.55;}50%{translate:18px -10px;scale:1.04;opacity:1;}}
+@media (prefers-reduced-motion:reduce){.thread-motion span{animation:none;}}
+@media (max-width:600px){.thread-motion{opacity:.22}.thread-motion span{width:70vw}.thread-motion span:nth-child(2){left:35%;width:55vw}.thread-motion span:nth-child(4){left:55%;width:45vw;}}
+</style>
 <style>
-/* === Alnarjis interactive particle background === */
-#narjisParticleCanvas { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; }
-body { position: relative; overflow-x: clip; }
-body > *:not(#narjisParticleCanvas) { position: relative; z-index: 1; }
+/* NARJIS interactive particle layer */
+#narjisParticleCanvas{
+  position:fixed;
+  inset:0;
+  width:100vw;
+  height:100vh;
+  z-index:5;
+  pointer-events:none;
+  display:block;
+  opacity:.95;
+}
+body{overflow-x:clip!important;}
+body > *:not(#narjisParticleCanvas){position:relative;z-index:10;}
+
 </style>
 </head>
 <body>
 <canvas id="narjisParticleCanvas" aria-hidden="true"></canvas>
 
     <!-- 🧵 الخلفية الحية ممتدة ثلاثية الأبعاد -->
-    <div class="bg-threads-3d">
+    <div class="thread-motion" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+<div class="bg-threads-3d">
         <svg class="thread-3d t-gold" viewBox="0 0 1440 400">
             <path d="M0,200 C300,350 600,50 900,200 C1200,350 1300,100 1440,200" />
         </svg>
@@ -433,85 +458,113 @@ body > *:not(#narjisParticleCanvas) { position: relative; z-index: 1; }
         <p>&copy; 2026 النرجس للتطريز. جميع الحقوق محفوظة.</p>
     </footer>
 
-
 <script>
 (() => {
-  const canvas = document.getElementById("narjisParticleCanvas");
+  const canvas = document.getElementById('narjisParticleCanvas');
   if (!canvas) return;
-  const ctx = canvas.getContext("2d");
-  const particles = [];
-  const pointer = { x: -9999, y: -9999, active: false, radius: 145 };
-  let w = 0, h = 0, dpr = 1, raf = 0;
-  const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const settings = { density: 10500, min: 28, max: 95, link: 125, speed: prefersReduced ? 0.08 : 0.24 };
+  const ctx = canvas.getContext('2d', { alpha:true });
+  if (!ctx) return;
 
-  function resize() {
-    w = window.innerWidth; h = window.innerHeight;
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
-    canvas.style.width = w + "px"; canvas.style.height = h + "px";
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const count = Math.max(settings.min, Math.min(settings.max, Math.floor((w*h)/settings.density)));
-    particles.length = 0;
-    for (let i=0;i<count;i++) particles.push({
-      x: Math.random()*w, y: Math.random()*h,
-      vx:(Math.random()-.5)*settings.speed, vy:(Math.random()-.5)*settings.speed,
-      r:.7+Math.random()*1.25, phase:Math.random()*Math.PI*2, pulse:.006+Math.random()*.012
-    });
+  let w=0,h=0,dpr=1,raf=0;
+  const particles=[];
+  const pointer={x:0,y:0,active:false,radius:155};
+  const reduce=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const S={density:8500,min:42,max:120,link:145,speed:reduce?.10:.28};
+
+  function resize(){
+    w=innerWidth; h=innerHeight;
+    dpr=Math.min(devicePixelRatio||1,2);
+    canvas.width=Math.round(w*dpr);
+    canvas.height=Math.round(h*dpr);
+    canvas.style.width=w+'px';
+    canvas.style.height=h+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    const count=Math.max(S.min,Math.min(S.max,Math.round(w*h/S.density)));
+    particles.length=0;
+    for(let i=0;i<count;i++){
+      const angle=Math.random()*Math.PI*2;
+      const speed=S.speed*(.35+Math.random()*.65);
+      particles.push({
+        x:Math.random()*w,y:Math.random()*h,
+        vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed,
+        r:.8+Math.random()*1.45,
+        phase:Math.random()*Math.PI*2,
+        pulse:.004+Math.random()*.012
+      });
+    }
   }
 
-  function pointerMove(e) { pointer.x=e.clientX; pointer.y=e.clientY; pointer.active=true; }
-  function pointerLeave(){ pointer.active=false; pointer.x=-9999; pointer.y=-9999; }
-  window.addEventListener("pointermove", pointerMove, {passive:true});
-  window.addEventListener("pointerleave", pointerLeave, {passive:true});
-  window.addEventListener("resize", resize, {passive:true});
+  function move(e){pointer.x=e.clientX;pointer.y=e.clientY;pointer.active=true;}
+  function leave(){pointer.active=false;}
+  addEventListener('pointermove',move,{passive:true});
+  addEventListener('blur',leave,{passive:true});
+  addEventListener('resize',resize,{passive:true});
 
-  function frame(){
+  function animate(){
     ctx.clearRect(0,0,w,h);
-    for (const p of particles) {
-      p.x += p.vx; p.y += p.vy; p.phase += p.pulse;
-      if (p.x < -5) p.x=w+5; if (p.x>w+5) p.x=-5;
-      if (p.y < -5) p.y=h+5; if (p.y>h+5) p.y=-5;
-      if (pointer.active) {
-        const dx=p.x-pointer.x, dy=p.y-pointer.y, dist=Math.hypot(dx,dy);
-        if (dist<pointer.radius && dist>0) {
-          const f=(1-dist/pointer.radius)*0.42;
-          p.x += dx/dist*f; p.y += dy/dist*f;
+
+    for(const p of particles){
+      p.x+=p.vx; p.y+=p.vy; p.phase+=p.pulse;
+      if(p.x<-10)p.x=w+10; else if(p.x>w+10)p.x=-10;
+      if(p.y<-10)p.y=h+10; else if(p.y>h+10)p.y=-10;
+
+      if(pointer.active){
+        const dx=p.x-pointer.x,dy=p.y-pointer.y;
+        const d=Math.hypot(dx,dy);
+        if(d>0&&d<pointer.radius){
+          const force=(1-d/pointer.radius)*.75;
+          p.x+=(dx/d)*force;
+          p.y+=(dy/d)*force;
         }
       }
     }
+
+    // connections
     for(let i=0;i<particles.length;i++){
       const a=particles[i];
       for(let j=i+1;j<particles.length;j++){
-        const b=particles[j], d=Math.hypot(a.x-b.x,a.y-b.y);
-        if(d<settings.link){
-          const alpha=(1-d/settings.link)*.16;
-          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
-          ctx.strokeStyle=`rgba(61,183,181,${alpha})`; ctx.lineWidth=.65; ctx.stroke();
+        const b=particles[j];
+        const d=Math.hypot(a.x-b.x,a.y-b.y);
+        if(d<S.link){
+          const alpha=(1-d/S.link)*.20;
+          ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);
+          ctx.strokeStyle=`rgba(61,183,181,${alpha})`;
+          ctx.lineWidth=.7;ctx.stroke();
         }
       }
     }
+
+    // particles
     for(const p of particles){
-      const pulse=.72+Math.sin(p.phase)*.22;
-      ctx.beginPath(); ctx.arc(p.x,p.y,p.r*3.5,0,Math.PI*2);
-      ctx.fillStyle=`rgba(61,183,181,${.035*pulse})`; ctx.fill();
-      ctx.beginPath(); ctx.arc(p.x,p.y,p.r*pulse,0,Math.PI*2);
-      ctx.fillStyle=`rgba(61,183,181,${.62*pulse})`; ctx.fill();
+      const pulse=.72+Math.sin(p.phase)*.28;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*4,0,Math.PI*2);
+      ctx.fillStyle=`rgba(61,183,181,${.055*pulse})`;ctx.fill();
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*pulse,0,Math.PI*2);
+      ctx.fillStyle=`rgba(61,183,181,${.78*pulse})`;ctx.fill();
     }
+
+    // pointer interaction
     if(pointer.active){
+      ctx.beginPath();ctx.arc(pointer.x,pointer.y,3,0,Math.PI*2);
+      ctx.fillStyle='rgba(232,190,75,.65)';ctx.fill();
       for(const p of particles){
         const d=Math.hypot(p.x-pointer.x,p.y-pointer.y);
         if(d<pointer.radius){
-          const alpha=(1-d/pointer.radius)*.20;
-          ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(pointer.x,pointer.y);
-          ctx.strokeStyle=`rgba(232,190,75,${alpha})`; ctx.lineWidth=.7; ctx.stroke();
+          const alpha=(1-d/pointer.radius)*.30;
+          ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(pointer.x,pointer.y);
+          ctx.strokeStyle=`rgba(232,190,75,${alpha})`;
+          ctx.lineWidth=.8;ctx.stroke();
         }
       }
     }
-    raf=requestAnimationFrame(frame);
+    raf=requestAnimationFrame(animate);
   }
-  resize(); frame();
+
+  resize();
+  cancelAnimationFrame(raf);
+  animate();
 })();
+
 </script>
 </body>
 </html>
