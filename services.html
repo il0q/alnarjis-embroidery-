@@ -13,9 +13,8 @@
         /* الألوان والهوية البصرية الدافئة والمريحة للعين */
         :root {
             --primary-color: #5c3d48; /* العنابي الملكي للمطرزات */
-            --accent-color: #b89424;
-            --brand-teal: #3ec1bb;  /* الذهبي الدافئ المريح */
-            --bg-color: #f7f4ed;      /* درجة كريمية دافئة جداً وناعمة للعين */
+            --accent-color: #3DB7B5;  /* الذهبي الدافئ المريح */
+            --bg-color: #FAF9F6;      /* درجة كريمية دافئة جداً وناعمة للعين */
             --card-bg: #f0eae1;       /* درجة دافئة للبطاقات والقوائم */
             --card-hover: #eae2d5;    /* درجة دافئة عند تمرير الماوس */
             --text-dark: #2d2d2d;     
@@ -26,12 +25,13 @@
 
         body {
             font-family: 'Cairo', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #FAF9F6 0%, #B7EBE3 100%);
             background-color: var(--bg-color);
             color: var(--text-dark);
             margin: 0;
             padding: 0;
             line-height: 1.8;
-            overflow-x: hidden;
+            overflow-x: clip;
             position: relative;
             perspective: 1000px;
         }
@@ -50,7 +50,8 @@
 
         .thread-3d {
             position: absolute;
-            width: 150%;
+            width: 100%;
+            max-width: 100%;
             height: 400px;
             fill: none;
             stroke-linecap: round;
@@ -59,16 +60,16 @@
 
         .t-gold {
             top: 5%;
-            left: -25%;
-            stroke: rgba(184, 148, 36, 0.35);
+            left: 0;
+            stroke: rgba(61, 183, 181, 0.24);
             stroke-width: 2.5;
             animation: weave3D-Gold 20s infinite ease-in-out alternate;
         }
 
         .t-burgundy {
             bottom: 5%;
-            right: -25%;
-            stroke: rgba(92, 61, 72, 0.3);
+            right: 0;
+            stroke: rgba(92, 61, 72, 0.22);
             stroke-width: 2;
             animation: weave3D-Burgundy 25s infinite ease-in-out alternate;
         }
@@ -105,7 +106,7 @@
             height: 55px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--brand-teal);
+            border: 2px solid var(--accent-color);
             transition: transform 0.8s var(--transition);
         }
 
@@ -140,7 +141,7 @@
             width: 100%;
             height: 3px;
             border-radius: 2px;
-            background: linear-gradient(270deg, var(--accent-color), var(--primary-color), var(--brand-teal), var(--accent-color));
+            background: linear-gradient(270deg, var(--accent-color), var(--primary-color), #3DB7B5, var(--accent-color));
             background-size: 400% 400%;
             transform: scaleX(0);
             transform-origin: right;
@@ -177,7 +178,7 @@
             height: 5px;
             margin: 20px auto;
             border-radius: 10px;
-            background: linear-gradient(270deg, var(--primary-color), var(--accent-color), var(--brand-teal), var(--primary-color));
+            background: linear-gradient(270deg, var(--primary-color), var(--accent-color), #3DB7B5, var(--primary-color));
             background-size: 600% 600%;
             animation: animateGradientStream 6s infinite linear;
         }
@@ -236,7 +237,7 @@
             width: 120px;
             height: 4px;
             border-radius: 4px;
-            background: linear-gradient(270deg, var(--accent-color), var(--primary-color), var(--brand-teal), var(--accent-color));
+            background: linear-gradient(270deg, var(--accent-color), var(--primary-color), #4a90e2, var(--accent-color));
             background-size: 400% 400%;
             animation: animateGradientStream 4s infinite linear;
         }
@@ -269,7 +270,7 @@
 
         /* 🌟 أزرار طلب الخدمة المحدثة مع تأثير اللمعان والوميض التفاعلي الفاخر */
         .btn-order-service {
-            background: linear-gradient(135deg, var(--accent-color) 0%, #a3811f 100%);
+            background: linear-gradient(135deg, var(--accent-color) 0%, #2F8F8B 100%);
             color: #fff;
             padding: 14px 45px;
             font-size: 19px;
@@ -336,14 +337,14 @@
 
         @keyframes weave3D-Gold {
             0% { transform: translate3d(0, 0, -100px) rotateX(10deg) rotateY(5deg); stroke-dashoffset: 0; }
-            50% { transform: translate3d(40px, 30px, 50px) rotateX(-5deg) rotateY(15deg); }
-            100% { transform: translate3d(-20px, -20px, -50px) rotateX(5deg) rotateY(-10deg); stroke-dashoffset: -300; }
+            50% { transform: translate3d(20px, 30px, 50px) rotateX(-5deg) rotateY(15deg); }
+            100% { transform: translate3d(-10px, -20px, -50px) rotateX(5deg) rotateY(-10deg); stroke-dashoffset: -300; }
         }
 
         @keyframes weave3D-Burgundy {
             0% { transform: translate3d(0, 0, -50px) rotateX(-10deg) rotateY(-10deg); stroke-dashoffset: 0; }
-            50% { transform: translate3d(-50px, -40px, 80px) rotateX(15deg) rotateY(5deg); }
-            100% { transform: translate3d(30px, 20px, -120px) rotateX(-5deg) rotateY(10deg); stroke-dashoffset: 300; }
+            50% { transform: translate3d(-20px, -40px, 80px) rotateX(15deg) rotateY(5deg); }
+            100% { transform: translate3d(15px, 20px, -120px) rotateX(-5deg) rotateY(10deg); stroke-dashoffset: 300; }
         }
 
         @media (max-width: 768px) {
@@ -354,66 +355,51 @@
             .page-header h1 { font-size: 32px; }
             .bg-threads-3d { opacity: 0.15; }
         }
-    
-        /* زر واتساب عائم للتواصل السريع */
-        .whatsapp-float {
-            position: fixed;
-            right: 22px;
-            bottom: 22px;
-            width: 58px;
-            height: 58px;
-            border-radius: 50%;
-            background: #25D366;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 28px;
-            box-shadow: 0 12px 28px rgba(37, 211, 102, 0.28);
-            z-index: 1100;
-            transition: transform .35s ease, box-shadow .35s ease;
-        }
-        .whatsapp-float:hover {
-            transform: translateY(-5px) scale(1.06);
-            box-shadow: 0 16px 35px rgba(37, 211, 102, 0.4);
-        }
-        .whatsapp-float span {
-            font-size: 27px;
-            line-height: 1;
-        }
-        @media (max-width: 768px) {
-            .whatsapp-float { right: 16px; bottom: 16px; width: 54px; height: 54px; font-size: 25px; }
-        }
-    
-        .service-cta {
-            max-width: 900px;
-            margin: 10px auto 100px;
-            padding: 45px 30px;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(62,193,187,.10), rgba(184,148,36,.10));
-            border: 1px solid rgba(62,193,187,.18);
-            border-radius: 35px;
-            position: relative;
-            z-index: 1;
-        }
-        .service-cta h2 { color: var(--primary-color); font-size: 32px; margin: 0 0 8px; }
-        .service-cta p { color: var(--text-muted); max-width: 650px; margin: 0 auto 25px; }
-        .service-cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-        .btn-whatsapp-service {
-            display: inline-block; padding: 12px 28px; border-radius: 50px;
-            background: #25D366; color: #fff; text-decoration: none; font-weight: 800;
-            box-shadow: 0 10px 24px rgba(37,211,102,.22); transition: transform .35s ease;
-        }
-        .btn-whatsapp-service:hover { transform: translateY(-4px); }
-        @media (max-width: 768px) { .service-cta { margin: 0 20px 70px; } }
     </style>
     <link rel="icon" type="image/png" href="lo.png">
+
+<style id="thread-motion">
+.thread-motion{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;opacity:.38;}
+.thread-motion span{position:absolute;width:42vw;height:2px;background:linear-gradient(90deg,transparent,rgba(61,183,181,.28),transparent);border-radius:999px;transform-origin:center;animation:threadDrift 14s ease-in-out infinite;}
+.thread-motion span:nth-child(1){top:22%;left:-12%;transform:rotate(18deg);animation-delay:-2s;}
+.thread-motion span:nth-child(2){top:48%;left:45%;width:35vw;transform:rotate(-24deg);animation-delay:-7s;}
+.thread-motion span:nth-child(3){top:72%;left:-8%;width:48vw;transform:rotate(12deg);animation-delay:-10s;}
+.thread-motion span:nth-child(4){top:34%;left:68%;width:30vw;transform:rotate(32deg);animation-delay:-5s;}
+@keyframes threadDrift{0%,100%{translate:0 0;scale:1;opacity:.55;}50%{translate:18px -10px;scale:1.04;opacity:1;}}
+@media (prefers-reduced-motion:reduce){.thread-motion span{animation:none;}}
+@media (max-width:600px){.thread-motion{opacity:.22}.thread-motion span{width:70vw}.thread-motion span:nth-child(2){left:35%;width:55vw}.thread-motion span:nth-child(4){left:55%;width:45vw;}}
+</style>
+<style>
+
+/* Alnarjis Plexus embroidery motion */
+#alnarjis-plexus-canvas{
+  position:fixed; inset:0; width:100%; height:100%;
+  pointer-events:none; z-index:0; opacity:.78;
+}
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    linear-gradient(rgba(61,183,181,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(61,183,181,.035) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(183,235,227,.12) 0 1px, transparent 1.5px);
+  background-size:42px 42px,42px 42px,84px 84px;
+}
+body > * { position:relative; z-index:1; }
+#alnarjis-plexus-canvas { z-index:0; }
+header, nav, .navbar, .hero, main, footer, section { position:relative; z-index:2; }
+
+@media (prefers-reduced-motion: reduce){
+  #alnarjis-plexus-canvas{display:none}
+}
+
+</style>
 </head>
 <body>
+<canvas id="alnarjis-plexus-canvas" aria-hidden="true"></canvas>
 
     <!-- 🧵 الخلفية الحية ممتدة ثلاثية الأبعاد -->
-    <div class="bg-threads-3d">
+    <div class="thread-motion" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+<div class="bg-threads-3d">
         <svg class="thread-3d t-gold" viewBox="0 0 1440 400">
             <path d="M0,200 C300,350 600,50 900,200 C1200,350 1300,100 1440,200" />
         </svg>
@@ -476,23 +462,103 @@
 
     </div>
 
-    <section class="service-cta">
-        <h2>جاهز تبدأ؟</h2>
-        <p>إذا كنت تعرف التصميم أو حتى لديك فكرة فقط، ابدأ من نموذج الطلب وسنتواصل معك لتأكيد التفاصيل.</p>
-        <div class="service-cta-actions">
-            <a href="order.html" class="btn-order-service">ابدأ طلبك الآن</a>
-            <a href="https://api.whatsapp.com/send?phone=96892908668" target="_blank" rel="noopener" class="btn-whatsapp-service">تحدث معنا عبر واتساب</a>
-        </div>
-    </section>
-
     <footer>
         <p>&copy; 2026 النرجس للتطريز. جميع الحقوق محفوظة.</p>
     </footer>
 
 
-    <a class="whatsapp-float" href="https://api.whatsapp.com/send?phone=96892908668" target="_blank" rel="noopener" aria-label="تواصل معنا عبر واتساب" title="تواصل معنا عبر واتساب">
-        <span>💬</span>
-    </a>
+<script>
+(function(){
+  const c=document.getElementById('alnarjis-plexus-canvas');
+  if(!c || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const ctx=c.getContext('2d',{alpha:true});
+  let W=0,H=0,dpr=1,nodes=[],mx=-9999,my=-9999,raf=0;
+  const gold=[218,170,62], teal=[61,183,181], white=[245,245,238];
+
+  function resize(){
+    dpr=Math.min(window.devicePixelRatio||1,1.5);
+    W=innerWidth; H=innerHeight;
+    c.width=Math.floor(W*dpr); c.height=Math.floor(H*dpr);
+    c.style.width=W+'px'; c.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    const count=W<700?18:Math.min(42,Math.max(28,Math.floor(W/34)));
+    nodes=Array.from({length:count},(_,i)=>({
+      x:Math.random()*W,y:Math.random()*H,
+      vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,
+      r:Math.random()*1.7+.7,
+      phase:Math.random()*Math.PI*2,
+      gold:i%3===0
+    }));
+  }
+
+  addEventListener('resize',resize,{passive:true});
+  addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY},{passive:true});
+  addEventListener('pointerleave',()=>{mx=-9999;my=-9999},{passive:true});
+  resize();
+
+  function rgba(rgb,a){return `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${a})`}
+
+  function frame(t){
+    ctx.clearRect(0,0,W,H);
+    const time=t*.001;
+    const link=W<700?125:165;
+    const react=W<700?0:190;
+
+    for(const p of nodes){
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<-20)p.x=W+20; if(p.x>W+20)p.x=-20;
+      if(p.y<-20)p.y=H+20; if(p.y>H+20)p.y=-20;
+      p.yy=p.y+Math.sin(time*.45+p.phase)*2.5;
+    }
+
+    // subtle triangular / polygon wireframe
+    for(let i=0;i<nodes.length;i++){
+      for(let j=i+1;j<nodes.length;j++){
+        const a=nodes[i],b=nodes[j];
+        const dx=a.x-b.x,dy=a.yy-b.yy,d=Math.hypot(dx,dy);
+        if(d<link){
+          const alpha=(1-d/link)*.15;
+          const col=a.gold||b.gold?gold:teal;
+          ctx.beginPath();ctx.moveTo(a.x,a.yy);ctx.lineTo(b.x,b.yy);
+          ctx.strokeStyle=rgba(col,alpha);ctx.lineWidth=.65;ctx.stroke();
+
+          const rx=Math.hypot(a.x-mx,a.yy-my);
+          const ry=Math.hypot(b.x-mx,b.yy-my);
+          if(rx<react || ry<react){
+            const boost=Math.max(0,(1-Math.min(rx,ry)/react))*.28;
+            ctx.beginPath();ctx.moveTo(a.x,a.yy);ctx.lineTo(b.x,b.yy);
+            ctx.strokeStyle=rgba(white,boost);ctx.lineWidth=.9;ctx.stroke();
+          }
+
+          for(let k=j+1;k<nodes.length;k++){
+            const q=nodes[k];
+            const d1=Math.hypot(a.x-q.x,a.yy-q.yy);
+            const d2=Math.hypot(b.x-q.x,b.yy-q.yy);
+            if(d1<link*.82 && d2<link*.82){
+              ctx.beginPath();
+              ctx.moveTo(a.x,a.yy);ctx.lineTo(b.x,b.yy);ctx.lineTo(q.x,q.yy);ctx.closePath();
+              ctx.fillStyle=rgba(teal,.018);ctx.fill();
+              ctx.strokeStyle=rgba(gold,.045);ctx.lineWidth=.55;ctx.stroke();
+            }
+          }
+        }
+      }
+    }
+
+    for(const p of nodes){
+      const d=Math.hypot(p.x-mx,p.yy-my);
+      const glow=d<react?1+(1-d/react)*2:1;
+      const col=p.gold?gold:teal;
+      ctx.beginPath();ctx.arc(p.x,p.yy,p.r*glow,0,Math.PI*2);
+      ctx.fillStyle=rgba(col,.78);ctx.fill();
+      ctx.beginPath();ctx.arc(p.x,p.yy,p.r*3.8*glow,0,Math.PI*2);
+      ctx.fillStyle=rgba(col,.055);ctx.fill();
+    }
+    raf=requestAnimationFrame(frame);
+  }
+  raf=requestAnimationFrame(frame);
+})();
+</script>
 
 </body>
 </html>
