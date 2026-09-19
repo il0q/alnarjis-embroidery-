@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اطلب الآن | النرجس للتطريز</title>
+    <!-- استدعاء خط Cairo من جوجل ليتطابق مع باقي الموقع -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* الألوان والهوية البصرية الدافئة والمريحة للعين المتطابقة مع index.html */
+        :root {
+            --primary-color: #5c3d48; /* العنابي الملكي للمطرزات */
+            --accent-color: #b89424;
+            --brand-teal: #3ec1bb;  /* الذهبي الدافئ المريح */
+            --bg-color: #f7f4ed;      /* درجة كريمية دافئة جداً وناعمة للعين */
+            --card-bg: #f0eae1;       /* درجة دافئة للبطاقات والقوائم */
+            --text-dark: #2d2d2d;     
+            --text-muted: #554d4f;    
+            --shadow: 0 15px 35px rgba(92, 61, 72, 0.04);
+            --transition: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        body {
+            font-family: 'Cairo', 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        /* 🧵 الخلفية الحية ممتدة ثلاثية الأبعاد المتطابقة مع الرئيسية */
+        .bg-threads-3d {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            transform-style: preserve-3d;
+        }
+
+        .thread-3d {
+            position: absolute;
+            width: 150%;
+            height: 400px;
+            fill: none;
+            stroke-linecap: round;
+            filter: drop-shadow(0 15px 20px rgba(92, 61, 72, 0.15));
+        }
+
+        .t-gold {
+            top: 5%;
+            left: -25%;
+            stroke: rgba(184, 148, 36, 0.35);
+            stroke-width: 2.5;
+            animation: weave3D-Gold 20s infinite ease-in-out alternate;
+        }
+
+        .t-burgundy {
+            bottom: 5%;
+            right: -25%;
+            stroke: rgba(92, 61, 72, 0.3);
+            stroke-width: 2;
+            animation: weave3D-Burgundy 25s infinite ease-in-out alternate;
+        }
+
+        /* شريط التنقل العلوي */
+        header {
+            background-color: rgba(247, 244, 237, 0.95); 
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 25px rgba(92, 61, 72, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(184, 148, 36, 0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+        }
+
+        .logo-img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--brand-teal);
+            transition: transform 0.8s var(--transition);
+        }
+
+        .logo-wrapper:hover .logo-img {
+            transform: rotate(360deg) scale(1.15);
+        }
+
+        .logo-text {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            margin-right: 25px;
+            font-weight: 600;
+            font-size: 16px;
+            position: relative;
+            transition: color 0.3s ease;
+            padding: 8px 0;
+            display: inline-block;
+        }
+
+        /* ⚡ خطوط ألوان حية ومتحركة تحت أزرار النافبار */
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            border-radius: 2px;
+            background: linear-gradient(270deg, var(--accent-color), var(--primary-color), var(--brand-teal), var(--accent-color));
+            background-size: 400% 400%;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s var(--transition);
+            animation: animateGradientStream 4s infinite linear;
+        }
+
+        nav a:hover::after, nav a.active::after {
+            transform: scaleX(1);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* 📄 عنوان الصفحة الرئيسي */
+        .page-header {
+            text-align: center;
+            padding: 60px 20px 20px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header h1 {
+            font-size: 45px;
+            color: var(--primary-color);
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 19px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* فاصل ألوان متحرك وحي تحت العنوان الرئيسي */
+        .header-divider {
+            width: 180px;
+            height: 5px;
+            margin: 25px auto;
+            border-radius: 10px;
+            background: linear-gradient(270deg, var(--primary-color), var(--accent-color), var(--brand-teal), var(--primary-color));
+            background-size: 600% 600%;
+            animation: animateGradientStream 6s infinite linear;
+        }
+
+        /* 🛠️ حاوية الاستمارة */
+        .form-container {
+            max-width: 700px;
+            margin: 40px auto 100px auto;
+            background-color: var(--card-bg);
+            padding: 50px;
+            border-radius: 35px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(184, 148, 36, 0.04);
+            position: relative;
+            z-index: 1;
+            transition: transform 0.5s ease;
+        }
+
+        .form-container:hover {
+            transform: translateY(-5px);
+        }
+
+        /* تنسيق الحقول والمدخلات النظيفة */
+        .form-group {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-size: 17px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="tel"],
+        .form-group input[type="file"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(92, 61, 72, 0.1);
+            border-radius: 12px;
+            font-size: 16px;
+            box-sizing: border-box;
+            font-family: inherit;
+            color: var(--text-dark);
+            transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+        }
+
+        .form-group input[type="file"] {
+            padding: 12px;
+            background-color: transparent;
+            border: 2px dashed rgba(184, 148, 36, 0.2);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(184, 148, 36, 0.15);
+        }
+
+        /* خيارات الراديو */
+        .radio-group {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* 🌟 زر إرسال الطلب المضيء واللامع التفاعلي المتطابق مع index.html */
+        .btn-submit {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #a3811f 100%);
+            color: #fff;
+            width: 100%;
+            padding: 16px;
+            font-size: 20px;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(184, 148, 36, 0.3);
+            transition: transform 0.4s var(--transition), box-shadow 0.4s var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            font-family: inherit;
+        }
+
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg);
+            transition: none;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 0 25px rgba(184, 148, 36, 0.8), 0 0 50px rgba(184, 148, 36, 0.4);
+        }
+
+        .btn-submit:hover::before {
+            animation: shineEffect 1.2s infinite ease-in-out;
+        }
+
+        /* تذييل الصفحة */
+        footer {
+            background-color: #1a1215;
+            color: #b5a4ab;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 15px;
+            border-top: 3px solid var(--accent-color);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 🎬 قوانين الحركات ثلاثية الأبعاد واللمعان */
+        @keyframes shineEffect {
+            0% { left: -150%; }
+            50% { left: 150%; }
+            100% { left: 150%; }
+        }
+
+        @keyframes animateGradientStream {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes weave3D-Gold {
+            0% { transform: translate3d(0, 0, -100px) rotateX(10deg) rotateY(5deg); stroke-dashoffset: 0; }
+            50% { transform: translate3d(40px, 30px, 50px) rotateX(-5deg) rotateY(15deg); }
+            100% { transform: translate3d(-20px, -20px, -50px) rotateX(5deg) rotateY(-10deg); stroke-dashoffset: -300; }
+        }
+
+        @keyframes weave3D-Burgundy {
+            0% { transform: translate3d(0, 0, -50px) rotateX(-10deg) rotateY(-10deg); stroke-dashoffset: 0; }
+            50% { transform: translate3d(-50px, -40px, 80px) rotateX(15deg) rotateY(5deg); }
+            100% { transform: translate3d(30px, 20px, -120px) rotateX(-5deg) rotateY(10deg); stroke-dashoffset: 300; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 15px; padding: 15px; }
+            nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+            nav a { margin: 0 5px; }
+            .form-container { padding: 30px 20px; border-radius: 25px; }
+            .page-header h1 { font-size: 32px; }
+            .bg-threads-3d { opacity: 0.15; }
+        }
+    
+        /* زر واتساب عائم للتواصل السريع */
+        .whatsapp-float {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #25D366;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 28px;
+            box-shadow: 0 12px 28px rgba(37, 211, 102, 0.28);
+            z-index: 1100;
+            transition: transform .35s ease, box-shadow .35s ease;
+        }
+        .whatsapp-float:hover {
+            transform: translateY(-5px) scale(1.06);
+            box-shadow: 0 16px 35px rgba(37, 211, 102, 0.4);
+        }
+        .whatsapp-float span {
+            font-size: 27px;
+            line-height: 1;
+        }
+        @media (max-width: 768px) {
+            .whatsapp-float { right: 16px; bottom: 16px; width: 54px; height: 54px; font-size: 25px; }
+        }
+    
+        .order-note {
+            margin-top: 22px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: rgba(62,193,187,.09);
+            border: 1px solid rgba(62,193,187,.18);
+            color: var(--text-muted);
+            text-align: center;
+            font-size: 15px;
+        }
+        .order-note a { color: #168f89; font-weight: 800; text-decoration: none; }
+        .order-note a:hover { text-decoration: underline; }
+    </style>
+<link rel="icon" type="image/png" href="lo.png">
+</head>
+<body>
+
+    <!-- 🧵 الخلفية الحية المتطابقة مع index.html -->
+    <div class="bg-threads-3d">
+        <svg class="thread-3d t-gold" viewBox="0 0 1440 400">
+            <path d="M0,200 C300,350 600,50 900,200 C1200,350 1300,100 1440,200" />
+        </svg>
+        <svg class="thread-3d t-burgundy" viewBox="0 0 1440 400">
+            <path d="M1440,150 C1100,-50 800,350 500,150 C200,-50 100,250 0,150" />
+        </svg>
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo-wrapper">
+                <img src="lo.png" alt="شعار النرجس" class="logo-img">
+                <div class="logo-text"><span>النرجس</span></div>
+            </div>
+            <nav>
+                <a href="index.html">الرئيسية</a>
+                <a href="services.html">خدماتنا</a>
+                <a href="order.html" class="active">اطلب الآن</a>
+                <a href="contact.html">اتصل بنا</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>استمارة طلب التطريز</h1>
+        <p>يرجى ملء البيانات التالية بدقة، وسيتواصل معك فريق النرجس فوراً لتأكيد الطلب</p>
+        <div class="header-divider"></div>
+    </div>
+
+    <div class="form-container">
+        <form action="https://formsubmit.co/loaialdhawi@gmail.com" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_next" value="https://il0q.github.io/alnarjis-embroidery/thank-you.html">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="طلب تطريز جديد من موقع النرجس!">
+            
+            <div class="form-group">
+                <label for="name">الاسم الكريم:</label>
+                <input type="text" id="name" name="الاسم" placeholder="اكتب اسمك الكامل هنا" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">رقم الهاتف (واتساب):</label>
+                <input type="tel" id="phone" name="رقم الهاتف" placeholder="مثال: 968XXXXXXXX" required>
+            </div>
+
+            <div class="form-group">
+                <label for="service-type">نوع الخدمة المطلوبة:</label>
+                <select id="service-type" name="نوع الخدمة" required>
+                    <option value="" disabled selected>اختر الخدمة من هنا...</option>
+                    <option value="تطريز على ملابس خاصة">التطريز على ملابسي الخاصة</option>
+                    <option value="تصميم وتفصيل متكامل">تصميم وتفصيل متكامل من الصفر</option>
+                    <option value="طلب آخر / استفسار">طلب آخر أو استفسار خاص</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>صورة تصميم التطريز:</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="حالة الصورة" value="لدي صورة وسأقوم برفعها" checked onclick="document.getElementById('file-upload-section').style.display='block'">
+                        لدي صورة جاهزة للتصميم وأريد رفعها
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="حالة الصورة" value="لا أملك صورة وأريد من النرجس تصميمها" onclick="document.getElementById('file-upload-section').style.display='none'">
+                        لا أملك صورة، وأريد من النرجس تصميمها لي وفق رغبتي
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group" id="file-upload-section">
+                <label for="design-file">ارفع صورة التصميم هنا (إن وجدت):</label>
+                <input type="file" id="design-file" name="ملف التصميم" accept="image/*">
+            </div>
+
+            <div class="form-group">
+                <label for="details">تفاصيل إضافية حول الطلب:</label>
+                <textarea id="details" name="تفاصيل الطلب" rows="5" placeholder="اكتب هنا مقاساتك، الألوان المفضلة، أو الفكرة التي تريدها..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">إرسال الطلب إلى النرجس</button>
+
+            <div class="order-note">
+                تفضل التواصل مباشرة؟ <a href="https://api.whatsapp.com/send?phone=96892908668" target="_blank" rel="noopener">تحدث معنا عبر واتساب</a> لإرسال استفسارك أو مناقشة فكرتك.
+            </div>
+
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 النرجس للتطريز. جميع الحقوق محفوظة.</p>
+    </footer>
+
+
+    <a class="whatsapp-float" href="https://api.whatsapp.com/send?phone=96892908668" target="_blank" rel="noopener" aria-label="تواصل معنا عبر واتساب" title="تواصل معنا عبر واتساب">
+        <span>💬</span>
+    </a>
+
+</body>
+</html>

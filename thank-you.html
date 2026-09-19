@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- السطر المسؤول عن تغيير أيقونة المتصفح لشعار النرجس -->
+    <link rel="icon" type="image/png" href="lo.png">
+    <title>تم إرسال طلبك بنجاح | النرجس للتطريز</title>
+    
+    <!-- استدعاء خط Cairo ليتناسب مع الهوية البصرية الجديدة للموقع -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* الألوان والهوية البصرية الدافئة والمريحة للعين المتطابقة مع الهوية الجديدة */
+        :root {
+            --primary-color: #5c3d48; /* العنابي الملكي للمطرزات */
+            --accent-color: #b89424;
+            --brand-teal: #3ec1bb;  /* الذهبي الدافئ المريح */
+            --bg-color: #f7f4ed;      /* درجة كريمية دافئة جداً وناعمة للعين */
+            --card-bg: #f0eae1;       /* درجة دافئة للبطاقات بدلاً من الأبيض الصريح */
+            --text-dark: #2d2d2d;     /* رمادي داكن ناعم للنصوص */
+            --text-muted: #554d4f;    /* لون مريح للقراءة */
+            --shadow: 0 15px 35px rgba(92, 61, 72, 0.06);
+            --transition: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        body {
+            font-family: 'Cairo', 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        /* 🧵 تأثير الخيوط الحية ثلاثية الأبعاد العائمة في الخلفية */
+        .bg-threads-3d {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            transform-style: preserve-3d;
+        }
+
+        .thread-3d {
+            position: absolute;
+            width: 150%;
+            height: 300px;
+            fill: none;
+            stroke-linecap: round;
+        }
+
+        .t-gold {
+            top: 10%;
+            left: -25%;
+            stroke: rgba(184, 148, 36, 0.2); 
+            stroke-width: 2.5;
+            animation: weave3D-Gold 25s infinite ease-in-out alternate;
+        }
+
+        .t-burgundy {
+            bottom: 10%;
+            right: -25%;
+            stroke: rgba(92, 61, 72, 0.15); 
+            stroke-width: 2;
+            animation: weave3D-Burgundy 30s infinite ease-in-out alternate;
+        }
+
+        /* بطاقة الشكر الفاخرة */
+        .thank-you-card {
+            background-color: var(--card-bg);
+            padding: 50px 40px;
+            border-radius: 35px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            max-width: 550px;
+            width: 90%;
+            border: 1px solid rgba(184, 148, 36, 0.1);
+            position: relative;
+            z-index: 1;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .thank-you-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(92, 61, 72, 0.1);
+        }
+
+        /* تنسيق شعار النرجس الدائري الحركي */
+        .logo-img-thank {
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid var(--accent-color);
+            transition: transform 0.8s var(--transition);
+            box-shadow: 0 8px 20px rgba(92, 61, 72, 0.1);
+        }
+
+        .thank-you-card:hover .logo-img-thank {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 32px;
+            font-weight: 900;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        /* ⚡ فاصل ألوان متحرك وحي تحت العنوان */
+        .divider {
+            width: 120px;
+            height: 4px;
+            margin: 15px auto 25px auto;
+            border-radius: 10px;
+            background: linear-gradient(270deg, var(--primary-color), var(--accent-color), var(--brand-teal), var(--primary-color));
+            background-size: 600% 600%;
+            animation: animateGradientStream 6s infinite linear;
+        }
+
+        p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            line-height: 1.8;
+        }
+
+        /* ✨ زر العودة المطور بتأثير اللمعان والتوهج الذهبي المتطابق مع الموقع */
+        .btn-back {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #a3811f 100%);
+            color: white;
+            text-decoration: none;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: transform 0.4s var(--transition), box-shadow 0.4s var(--transition);
+            display: inline-block;
+            box-shadow: 0 10px 25px rgba(184, 148, 36, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* طبقة اللمعان المخفية للزر */
+        .btn-back::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg);
+            transition: none;
+        }
+
+        .btn-back:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 0 25px rgba(184, 148, 36, 0.8), 0 0 50px rgba(184, 148, 36, 0.4);
+        }
+
+        /* تفعيل تأثير وميض اللمعان عند التمرير */
+        .btn-back:hover::before {
+            animation: shineEffect 1.2s infinite ease-in-out;
+        }
+
+        /* 🎬 قوانين الحركات والتموجات واللمعان */
+        @keyframes shineEffect {
+            0% { left: -150%; }
+            50% { left: 150%; }
+            100% { left: 150%; }
+        }
+
+        @keyframes animateGradientStream {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes weave3D-Gold {
+            0% { transform: translate3d(0, 0, -100px) rotateX(10deg) rotateY(5deg); stroke-dashoffset: 0; }
+            50% { transform: translate3d(40px, 30px, 50px) rotateX(-5deg) rotateY(15deg); }
+            100% { transform: translate3d(-20px, -20px, -50px) rotateX(5deg) rotateY(-10deg); stroke-dashoffset: -300; }
+        }
+
+        @keyframes weave3D-Burgundy {
+            0% { transform: translate3d(0, 0, -50px) rotateX(-10deg) rotateY(-10deg); stroke-dashoffset: 0; }
+            50% { transform: translate3d(-50px, -40px, 80px) rotateX(15deg) rotateY(5deg); }
+            100% { transform: translate3d(30px, 20px, -120px) rotateX(-5deg) rotateY(10deg); stroke-dashoffset: 300; }
+        }
+
+        /* التوافق مع الهواتف الذكية */
+        @media (max-width: 768px) {
+            .thank-you-card {
+                padding: 40px 25px;
+                margin: 20px;
+            }
+            h1 {
+                font-size: 26px;
+            }
+            p {
+                font-size: 16px;
+            }
+            .bg-threads-3d {
+                opacity: 0.2;
+            }
+        }
+    
+        /* زر واتساب عائم للتواصل السريع */
+        .whatsapp-float {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #25D366;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 28px;
+            box-shadow: 0 12px 28px rgba(37, 211, 102, 0.28);
+            z-index: 1100;
+            transition: transform .35s ease, box-shadow .35s ease;
+        }
+        .whatsapp-float:hover {
+            transform: translateY(-5px) scale(1.06);
+            box-shadow: 0 16px 35px rgba(37, 211, 102, 0.4);
+        }
+        .whatsapp-float span {
+            font-size: 27px;
+            line-height: 1;
+        }
+        @media (max-width: 768px) {
+            .whatsapp-float { right: 16px; bottom: 16px; width: 54px; height: 54px; font-size: 25px; }
+        }
+    
+        .success-actions {
+            display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top: 24px;
+        }
+        .btn-whatsapp-success {
+            background:#25D366; color:#fff; text-decoration:none; padding:14px 28px; border-radius:50px;
+            font-weight:800; box-shadow:0 10px 25px rgba(37,211,102,.22); transition:transform .35s ease;
+        }
+        .btn-whatsapp-success:hover { transform:translateY(-4px); }
+    </style>
+</head>
+<body>
+
+    <!-- 🧵 الخلفية الحية الممتدة ثلاثية الأبعاد -->
+    <div class="bg-threads-3d">
+        <svg class="thread-3d t-gold" viewBox="0 0 1440 400">
+            <path d="M0,200 C300,350 600,50 900,200 C1200,350 1300,100 1440,200" />
+        </svg>
+        <svg class="thread-3d t-burgundy" viewBox="0 0 1440 400">
+            <path d="M1440,150 C1100,-50 800,350 500,150 C200,-50 100,250 0,150" />
+        </svg>
+    </div>
+
+    <div class="thank-you-card">
+        <!-- شعار النرجس الدائري المحدث -->
+        <img src="lo.png" alt="شعار النرجس" class="logo-img-thank">
+        
+        <h1>تم إرسال طلبك بنجاح!</h1>
+        <!-- الفاصل الملون الحي والمتحرك -->
+        <div class="divider"></div>
+        
+        <p>شكراً لثقتك بالنرجس للتطريز، سيقوم فريقنا بمراجعة تفاصيل طلبك والتواصل معك عبر الواتساب في أقرب وقت ممكن. 🇴🇲</p>
+        <div class="success-actions">
+            <a href="index.html" class="btn-back">العودة للرئيسية</a>
+            <a href="https://api.whatsapp.com/send?phone=96892908668" target="_blank" rel="noopener" class="btn-whatsapp-success">تواصل عبر واتساب</a>
+        </div>
+    </div>
+
+
+    <a class="whatsapp-float" href="https://api.whatsapp.com/send?phone=96892908668" target="_blank" rel="noopener" aria-label="تواصل معنا عبر واتساب" title="تواصل معنا عبر واتساب">
+        <span>💬</span>
+    </a>
+
+</body>
+</html>

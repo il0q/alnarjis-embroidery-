@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>من نحن واتصل بنا | النرجس للتطريز</title>
+    <!-- استدعاء خط Cairo ليتناسب مع الهوية البصرية الجديدة للموقع -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* الألوان والهوية البصرية الدافئة والمريحة للعين المتطابقة مع index.html */
+        :root {
+            --primary-color: #5c3d48; /* العنابي الملكي للمطرزات */
+            --accent-color: #b89424;
+            --brand-teal: #3ec1bb;  /* الذهبي الدافئ المريح */
+            --bg-color: #f7f4ed;      /* درجة كريمية دافئة جداً وناعمة للعين */
+            --card-bg: #f0eae1;       /* درجة دافئة للبطاقات والقوائم بدلاً من الأبيض الصريح */
+            --card-hover: #e8e1d5;    /* إضافة تعريف لون التمرير لمنع الأخطاء البرمجية */
+            --text-dark: #2d2d2d;     /* رمادي داكن ناعم للنصوص */
+            --text-muted: #554d4f;    /* لون مريح للقراءة الطويلة */
+            --shadow: 0 15px 35px rgba(92, 61, 72, 0.04);
+            --transition: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        body {
+            font-family: 'Cairo', 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        /* 🧵 تأثير الخيوط الحية ثلاثية الأبعاد العائمة في الخلفية (متطابقة مع index.html) */
+        .bg-threads-3d {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            transform-style: preserve-3d;
+        }
+
+        .thread-3d {
+            position: absolute;
+            width: 150%;
+            height: 300px;
+            fill: none;
+            stroke-linecap: round;
+        }
+
+        .t-gold {
+            top: 5%;
+            left: -25%;
+            stroke: rgba(184, 148, 36, 0.2); /* RGB ذهبي دافئ مع شفافية */
+            stroke-width: 2.5;
+            animation: weave3D-Gold 25s infinite ease-in-out alternate;
+        }
+
+        .t-burgundy {
+            bottom: 5%;
+            right: -25%;
+            stroke: rgba(92, 61, 72, 0.15); /* RGB عنابي مع شفافية */
+            stroke-width: 2;
+            animation: weave3D-Burgundy 30s infinite ease-in-out alternate;
+        }
+
+        /* شريط التنقل العلوي الفاخر والمريح */
+        header {
+            background-color: rgba(247, 244, 237, 0.95); /* مائل للبيج الناعم */
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 25px rgba(92, 61, 72, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(184, 148, 36, 0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+        }
+
+        .logo-img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--brand-teal);
+            transition: transform 0.8s var(--transition);
+        }
+
+        .logo-wrapper:hover .logo-img {
+            transform: rotate(360deg) scale(1.15);
+        }
+
+        .logo-text {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            margin-right: 25px;
+            font-weight: 600;
+            font-size: 16px;
+            position: relative;
+            transition: color 0.3s ease;
+            padding: 8px 0;
+            display: inline-block;
+        }
+
+        /* ⚡ خطوط ألوان حية ومتحركة تحت أزرار النافبار */
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            border-radius: 2px;
+            background: linear-gradient(270deg, var(--accent-color), var(--primary-color), var(--brand-teal), var(--accent-color));
+            background-size: 400% 400%;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s var(--transition);
+            animation: animateGradientStream 4s infinite linear;
+        }
+
+        nav a:hover::after, nav a.active::after {
+            transform: scaleX(1);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* 📄 رأس الصفحة بتصميم انسيابي */
+        .page-header {
+            text-align: center;
+            padding: 70px 20px 20px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header h1 {
+            font-size: 45px;
+            color: var(--primary-color);
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 19px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* حاوية المحتوى الرئيسي (بيج متناسق) */
+        .main-container {
+            max-width: 900px;
+            margin: 30px auto 100px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* قسم من نحن بطاقة بيج دافئة */
+        .about-section {
+            background-color: var(--card-bg); 
+            padding: 65px 45px;
+            border-radius: 35px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(92, 61, 72, 0.05); 
+            text-align: center;
+            margin-bottom: 70px;
+            transition: transform 0.5s ease, background-color 0.5s ease;
+        }
+
+        .about-section:hover {
+            transform: translateY(-5px);
+            background-color: var(--card-hover);
+        }
+
+        .about-section h2 {
+            color: var(--primary-color);
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        /* ⚡ فاصل ألوان متحرك وحي تحت العناوين الرئيسية لصفحة "من نحن" */
+        .divider {
+            width: 180px;
+            height: 5px;
+            margin: 25px auto;
+            border-radius: 10px;
+            background: linear-gradient(270deg, var(--primary-color), var(--accent-color), var(--brand-teal), var(--primary-color));
+            background-size: 600% 600%;
+            animation: animateGradientStream 6s infinite linear;
+            box-shadow: 0 2px 10px rgba(184, 148, 36, 0.2);
+        }
+
+        .about-section p {
+            font-size: 21px;
+            color: var(--text-muted); 
+            max-width: 720px;
+            margin: 25px auto 0 auto;
+        }
+
+        .about-section p b {
+            color: var(--primary-color);
+            font-weight: 800;
+        }
+
+        /* شبكة بطاقات التواصل */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        /* بطاقات التواصل تفاعلية ودافئة */
+        .contact-card {
+            background-color: var(--card-bg);
+            border-radius: 35px;
+            padding: 60px 35px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(184, 148, 36, 0.04);
+            transition: transform 0.6s var(--transition), box-shadow 0.6s var(--transition), background-color 0.6s var(--transition), border-color 0.6s var(--transition);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 35px 70px rgba(92, 61, 72, 0.1);
+            background-color: var(--card-hover); 
+            border-color: rgba(184, 148, 36, 0.2);
+        }
+
+        /* توهج خفيف على البطاقة عند مرور الفأرة */
+        .contact-card::after {
+            content: '';
+            position: absolute;
+            inset: -15px;
+            background: radial-gradient(circle at 30% 107%, rgba(184, 148, 36, 0.15) 0%, rgba(92, 61, 72, 0.1) 45%, rgba(184, 148, 36, 0.0) 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            pointer-events: none;
+        }
+
+        .contact-card:hover::after {
+            opacity: 1;
+        }
+
+        .icon-box {
+            font-size: 52px;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            background-color: rgba(92, 61, 72, 0.05);
+            border-radius: 50%;
+            margin: 0 auto 35px auto;
+            transition: transform 0.6s var(--transition), background-color 0.5s var(--transition), color 0.5s var(--transition);
+        }
+
+        .contact-card:hover .icon-box {
+            background-color: var(--primary-color);
+            color: #fff;
+            transform: scale(1.15) rotate(-10deg);
+        }
+
+        .contact-card h3 {
+            font-size: 27px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .contact-card p {
+            color: var(--text-muted);
+            font-size: 17px;
+            margin-bottom: 40px;
+        }
+
+        /* أزرار مخصصة داخل البطاقات متناسقة ومعالجة لتأثير وميض اللمعان */
+        .card-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 28px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.4s var(--transition);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            position: relative; /* ضروري لضبط اتجاه ومكان اللمعان الداخلي */
+            overflow: hidden;    /* يقص خط اللمعان الزائد خارج حدود الزر دائرية الشكل */
+        }
+
+        /* 💡 طبقة خط اللمعان الأبيض المائل السحري المخفي بداخل الأزرار */
+        .card-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0) 100%);
+            transform: skewX(-25deg);
+            pointer-events: none;
+        }
+
+        /* تحفيز حركة وميض اللمعان المستمر بمجرد تمرير الفأرة فوق البطاقة الكبيرة */
+        .contact-card:hover .card-btn::before {
+            animation: shineEffect 1.3s infinite ease-in-out;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+        }
+        .contact-card:hover .btn-whatsapp {
+            background-color: #1ebd57;
+            transform: scale(1.05);
+            /* إضافة تأثير توهج ثلاثي الأبعاد مكثف يشع بلون أخضر الواتساب الرهيب */
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.6), 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            box-shadow: 0 8px 20px rgba(220, 39, 67, 0.25);
+        }
+        .contact-card:hover .btn-instagram {
+            transform: scale(1.05);
+            /* إضافة تأثير توهج ثلاثي الأبعاد مكثف يشع بلون أحمر/وردي إنستغرام الرهيب */
+            box-shadow: 0 0 20px rgba(220, 39, 67, 0.6), 0 10px 30px rgba(220, 39, 67, 0.4);
+        }
+
+        .btn-location {
+            background-color: rgba(184, 148, 36, 0.15);
+            color: var(--primary-color);
+            box-shadow: none;
+        }
+        .contact-card:hover .btn-location {
+            background-color: var(--primary-color);
+            color: #fff;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(92, 61, 72, 0.25);
+        }
+
+        /* تذييل الصفحة */
+        footer {
+            background-color: #1a1215;
+            color: #b5a4ab;
+            text-align: center;
+            padding: 50px 20px;
+            font-size: 15px;
+            border-top: 3px solid var(--accent-color);
+            position: relative;
+            z-index: 1;
+        } 
+
+        /* 🎬 قوانين الحركات ثلاثية الأبعاد (Keyframes المتطابقة مع index.html) */
+        
+        /* حركة وميض شعاع اللمعان الأبيض للأزرار */
+        @keyframes shineEffect {
+            0% { left: -150%; }
+            50% { left: 150%; }
+            100% { left: 150%; }
+        }
+
+        /* حركة انسياب الألوان السحرية المستمرة تحت العناوين */
+        @keyframes animateGradientStream {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* حركة تموج الخيوط ثلاثية الأبعاد (متطابقة مع index.html) */
+        @keyframes weave3D-Gold {
+            0% {
+                transform: translate3d(0, 0, -100px) rotateX(10deg) rotateY(5deg);
+                stroke-dashoffset: 0;
+            }
+            50% {
+                transform: translate3d(40px, 30px, 50px) rotateX(-5deg) rotateY(15deg);
+            }
+            100% {
+                transform: translate3d(-20px, -20px, -50px) rotateX(5deg) rotateY(-10deg);
+                stroke-dashoffset: -300;
+            }
+        }
+
+        @keyframes weave3D-Burgundy {
+            0% {
+                transform: translate3d(0, 0, -50px) rotateX(-10deg) rotateY(-10deg);
+                stroke-dashoffset: 0;
+            }
+            50% {
+                transform: translate3d(-50px, -40px, 80px) rotateX(15deg) rotateY(5deg);
+            }
+            100% {
+                transform: translate3d(30px, 20px, -120px) rotateX(-5deg) rotateY(10deg);
+                stroke-dashoffset: 300;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 15px; padding: 15px; }
+            nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+            nav a { margin: 0 5px; font-size: 14px; }
+            .about-section { padding: 45px 25px; }
+            .contact-card { padding: 45px 20px; }
+            .bg-threads-3d { opacity: 0.15; } /* تقليل الشفافية في الهواتف لراحة العين */
+        } 
+    
+        /* زر واتساب عائم للتواصل السريع */
+        .whatsapp-float {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #25D366;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 28px;
+            box-shadow: 0 12px 28px rgba(37, 211, 102, 0.28);
+            z-index: 1100;
+            transition: transform .35s ease, box-shadow .35s ease;
+        }
+        .whatsapp-float:hover {
+            transform: translateY(-5px) scale(1.06);
+            box-shadow: 0 16px 35px rgba(37, 211, 102, 0.4);
+        }
+        .whatsapp-float span {
+            font-size: 27px;
+            line-height: 1;
+        }
+        @media (max-width: 768px) {
+            .whatsapp-float { right: 16px; bottom: 16px; width: 54px; height: 54px; font-size: 25px; }
+        }
+    
+        .contact-cta {
+            margin-top: 55px; padding: 40px 25px; text-align: center;
+            border-radius: 30px; background: rgba(62,193,187,.08);
+            border: 1px solid rgba(62,193,187,.18);
+        }
+        .contact-cta h2 { color: var(--primary-color); margin: 0 0 8px; font-size: 30px; }
+        .contact-cta p { color: var(--text-muted); margin: 0 0 20px; }
+        .contact-cta a { display:inline-block; background:var(--primary-color); color:#fff; text-decoration:none; padding:12px 28px; border-radius:50px; font-weight:800; transition:transform .35s ease; }
+        .contact-cta a:hover { transform:translateY(-4px); }
+    </style>
+<link rel="icon" type="image/png" href="lo.png">
+</head>
+<body>
+
+    <!-- 🧵 الخلفية الحية المتطابقة مع index.html الممتدة ثلاثية الأبعاد -->
+    <div class="bg-threads-3d">
+        <svg class="thread-3d t-gold" viewBox="0 0 1440 400">
+            <path d="M0,200 C300,350 600,50 900,200 C1200,350 1300,100 1440,200" />
+        </svg>
+        <svg class="thread-3d t-burgundy" viewBox="0 0 1440 400">
+            <path d="M1440,150 C1100,-50 800,350 500,150 C200,-50 100,250 0,150" />
+        </svg>
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo-wrapper">
+                <!-- تحديث رابط الصورة ليعمل من جميع الصفحات -->
+                <img src="lo.png" alt="شعار النرجس" class="logo-img">
+                <div class="logo-text"><span>النرجس</span></div>
+            </div>
+            <nav>
+                <a href="index.html">الرئيسية</a>
+                <a href="services.html">خدماتنا</a>
+                <a href="order.html">اطلب الآن</a>
+                <a href="contact.html" class="active">اتصل بنا</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>من نحن واتصل بنا</h1>
+        <p>تعرف على حكايتنا وتواصل معنا مباشرة عبر قنواتنا الرسمية</p>
+    </div>
+
+    <div class="main-container">
+
+        <section class="about-section">
+            <h2>قصة النرجس وشغف التطريز</h2>
+            <!-- ⚡ الفاصل الحي الحركي ذو الألوان المتموجة المتطابق مع index.html -->
+            <div class="divider"></div>
+            <p>
+                بدأت مسيرة <strong>النرجس</strong> من شغف حقيقي بالخيوط والأقمشة، والإيمان بأن الملابس ليست مجرد قطع نرتديها، بل هي وسيلة للتعبير عن الفخامة والأناقة الشخصية. نحن حريصون على تقديم أرقى خدمات التطريز الآلي واليدوي بدقة متناهية وبأعلى معايير الجودة في سلطنة عُمان، لنصنع لكم تصاميم تدوم طويلاً وتلفت الأنظار في كل مناسبة.
+            </p>
+        </section>
+
+        <div class="contact-grid">
+
+            <a href="https://api.whatsapp.com/send?phone=96892908668" target="_blank" class="contact-card">
+                <div class="icon-box">💬</div>
+                <h3>تواصل عبر الواتساب</h3>
+                <p>للإجابة السريعة على استفساراتكم وتأكيد تفاصيل الطلب</p>
+                <span class="card-btn btn-whatsapp">اضغط للمحادثة الفورية</span>
+            </a>
+
+            <a href="https://instagram.com/alnargis_te" target="_blank" class="contact-card">
+                <div class="icon-box">📸</div>
+                <h3>تابعنا على الإنستغرام</h3>
+                <p>شاهد أحدث تصاميمنا اليومية وتفاعل مع مجتمعنا الخاص</p>
+                <span class="card-btn btn-instagram">@alnargis_te</span>
+            </a>
+
+            <div class="contact-card" style="cursor: default;">
+                <div class="icon-box">📍</div>
+                <h3>موقعنا الحالي</h3>
+                <p>سلطنة عُمان، محافظة مسقط<br>نستقبل طلباتكم من كافة الولايات ونوفر خيارات تسليم مريحة</p>
+                <span class="card-btn btn-location">مسقط 🇴🇲</span>
+            </div>
+
+        </div>
+
+        <section class="contact-cta">
+            <h2>هل لديك تصميم جاهز؟</h2>
+            <p>يمكنك الانتقال مباشرة إلى نموذج الطلب ورفع التصميم وكتابة التفاصيل المطلوبة.</p>
+            <a href="order.html">انتقل إلى نموذج الطلب</a>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 النرجس للتطريز. جميع الحقوق محفوظة.</p>
+    </footer>
+
+
+    <a class="whatsapp-float" href="https://api.whatsapp.com/send?phone=96892908668" target="_blank" rel="noopener" aria-label="تواصل معنا عبر واتساب" title="تواصل معنا عبر واتساب">
+        <span>💬</span>
+    </a>
+
+</body>
+</html>

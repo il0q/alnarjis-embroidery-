@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>النرجس للتطريز | الفخامة والإتقان</title>
+    <!-- استدعاء خط Cairo من جوجل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* الألوان والهوية البصرية الدافئة والمريحة للعين */
+        :root {
+            --primary-color: #5c3d48; /* العنابي الملكي للمطرزات */
+            --accent-color: #b89424;
+            --brand-teal: #3ec1bb;  /* الذهبي الدافئ المريح */
+            --bg-color: #f7f4ed;      /* درجة كريمية دافئة جداً وناعمة للعين */
+            --card-bg: #f0eae1;       /* درجة دافئة للبطاقات والقوائم */
+            --card-hover: #eae2d5;    /* درجة دافئة عند تمرير الماوس */
+            --text-dark: #2d2d2d;     
+            --text-muted: #554d4f;    
+            --shadow: 0 15px 35px rgba(92, 61, 72, 0.04);
+            --transition: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        body {
+            font-family: 'Cairo', 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        /* 🧵 الخلفية الحية ممتدة ثلاثية الأبعاد */
+        .bg-threads-3d {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            transform-style: preserve-3d;
+        }
+
+        .thread-3d {
+            position: absolute;
+            width: 150%;
+            height: 400px;
+            fill: none;
+            stroke-linecap: round;
+            filter: drop-shadow(0 15px 20px rgba(92, 61, 72, 0.15));
+        }
+
+        .t-gold {
+            top: 5%;
+            left: -25%;
+            stroke: rgba(184, 148, 36, 0.35);
+            stroke-width: 2.5;
+            animation: weave3D-Gold 20s infinite ease-in-out alternate;
+        }
+
+        .t-burgundy {
+            bottom: 5%;
+            right: -25%;
+            stroke: rgba(92, 61, 72, 0.3);
+            stroke-width: 2;
+            animation: weave3D-Burgundy 25s infinite ease-in-out alternate;
+        }
+
+        /* شريط التنقل العلوي */
+        header {
+            background-color: rgba(247, 244, 237, 0.95); 
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 25px rgba(92, 61, 72, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(184, 148, 36, 0.15);
+            animation: slideDown 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+        }
+
+        .logo-img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--brand-teal);
+            transition: transform 0.8s var(--transition);
+        }
+
+        .logo-wrapper:hover .logo-img {
+            transform: rotate(360deg) scale(1.15);
+        }
+
+        .logo-text {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            margin-right: 25px;
+            font-weight: 600;
+            font-size: 16px;
+            position: relative;
+            transition: color 0.3s ease;
+            padding: 8px 0;
+            display: inline-block;
+        }
+
+        /* ⚡ خطوط ألوان حية ومتحركة تحت أزرار النافبار */
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            border-radius: 2px;
+            background: linear-gradient(270deg, var(--accent-color), var(--primary-color), var(--brand-teal), var(--accent-color));
+            background-size: 400% 400%;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s var(--transition);
+            animation: animateGradientStream 4s infinite linear;
+        }
+
+        nav a:hover::after, nav a.active::after {
+            transform: scaleX(1);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* 🎬 القسم الترحيبي بالفيديو */
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 180px 20px;
+            overflow: hidden;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+            z-index: 1;
+        }
+
+        .hero-video-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            opacity: 0.85; 
+            pointer-events: none;
+            animation: subtleZoomDynamic 16s infinite alternate ease-in-out;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            background: rgba(247, 244, 237, 0.25); 
+            backdrop-filter: blur(30px) saturate(140%); 
+            padding: 50px 60px;
+            border-radius: 40px;
+            max-width: 800px;
+            border: 1px solid rgba(247, 244, 237, 0.3); 
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+            animation: glassIntro 1.5s var(--transition) forwards;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            font-weight: 900;
+            color: var(--primary-color); 
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 21px;
+            max-width: 700px;
+            margin: 0 auto 35px auto;
+            color: #332d2f; 
+            font-weight: 600;
+        }
+
+        /* 🌟 زر اطلب تطريزك الآن الفاخر مع تأثير اللمعان الحقيقي والبريّق الحركي عند التحويم */
+        .btn-main {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #a3811f 100%);
+            color: #fff;
+            padding: 16px 50px;
+            font-size: 20px;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(184, 148, 36, 0.35);
+            display: inline-block;
+            transition: transform 0.4s var(--transition), box-shadow 0.4s var(--transition);
+            position: relative;
+            overflow: hidden; /* لحجز تأثير لمعة الضوء داخل الزر */
+            z-index: 1;
+        }
+
+        /* خط ضوء مائل ومتحرك يمر عبر الزر لصنع اللمعة البصرية */
+        .btn-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg);
+            transition: none;
+        }
+
+        /* تفعيل اللمعان المشع والنبض الفاخر عند إمرار الفأرة */
+        .btn-main:hover {
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: 0 0 25px rgba(184, 148, 36, 0.8), 0 0 50px rgba(184, 148, 36, 0.4);
+        }
+
+        /* تشغيل حركة وميض الضوء المائل باستمرار عند تمرير الفأرة فوق الزر */
+        .btn-main:hover::before {
+            animation: shineEffect 1.2s infinite ease-in-out;
+        }
+
+        /* 📜 لوحة النبذة التعريفية */
+        .about-brief {
+            position: relative;
+            max-width: 850px;
+            margin: 110px auto 60px auto;
+            text-align: center;
+            padding: 65px 45px;
+            background-color: var(--card-bg); 
+            border-radius: 35px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(92, 61, 72, 0.05); 
+            z-index: 1;
+            transition: transform 0.5s ease;
+        }
+
+        .about-brief:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-brief h2 {
+            color: var(--primary-color);
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        /* ⚡ فاصل ألوان متحرك وحي تحت عنوان (لماذا تختار النرجس؟) */
+        .divider {
+            width: 180px;
+            height: 5px;
+            margin: 25px auto;
+            border-radius: 10px;
+            background: linear-gradient(270deg, var(--primary-color), var(--accent-color), var(--brand-teal), var(--primary-color));
+            background-size: 600% 600%;
+            animation: animateGradientStream 6s infinite linear;
+            box-shadow: 0 2px 10px rgba(184, 148, 36, 0.2);
+        }
+
+        .about-brief p {
+            font-size: 21px;
+            color: var(--text-muted); 
+            max-width: 720px;
+            margin: 25px auto 0 auto;
+        }
+
+        /* 🛠️ قسم الخدمات وبطاقات العرض */
+        .services-preview {
+            max-width: 1200px;
+            margin: 110px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .services-preview h2 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 70px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background-color: var(--card-bg); 
+            border-radius: 35px;
+            padding: 60px 45px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(184, 148, 36, 0.04);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.6s var(--transition), box-shadow 0.6s var(--transition), background-color 0.6s var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(92, 61, 72, 0.1);
+            background-color: var(--card-hover); 
+        }
+
+        .service-icon {
+            font-size: 52px;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            background-color: rgba(92, 61, 72, 0.05);
+            border-radius: 50%;
+            margin: 0 auto 35px auto;
+            transition: transform 0.6s var(--transition), background-color 0.5s var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            background-color: var(--primary-color);
+            color: #fff;
+            transform: scale(1.15) rotate(-10deg);
+        }
+
+        .service-card h3 {
+            font-size: 27px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 12px;
+        }
+
+        /* ⚡ خطوط عناوين حية وألوان تتحرك باستمرار تحت الخدمات داخل البطاقات */
+        .service-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            border-radius: 4px;
+            background: linear-gradient(270deg, var(--accent-color), var(--primary-color), var(--brand-teal), var(--accent-color));
+            background-size: 400% 400%;
+            animation: animateGradientStream 4s infinite linear;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 17px;
+            margin-top: 15px;
+            margin-bottom: 40px;
+        }
+
+        .btn-secondary {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            display: inline-block;
+            transition: all 0.4s var(--transition);
+            padding: 10px 30px;
+            border-radius: 28px;
+            background-color: rgba(184, 148, 36, 0.15);
+        }
+
+        .service-card:hover .btn-secondary {
+            background-color: var(--primary-color);
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        /* تذييل الصفحة */
+        footer {
+            background-color: #1a1215;
+            color: #b5a4ab;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 150px;
+            font-size: 15px;
+            border-top: 3px solid var(--accent-color);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 🎬 قوانين الحركات */
+        @keyframes shineEffect {
+            0% { left: -150%; }
+            50% { left: 150%; }
+            100% { left: 150%; }
+        }
+
+        @keyframes animateGradientStream {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes weave3D-Gold {
+            0% { transform: translate3d(0, 0, -100px) rotateX(10deg) rotateY(5deg); stroke-dashoffset: 0; }
+            50% { transform: translate3d(40px, 30px, 50px) rotateX(-5deg) rotateY(15deg); }
+            100% { transform: translate3d(-20px, -20px, -50px) rotateX(5deg) rotateY(-10deg); stroke-dashoffset: -300; }
+        }
+
+        @keyframes weave3D-Burgundy {
+            0% { transform: translate3d(0, 0, -50px) rotateX(-10deg) rotateY(-10deg); stroke-dashoffset: 0; }
+            50% { transform: translate3d(-50px, -40px, 80px) rotateX(15deg) rotateY(5deg); }
+            100% { transform: translate3d(30px, 20px, -120px) rotateX(-5deg) rotateY(10deg); stroke-dashoffset: 300; }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        @keyframes glassIntro {
+            from { opacity: 0; transform: scale(0.95) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        @keyframes subtleZoomDynamic {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.05); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 15px; padding: 15px; }
+            .hero { padding: 100px 15px; min-height: auto; } 
+            .hero-content { padding: 30px 20px; border-radius: 25px; }
+            .hero h1 { font-size: 30px; }
+            nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+            nav a { margin: 0 5px; }
+            .about-brief { padding: 45px 25px; margin: 60px auto; }
+            .service-card { padding: 40px 20px; }
+            .bg-threads-3d { opacity: 0.15; }
+        }
+    
+        /* زر واتساب عائم للتواصل السريع */
+        .whatsapp-float {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #25D366;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 28px;
+            box-shadow: 0 12px 28px rgba(37, 211, 102, 0.28);
+            z-index: 1100;
+            transition: transform .35s ease, box-shadow .35s ease;
+        }
+        .whatsapp-float:hover {
+            transform: translateY(-5px) scale(1.06);
+            box-shadow: 0 16px 35px rgba(37, 211, 102, 0.4);
+        }
+        .whatsapp-float span {
+            font-size: 27px;
+            line-height: 1;
+        }
+        @media (max-width: 768px) {
+            .whatsapp-float { right: 16px; bottom: 16px; width: 54px; height: 54px; font-size: 25px; }
+        }
+    
+        /* 🧵 كيف تتم عملية الطلب؟ */
+        .process-section {
+            max-width: 1200px;
+            margin: 30px auto 110px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .process-section h2 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 55px;
+        }
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .process-card {
+            background: rgba(240, 234, 225, .9);
+            border: 1px solid rgba(62, 193, 187, .16);
+            border-radius: 30px;
+            padding: 38px 28px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform .45s var(--transition), border-color .35s ease;
+        }
+        .process-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(62, 193, 187, .42);
+        }
+        .process-number {
+            width: 58px;
+            height: 58px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: rgba(62, 193, 187, .13);
+            color: var(--primary-color);
+            border: 2px solid rgba(62, 193, 187, .35);
+            font-size: 22px;
+            font-weight: 900;
+        }
+        .process-card h3 { color: var(--primary-color); margin: 0 0 10px; font-size: 22px; }
+        .process-card p { color: var(--text-muted); margin: 0; font-size: 16px; }
+        .home-cta {
+            max-width: 850px;
+            margin: 0 auto 120px;
+            padding: 45px 30px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(62,193,187,.10), rgba(184,148,36,.10));
+            border: 1px solid rgba(62,193,187,.18);
+            border-radius: 35px;
+            position: relative;
+            z-index: 1;
+        }
+        .home-cta h2 { color: var(--primary-color); margin: 0 0 10px; font-size: 32px; }
+        .home-cta p { color: var(--text-muted); margin: 0 0 25px; }
+        .btn-whatsapp-home {
+            display: inline-block;
+            background: #25D366;
+            color: #fff;
+            text-decoration: none;
+            padding: 13px 30px;
+            border-radius: 50px;
+            font-weight: 800;
+            box-shadow: 0 10px 25px rgba(37,211,102,.22);
+            transition: transform .35s ease, box-shadow .35s ease;
+        }
+        .btn-whatsapp-home:hover { transform: translateY(-4px); box-shadow: 0 15px 30px rgba(37,211,102,.32); }
+        @media (max-width: 768px) {
+            .process-grid { grid-template-columns: 1fr; }
+            .process-section h2 { font-size: 30px; }
+            .home-cta { margin: 0 20px 80px; }
+        }
+    </style>
+    <link rel="icon" type="image/png" href="lo.png">
+</head>
+<body>
+
+    <!-- 🧵 الخلفية الحية ممتدة ثلاثية الأبعاد -->
+    <div class="bg-threads-3d">
+        <svg class="thread-3d t-gold" viewBox="0 0 1440 400">
+            <path d="M0,200 C300,350 600,50 900,200 C1200,350 1300,100 1440,200" />
+        </svg>
+        <svg class="thread-3d t-burgundy" viewBox="0 0 1440 400">
+            <path d="M1440,150 C1100,-50 800,350 500,150 C200,-50 100,250 0,150" />
+        </svg>
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo-wrapper">
+                <img src="lo.png" alt="شعار النرجس" class="logo-img">
+                <div class="logo-text"><span>النرجس</span></div>
+            </div>
+            <nav>
+                <a href="index.html" class="active">الرئيسية</a>
+                <a href="services.html">خدماتنا</a>
+                <a href="order.html">اطلب الآن</a>
+                <a href="contact.html">اتصل بنا</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <video autoplay loop muted playsinline class="hero-video-bg">
+            <source src="er.mp4" type="video/mp4">
+            عذراً، متصفحك لا يدعم تشغيل الفيديو.
+        </video>
+        
+        <div class="hero-content">
+            <h1>نُحوّل ثيابكم إلى لوحات فنية</h1>
+            <p>مرحباً بكم في النرجس.. حيث ندمج دقة الخيوط بفخامة التصميم لتطريز يعبر عن ذوقكم الرفيع.</p>
+            <a href="order.html" class="btn-main">اطلب تطريزك الآن</a>
+        </div>
+    </section>
+
+    <section class="about-brief">
+        <h2>لماذا تختار النرجس؟</h2>
+        <div class="divider"></div>
+        <p>في النرجس، لا نكتفي بالتطريز فقط، بل نختار أجود أنواع الخيوط التي لا تتأثر بالغسيل، ونستخدم تقنيات حديثة تضمن لكم دقة متناهية في التفاصيل، لتبقى ملابسكم مميزة وتدوم طويلاً.</p>
+    </section>
+
+    <section class="services-preview">
+        <h2>أبرز خدماتنا</h2>
+        <div class="services-grid">
+            
+            <div class="service-card" style="animation-delay: 0.15s;">
+                <div class="service-icon">👕</div>
+                <h3>التطريز على ملابسك الخاصة</h3>
+                <p>هل لديك لباس جاهز (قميص، فستان، عباءة) وتريد إضافة لمسة مميزة عليه؟ ارفع تصميمك وسنتولى الباقي.</p>
+                <a href="services.html" class="btn-secondary">التفاصيل ←</a>
+            </div>
+
+            <div class="service-card" style="animation-delay: 0.35s;">
+                <div class="service-icon">🧵</div>
+                <h3>تصميم وتفصيل متكامل</h3>
+                <p>نوفر لكم أفخم الأقمشة والملابس المجهزة مسبقاً، ونقوم بتطريزها بناءً على رغبتكم بالكامل ومن الصفر.</p>
+                <a href="services.html" class="btn-secondary">التفاصيل ←</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="process-section">
+        <h2>كيف تتم عملية الطلب؟</h2>
+        <div class="divider"></div>
+        <div class="process-grid">
+            <div class="process-card">
+                <div class="process-number">1</div>
+                <h3>أرسل فكرتك</h3>
+                <p>اختر الخدمة، أرسل التصميم إن وجد، واكتب تفاصيل فكرتك ومقاساتك.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">2</div>
+                <h3>نراجع التفاصيل</h3>
+                <p>يراجع فريق النرجس الطلب ويتواصل معك لتأكيد التفاصيل قبل التنفيذ.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">3</div>
+                <h3>نبدأ التنفيذ</h3>
+                <p>بعد تأكيد الطلب، نبدأ العمل على التطريز أو التصميم والتفصيل حسب الخدمة.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-cta">
+        <h2>عندك فكرة لتطريز مميز؟</h2>
+        <p>أرسل لنا فكرتك مباشرة، وسنساعدك في تحويلها إلى تصميم مناسب.</p>
+        <a class="btn-whatsapp-home" href="https://api.whatsapp.com/send?phone=96892908668" target="_blank" rel="noopener">تواصل معنا عبر واتساب</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 النرجس للتطريز. جميع الحقوق محفوظة.</p>
+    </footer>
+
+
+    <a class="whatsapp-float" href="https://api.whatsapp.com/send?phone=96892908668" target="_blank" rel="noopener" aria-label="تواصل معنا عبر واتساب" title="تواصل معنا عبر واتساب">
+        <span>💬</span>
+    </a>
+
+</body>
+</html>
