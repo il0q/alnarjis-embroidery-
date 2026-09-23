@@ -230,11 +230,43 @@
         .btn-main:hover::before {
             animation: shineEffect 1.2s infinite ease-in-out;
         }
+        /* انتقال ناعم وفاخر بين الفيديو وباقي الموقع */
+        .hero-transition {
+            position: relative;
+            height: 150px;
+            margin-top: -1px;
+            overflow: hidden;
+            z-index: 3;
+            background: linear-gradient(180deg, rgba(0,0,0,.72) 0%, rgba(18,28,29,.32) 22%, rgba(250,249,246,.78) 68%, var(--bg-color) 100%);
+        }
+        .hero-transition::before {
+            content: '';
+            position: absolute;
+            width: 125%;
+            height: 210px;
+            left: -12.5%;
+            top: 55px;
+            border-radius: 50% 50% 0 0 / 55% 55% 0 0;
+            background: linear-gradient(180deg, rgba(250,249,246,.12), rgba(250,249,246,.96) 58%, var(--bg-color) 100%);
+            filter: blur(2px);
+        }
+        .hero-transition::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 72% 90%, rgba(61,183,181,.28), transparent 38%), radial-gradient(ellipse at 20% 80%, rgba(92,61,72,.13), transparent 34%);
+            pointer-events: none;
+        }
+        @media (max-width: 768px) {
+            .hero-transition { height: 105px; }
+            .hero-transition::before { height: 145px; top: 40px; }
+        }
+
         /* 📜 لوحة النبذة التعريفية */
         .about-brief {
             position: relative;
             max-width: 850px;
-            margin: 110px auto 60px auto;
+            margin: 0 auto 60px auto;
             text-align: center;
             padding: 65px 45px;
             background-color: var(--card-bg); 
@@ -527,6 +559,8 @@
         </div>
     
 </section>
+
+<div class="hero-transition" aria-hidden="true"></div>
 
 <!-- الشكل الحركي المستوحى من Position Tracker، بألوان هوية النرجس -->
 <div class="position-art" aria-hidden="true">
