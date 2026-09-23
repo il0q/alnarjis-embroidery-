@@ -1,8 +1,502 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>النرجس للتطريز | تجربة جديدة</title><link rel="icon" href="lo.png"><link rel="stylesheet" href="style.css"></head><body><div class="noise"></div><div class="cursor"></div><header><div class="nav"><a class="brand" href="index.html"><img src="lo.png"><span>النرجس للتطريز</span></a><button class="menu" aria-label="القائمة">☰</button><nav class="links"><a class="active" href="index.html">الرئيسية</a><a class="" href="services.html">التطريز</a><a class="" href="contact.html">تواصل معنا</a><a class="btn" href="order.html">اطلب الآن</a></nav></div></header>
-<main>
-<section class="hero"><video autoplay muted loop playsinline preload="metadata"><source src="er.mp4" type="video/mp4"></video><div class="hero-content"><div class="reveal"><div class="eyebrow">AL NARJIS / EMBROIDERY</div><h1>فنّ<br>يُحاك.</h1><p>نحوّل الخيط والتفاصيل الدقيقة إلى قطع تحمل حضوراً خاصاً. موقع النرجس الآن بتجربة بصرية سينمائية، مستوحاة من المواقع التحريرية الحديثة.</p><div class="scroll"><i></i> اكتشف العمل</div></div><div class="hero-side">التطريز • الحرفة • التفاصيل</div></div></section>
-<section id="story"><div class="section-head reveal"><h2>حكاية<br>الخيط.</h2><p>التصميم الجديد يعتمد على المساحات الداكنة، الحركة الهادئة، الصور الكبيرة، والانتقالات الناعمة بدلاً من البطاقات التقليدية.</p></div><div class="story"><div class="story-media reveal"><img src="317510915_558162199465173_6959746518358324852_n.jpg" alt="أعمال النرجس"></div><div class="story-copy reveal"><div class="number">01 — الهوية</div><h3>تفاصيل تُرى قبل أن تُشرح.</h3><p>كل غرزة لها مكانها. لذلك صُمم الموقع ليعطي الأعمال مساحة أكبر، مع إضاءة سينمائية وتفاعل مع حركة الماوس وتمرير الصفحة.</p><a class="btn" href="services.html">استكشف التطريز ←</a></div></div></section>
-<section><div class="section-head reveal"><h2>ما نصنعه.</h2><p>خدمات واضحة، لكن بعرض بصري مختلف عن الموقع السابق.</p></div><div class="grid"><article class="card reveal"><span class="tag">01 / CUSTOM</span><h3>تطريز مخصص</h3><p>تنفيذ تصاميم وأفكار خاصة بعناية في التفاصيل والخامة.</p></article><article class="card reveal"><span class="tag">02 / DETAILS</span><h3>لمسات فاخرة</h3><p>توظيف الألوان والخيوط والزخارف لصناعة حضور متناسق.</p></article><article class="card reveal"><span class="tag">03 / ORDERS</span><h3>اطلب تصميمك</h3><p>أرسل فكرتك أو تفاصيل طلبك وابدأ رحلة التنفيذ.</p><a class="btn" href="order.html">ابدأ الطلب</a></article></div></section>
-<section><div class="section-head reveal"><h2>من<br>المشغل.</h2><p>صورة كبيرة، نص قصير، ومساحة تنفس — بنفس الروح البصرية التي تظهر في الفيديو المرجعي.</p></div><div class="showcase"><div class="tile reveal"><img src="317510915_558162199465173_6959746518358324852_n.jpg"><div class="tile-content"><span>CRAFT / 01</span><h3>الخامة أولاً</h3></div></div><div class="tile reveal"><img src="317510915_558162199465173_6959746518358324852_n.jpg"><div class="tile-content"><span>CRAFT / 02</span><h3>والتفاصيل أخيراً</h3></div></div></div></section>
-<section class="cta"><div class="reveal"><div class="eyebrow">READY TO CREATE?</div><h2>لنجعل فكرتك<br>قطعة تُرى.</h2><a class="btn" href="order.html">اطلب الآن ↗</a></div></section>
-</main><footer><span>© النرجس للتطريز</span><span>فخامة تُحاك بخيط • عناية بالتفاصيل</span></footer><script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>النرجس للتطريز | الفخامة والإتقان</title>
+    <!-- استدعاء خط Cairo من جوجل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* الألوان والهوية البصرية الدافئة والمريحة للعين */
+        :root {
+            --primary-color: #5c3d48; /* العنابي الملكي للمطرزات */
+            --accent-color: #3DB7B5;  /* الذهبي الدافئ المريح */
+            --bg-color: #FAF9F6;      /* درجة كريمية دافئة جداً وناعمة للعين */
+            --card-bg: #F3F9F8;        /* درجة دافئة للبطاقات والقوائم */
+            --card-hover: #eae2d5;    /* درجة دافئة عند تمرير الماوس */
+            --text-dark: #2d2d2d;     
+            --text-muted: #554d4f;    
+            --shadow: 0 15px 35px rgba(92, 61, 72, 0.04);
+            --transition: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        body {
+            background: linear-gradient(135deg, #FAF9F6 0%, #B7EBE3 100%);
+            font-family: 'Cairo', 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            overflow-x: clip;
+            position: relative;
+            perspective: 1000px;
+        }
+        /* 🧵 الخلفية الحية ممتدة ثلاثية الأبعاد */
+        .bg-threads-3d {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            transform-style: preserve-3d;
+        }
+        .thread-3d {
+            position: absolute;
+            width: 100%;
+            max-width: 100%;
+            height: 400px;
+            fill: none;
+            stroke-linecap: round;
+            filter: drop-shadow(0 15px 20px rgba(92, 61, 72, 0.15));
+        }
+        .t-gold {
+            top: 5%;
+            left: 0;
+            stroke: rgba(61, 183, 181, 0.24);
+            stroke-width: 2.5;
+            animation: weave3D-Gold 20s infinite ease-in-out alternate;
+        }
+        .t-burgundy {
+            bottom: 5%;
+            right: 0;
+            stroke: rgba(92, 61, 72, 0.22);
+            stroke-width: 2;
+            animation: weave3D-Burgundy 25s infinite ease-in-out alternate;
+        }
+        /* شريط التنقل العلوي */
+        header {
+            background-color: rgba(247, 244, 237, 0.95); 
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 25px rgba(92, 61, 72, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(61, 183, 181, 0.14);
+            animation: slideDown 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+        }
+        .logo-img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-color);
+            transition: transform 0.8s var(--transition);
+        }
+        .logo-wrapper:hover .logo-img {
+            transform: rotate(360deg) scale(1.15);
+        }
+        .logo-text {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            margin-right: 25px;
+            font-weight: 600;
+            font-size: 16px;
+            position: relative;
+            transition: color 0.3s ease;
+            padding: 8px 0;
+            display: inline-block;
+        }
+        /* ⚡ خطوط ألوان حية ومتحركة تحت أزرار النافبار */
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            border-radius: 2px;
+            background: linear-gradient(270deg, var(--accent-color), var(--primary-color), #3DB7B5, var(--accent-color));
+            background-size: 400% 400%;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s var(--transition);
+            animation: animateGradientStream 4s infinite linear;
+        }
+        nav a:hover::after, nav a.active::after {
+            transform: scaleX(1);
+        }
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+        
+        /* 🎬 القسم الترحيبي بالفيديو (معدل للتجاوب مع الهواتف) */
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 120px 20px;
+            overflow: hidden;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+            z-index: 1;
+        }
+        .hero-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0.85; 
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            background: rgba(247, 244, 237, 0.25); 
+            backdrop-filter: blur(30px) saturate(140%); 
+            padding: 50px 60px;
+            border-radius: 40px;
+            max-width: 800px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid rgba(247, 244, 237, 0.3); 
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+            animation: glassIntro 1.5s var(--transition) forwards;
+        }
+        .hero h1 {
+            font-size: 50px;
+            font-weight: 900;
+            color: var(--primary-color); 
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 21px;
+            max-width: 700px;
+            margin: 0 auto 35px auto;
+            color: #332d2f; 
+            font-weight: 600;
+        }
+        /* 🌟 زر اطلب تطريزك الآن الفاخر */
+        .btn-main {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #2F8F8B 100%);
+            color: #fff;
+            padding: 16px 50px;
+            font-size: 20px;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(61, 183, 181, 0.24);
+            display: inline-block;
+            transition: transform 0.4s var(--transition), box-shadow 0.4s var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg);
+            transition: none;
+        }
+        .btn-main:hover {
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: 0 0 25px rgba(61, 183, 181, 0.8), 0 0 50px rgba(61, 183, 181, 0.4);
+        }
+        .btn-main:hover::before {
+            animation: shineEffect 1.2s infinite ease-in-out;
+        }
+        /* 📜 لوحة النبذة التعريفية */
+        .about-brief {
+            position: relative;
+            max-width: 850px;
+            margin: 0 auto 60px auto;
+            text-align: center;
+            padding: 65px 45px;
+            background-color: var(--card-bg); 
+            border-radius: 35px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(92, 61, 72, 0.05); 
+            z-index: 1;
+            transition: transform 0.5s ease;
+        }
+        .about-brief:hover {
+            transform: translateY(-5px);
+        }
+        .about-brief h2 {
+            color: var(--primary-color);
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .divider {
+            width: 180px;
+            height: 5px;
+            margin: 25px auto;
+            border-radius: 10px;
+            background: linear-gradient(270deg, var(--primary-color), var(--accent-color), #3DB7B5, var(--primary-color));
+            background-size: 600% 600%;
+            animation: animateGradientStream 6s infinite linear;
+            box-shadow: 0 2px 10px rgba(61, 183, 181, 0.18);
+        }
+        .about-brief p {
+            font-size: 21px;
+            color: var(--text-muted); 
+            max-width: 720px;
+            margin: 25px auto 0 auto;
+        }
+        /* 🛠️ قسم الخدمات وبطاقات العرض */
+        .services-preview {
+            max-width: 1200px;
+            margin: 110px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .services-preview h2 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 70px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+        .service-card {
+            background-color: var(--card-bg); 
+            border-radius: 35px;
+            padding: 60px 45px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(61, 183, 181, 0.06);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.6s var(--transition), box-shadow 0.6s var(--transition), background-color 0.6s var(--transition);
+        }
+        .service-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(92, 61, 72, 0.1);
+            background-color: var(--card-hover); 
+        }
+        .service-icon {
+            font-size: 52px;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            background-color: rgba(92, 61, 72, 0.05);
+            border-radius: 50%;
+            margin: 0 auto 35px auto;
+            transition: transform 0.6s var(--transition), background-color 0.5s var(--transition);
+        }
+        .service-card:hover .service-icon {
+            background-color: var(--primary-color);
+            color: #fff;
+            transform: scale(1.15) rotate(-10deg);
+        }
+        .service-card h3 {
+            font-size: 27px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 12px;
+        }
+        .service-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            border-radius: 4px;
+            background: linear-gradient(270deg, var(--accent-color), var(--primary-color), #4a90e2, var(--accent-color));
+            background-size: 400% 400%;
+            animation: animateGradientStream 4s infinite linear;
+        }
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 17px;
+            margin-top: 15px;
+            margin-bottom: 40px;
+        }
+        .btn-secondary {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            display: inline-block;
+            transition: all 0.4s var(--transition);
+            padding: 10px 30px;
+            border-radius: 28px;
+            background-color: rgba(61, 183, 181, 0.14);
+        }
+        .service-card:hover .btn-secondary {
+            background-color: var(--primary-color);
+            color: #fff;
+            transform: scale(1.05);
+        }
+        /* تذييل الصفحة */
+        footer {
+            background-color: #1a1215;
+            color: #b5a4ab;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 150px;
+            font-size: 15px;
+            border-top: 3px solid var(--accent-color);
+            position: relative;
+            z-index: 1;
+        }
+        /* 🎬 قوانين الحركات */
+        @keyframes shineEffect {
+            0% { left: -150%; }
+            50% { left: 150%; }
+            100% { left: 150%; }
+        }
+        @keyframes animateGradientStream {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes weave3D-Gold {
+            0% { transform: translate3d(0, 0, -100px) rotateX(10deg) rotateY(5deg); stroke-dashoffset: 0; }
+            50% { transform: translate3d(20px, 30px, 50px) rotateX(-5deg) rotateY(15deg); }
+            100% { transform: translate3d(-10px, -20px, -50px) rotateX(5deg) rotateY(-10deg); stroke-dashoffset: -300; }
+        }
+        @keyframes weave3D-Burgundy {
+            0% { transform: translate3d(0, 0, -50px) rotateX(-10deg) rotateY(-10deg); stroke-dashoffset: 0; }
+            50% { transform: translate3d(-20px, -40px, 80px) rotateX(15deg) rotateY(5deg); }
+            100% { transform: translate3d(15px, 20px, -120px) rotateX(-5deg) rotateY(10deg); stroke-dashoffset: 300; }
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+        @keyframes glassIntro {
+            from { opacity: 0; transform: scale(0.95) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* تحسينات للشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 15px; padding: 15px; }
+            .hero { padding: 80px 15px; min-height: 60vh; } 
+            .hero-content { padding: 30px 20px; border-radius: 25px; }
+            .hero h1 { font-size: 28px; }
+            .hero p { font-size: 16px; }
+            .btn-main { padding: 12px 30px; font-size: 16px; }
+            nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+            nav a { margin: 0 5px; }
+            .about-brief { padding: 45px 25px; margin: 60px auto; }
+            .service-card { padding: 40px 20px; }
+            .bg-threads-3d { opacity: 0.15; }
+        }
+    </style>
+    <link rel="icon" type="image/png" href="lo.png">
+<style id="thread-motion">
+/* خيوط تطريز متحركة - للصفحة الرئيسية فقط */
+.thread-motion{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;opacity:.38;}
+.thread-motion span{position:absolute;width:42vw;height:2px;background:linear-gradient(90deg,transparent,rgba(61,183,181,.28),transparent);border-radius:999px;transform-origin:center;animation:threadDrift 14s ease-in-out infinite;}
+.thread-motion span:nth-child(1){top:22%;left:-12%;transform:rotate(18deg);animation-delay:-2s;}
+.thread-motion span:nth-child(2){top:48%;left:45%;width:35vw;transform:rotate(-24deg);animation-delay:-7s;}
+.thread-motion span:nth-child(3){top:72%;left:-8%;width:48vw;transform:rotate(12deg);animation-delay:-10s;}
+.thread-motion span:nth-child(4){top:34%;left:68%;width:30vw;transform:rotate(32deg);animation-delay:-5s;}
+@keyframes threadDrift{0%,100%{translate:0 0;opacity:.15;}50%{translate:35px -18px;opacity:.55;}}
+@media (prefers-reduced-motion:reduce){.thread-motion span{animation:none;}}
+@media (max-width:600px){.thread-motion{opacity:.22}.thread-motion span{width:70vw}.thread-motion span:nth-child(2){left:35%;width:55vw}.thread-motion span:nth-child(4){left:55%;width:45vw;}}
+</style>
+</head>
+<body>
+<div class="thread-motion" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <!-- 🧵 الخلفية الحية ممتدة ثلاثية الأبعاد -->
+    <div class="bg-threads-3d">
+        <svg class="thread-3d t-gold" viewBox="0 0 1440 400">
+            <path d="M0,200 C300,350 600,50 900,200 C1200,350 1300,100 1440,200" />
+        </svg>
+        <svg class="thread-3d t-burgundy" viewBox="0 0 1440 400">
+            <path d="M1440,150 C1100,-50 800,350 500,150 C200,-50 100,250 0,150" />
+        </svg>
+    </div>
+    <header>
+        <div class="nav-container">
+            <div class="logo-wrapper">
+                <img src="lo.png" alt="شعار النرجس" class="logo-img">
+                <div class="logo-text"><span>النرجس</span></div>
+            </div>
+            <nav>
+                <a href="index.html" class="active">الرئيسية</a>
+                <a href="services.html">خدماتنا</a>
+                <a href="order.html">اطلب الآن</a>
+                <a href="contact.html">اتصل بنا</a>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <video autoplay loop muted playsinline class="hero-video-bg">
+            <source src="er.mp4" type="video/mp4">
+            عذراً، متصفحك لا يدعم تشغيل الفيديو.
+        </video>
+        
+        <div class="hero-content">
+            <h1>نُحوّل ثيابكم إلى لوحات فنية</h1>
+            <p>مرحباً بكم في النرجس.. حيث ندمج دقة الخيوط بفخامة التصميم لتطريز يعبر عن ذوقكم الرفيع.</p>
+            <a href="order.html" class="btn-main">اطلب تطريزك الآن</a>
+        </div>
+    </section>
+    <section class="about-brief" style="margin-top:0;">
+        <h2>لماذا تختار النرجس؟</h2>
+        <div class="divider"></div>
+        <p>في النرجس، لا نكتفي بالتطريز فقط، بل نختار أجود أنواع الخيوط التي لا تتأثر بالغسيل، ونستخدم تقنيات حديثة تضمن لكم دقة متناهية في التفاصيل، لتبقى ملابسكم مميزة وتدوم طويلاً.</p>
+    </section>
+    <section class="services-preview">
+        <h2>أبرز خدماتنا</h2>
+        <div class="services-grid">
+            
+            <div class="service-card" style="animation-delay: 0.15s;">
+                <div class="service-icon">👕</div>
+                <h3>التطريز على ملابسك الخاصة</h3>
+                <p>هل لديك لباس جاهز (قميص، فستان، عباءة) وتريد إضافة لمسة مميزة عليه؟ ارفع تصميمك وسنتولى الباقي.</p>
+                <a href="services.html" class="btn-secondary">التفاصيل ←</a>
+            </div>
+            <div class="service-card" style="animation-delay: 0.35s;">
+                <div class="service-icon">🧵</div>
+                <h3>تصميم وتفصيل متكامل</h3>
+                <p>نوفر لكم أفخم الأقمشة والملابس المجهزة مسبقاً، ونقوم بتطريزها بناءً على رغبتكم بالكامل ومن الصفر.</p>
+                <a href="services.html" class="btn-secondary">التفاصيل ←</a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>© 2026 النرجس للتطريز. جميع الحقوق محفوظة.</p>
+    </footer>
+</body>
+</html>

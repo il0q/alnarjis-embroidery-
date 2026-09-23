@@ -1,3 +1,445 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>التطريز | النرجس</title><link rel="icon" href="lo.png"><link rel="stylesheet" href="style.css"></head><body><div class="noise"></div><div class="cursor"></div><header><div class="nav"><a class="brand" href="index.html"><img src="lo.png"><span>النرجس للتطريز</span></a><button class="menu" aria-label="القائمة">☰</button><nav class="links"><a class="" href="index.html">الرئيسية</a><a class="active" href="services.html">التطريز</a><a class="" href="contact.html">تواصل معنا</a><a class="btn" href="order.html">اطلب الآن</a></nav></div></header>
-<main><section class="page-hero"><div class="reveal"><div class="eyebrow">AL NARJIS / SERVICES</div><h1>التطريز<br>بأسلوب جديد.</h1></div></section>
-<section><div class="section-head reveal"><h2>خدماتنا.</h2><p>عرض مبسط للخدمات مع نفس اللغة البصرية الداكنة والحركة الهادئة.</p></div><div class="grid"><article class="card reveal"><span class="tag">01</span><h3>تصميم مخصص</h3><p>نحوّل الفكرة أو الرسم إلى تصميم تطريز قابل للتنفيذ.</p></article><article class="card reveal"><span class="tag">02</span><h3>تطريز دقيق</h3><p>اهتمام بالخيط، الحواف، التوزيع، والتفاصيل النهائية.</p></article><article class="card reveal"><span class="tag">03</span><h3>طلبات خاصة</h3><p>تنسيق الطلبات حسب القطعة والمقاس والفكرة المطلوبة.</p></article></div></section></main><footer><span>© النرجس للتطريز</span><span>فخامة تُحاك بخيط • عناية بالتفاصيل</span></footer><script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدماتنا | النرجس للتطريز</title>
+    <!-- استدعاء خط Cairo من جوجل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* الألوان والهوية البصرية الدافئة والمريحة للعين */
+        :root {
+            --primary-color: #5c3d48; /* العنابي الملكي للمطرزات */
+            --accent-color: #3DB7B5;  /* الذهبي الدافئ المريح */
+            --bg-color: #FAF9F6;      /* درجة كريمية دافئة جداً وناعمة للعين */
+            --card-bg: #f0eae1;       /* درجة دافئة للبطاقات والقوائم */
+            --card-hover: #eae2d5;    /* درجة دافئة عند تمرير الماوس */
+            --text-dark: #2d2d2d;     
+            --text-muted: #554d4f;    
+            --shadow: 0 15px 35px rgba(92, 61, 72, 0.04);
+            --transition: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        body {
+            font-family: 'Cairo', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #FAF9F6 0%, #B7EBE3 100%);
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            overflow-x: clip;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        /* 🧵 الخلفية الحية ممتدة ثلاثية الأبعاد */
+        .bg-threads-3d {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            transform-style: preserve-3d;
+        }
+
+        .thread-3d {
+            position: absolute;
+            width: 100%;
+            max-width: 100%;
+            height: 400px;
+            fill: none;
+            stroke-linecap: round;
+            filter: drop-shadow(0 15px 20px rgba(92, 61, 72, 0.15));
+        }
+
+        .t-gold {
+            top: 5%;
+            left: 0;
+            stroke: rgba(61, 183, 181, 0.24);
+            stroke-width: 2.5;
+            animation: weave3D-Gold 20s infinite ease-in-out alternate;
+        }
+
+        .t-burgundy {
+            bottom: 5%;
+            right: 0;
+            stroke: rgba(92, 61, 72, 0.22);
+            stroke-width: 2;
+            animation: weave3D-Burgundy 25s infinite ease-in-out alternate;
+        }
+
+        /* شريط التنقل العلوي */
+        header {
+            background-color: rgba(247, 244, 237, 0.95); 
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 25px rgba(92, 61, 72, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(184, 148, 36, 0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+        }
+
+        .logo-img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-color);
+            transition: transform 0.8s var(--transition);
+        }
+
+        .logo-wrapper:hover .logo-img {
+            transform: rotate(360deg) scale(1.15);
+        }
+
+        .logo-text {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            margin-right: 25px;
+            font-weight: 600;
+            font-size: 16px;
+            position: relative;
+            transition: color 0.3s ease;
+            padding: 8px 0;
+            display: inline-block;
+        }
+
+        /* ⚡ خطوط ألوان حية ومتحركة تحت أزرار النافبار */
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            border-radius: 2px;
+            background: linear-gradient(270deg, var(--accent-color), var(--primary-color), #3DB7B5, var(--accent-color));
+            background-size: 400% 400%;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s var(--transition);
+            animation: animateGradientStream 4s infinite linear;
+        }
+
+        nav a:hover::after, nav a.active::after {
+            transform: scaleX(1);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* 📄 عنوان الصفحة الرئيسي */
+        .page-header {
+            text-align: center;
+            padding: 60px 20px 20px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header h1 {
+            font-size: 45px;
+            color: var(--primary-color);
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        /* فاصل ألوان متحرك وحي تحت العنوان الرئيسي لصفحة الخدمات */
+        .header-divider {
+            width: 150px;
+            height: 5px;
+            margin: 20px auto;
+            border-radius: 10px;
+            background: linear-gradient(270deg, var(--primary-color), var(--accent-color), #3DB7B5, var(--primary-color));
+            background-size: 600% 600%;
+            animation: animateGradientStream 6s infinite linear;
+        }
+
+        /* 🛠️ تفاصيل الخدمات */
+        .services-container {
+            max-width: 1000px;
+            margin: 40px auto 100px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .detailed-service-card {
+            background-color: var(--card-bg);
+            border-radius: 35px;
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(184, 148, 36, 0.04);
+            transition: transform 0.5s var(--transition), background-color 0.5s var(--transition);
+        }
+
+        .detailed-service-card:hover {
+            transform: translateY(-8px);
+            background-color: var(--card-hover);
+        }
+
+        .service-title-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .service-page-icon {
+            font-size: 45px;
+        }
+
+        .detailed-service-card h2 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin: 0;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 12px;
+        }
+
+        /* ⚡ أشرطة ألوان حية ومتحركة باستمرار تحت العناوين الرئيسية لكل خدمة */
+        .detailed-service-card h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 120px;
+            height: 4px;
+            border-radius: 4px;
+            background: linear-gradient(270deg, var(--accent-color), var(--primary-color), #4a90e2, var(--accent-color));
+            background-size: 400% 400%;
+            animation: animateGradientStream 4s infinite linear;
+        }
+
+        .detailed-service-card p {
+            color: var(--text-dark);
+            font-size: 19px;
+            margin-bottom: 30px;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 40px 0;
+        }
+
+        .features-list li {
+            font-size: 17px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .features-list li::before {
+            content: '✨';
+            font-size: 14px;
+        }
+
+        /* 🌟 أزرار طلب الخدمة المحدثة مع تأثير اللمعان والوميض التفاعلي الفاخر */
+        .btn-order-service {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #2F8F8B 100%);
+            color: #fff;
+            padding: 14px 45px;
+            font-size: 19px;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 10px 25px rgba(184, 148, 36, 0.3);
+            transition: transform 0.4s var(--transition), box-shadow 0.4s var(--transition);
+            position: relative;
+            overflow: hidden; /* لحجز وميض الضوء داخل محيط الزر */
+            z-index: 1;
+        }
+
+        /* خط ضوء مائل يمر عبر الزر لصنع اللمعان البصري التفاعلي */
+        .btn-order-service::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg);
+            transition: none;
+        }
+
+        .btn-order-service:hover {
+            transform: translateY(-5px) scale(1.04);
+            box-shadow: 0 0 25px rgba(184, 148, 36, 0.8), 0 0 50px rgba(184, 148, 36, 0.4);
+        }
+
+        /* تشغيل وميض اللمعان الدائري باستمرار عند تحويم الماوس */
+        .btn-order-service:hover::before {
+            animation: shineEffect 1.2s infinite ease-in-out;
+        }
+
+        /* تذييل الصفحة */
+        footer {
+            background-color: #1a1215;
+            color: #b5a4ab;
+            text-align: center;
+            padding: 50px 20px;
+            font-size: 15px;
+            border-top: 3px solid var(--accent-color);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 🎬 قوانين الحركات */
+        @keyframes shineEffect {
+            0% { left: -150%; }
+            50% { left: 150%; }
+            100% { left: 150%; }
+        }
+
+        @keyframes animateGradientStream {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes weave3D-Gold {
+            0% { transform: translate3d(0, 0, -100px) rotateX(10deg) rotateY(5deg); stroke-dashoffset: 0; }
+            50% { transform: translate3d(20px, 30px, 50px) rotateX(-5deg) rotateY(15deg); }
+            100% { transform: translate3d(-10px, -20px, -50px) rotateX(5deg) rotateY(-10deg); stroke-dashoffset: -300; }
+        }
+
+        @keyframes weave3D-Burgundy {
+            0% { transform: translate3d(0, 0, -50px) rotateX(-10deg) rotateY(-10deg); stroke-dashoffset: 0; }
+            50% { transform: translate3d(-20px, -40px, 80px) rotateX(15deg) rotateY(5deg); }
+            100% { transform: translate3d(15px, 20px, -120px) rotateX(-5deg) rotateY(10deg); stroke-dashoffset: 300; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 15px; padding: 15px; }
+            nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+            nav a { margin: 0 5px; }
+            .detailed-service-card { padding: 30px 20px; }
+            .page-header h1 { font-size: 32px; }
+            .bg-threads-3d { opacity: 0.15; }
+        }
+    </style>
+    <link rel="icon" type="image/png" href="lo.png">
+
+<style id="thread-motion">
+.thread-motion{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;opacity:.38;}
+.thread-motion span{position:absolute;width:42vw;height:2px;background:linear-gradient(90deg,transparent,rgba(61,183,181,.28),transparent);border-radius:999px;transform-origin:center;animation:threadDrift 14s ease-in-out infinite;}
+.thread-motion span:nth-child(1){top:22%;left:-12%;transform:rotate(18deg);animation-delay:-2s;}
+.thread-motion span:nth-child(2){top:48%;left:45%;width:35vw;transform:rotate(-24deg);animation-delay:-7s;}
+.thread-motion span:nth-child(3){top:72%;left:-8%;width:48vw;transform:rotate(12deg);animation-delay:-10s;}
+.thread-motion span:nth-child(4){top:34%;left:68%;width:30vw;transform:rotate(32deg);animation-delay:-5s;}
+@keyframes threadDrift{0%,100%{translate:0 0;scale:1;opacity:.55;}50%{translate:18px -10px;scale:1.04;opacity:1;}}
+@media (prefers-reduced-motion:reduce){.thread-motion span{animation:none;}}
+@media (max-width:600px){.thread-motion{opacity:.22}.thread-motion span{width:70vw}.thread-motion span:nth-child(2){left:35%;width:55vw}.thread-motion span:nth-child(4){left:55%;width:45vw;}}
+</style>
+</head>
+<body>
+
+    <!-- 🧵 الخلفية الحية ممتدة ثلاثية الأبعاد -->
+    <div class="thread-motion" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+<div class="bg-threads-3d">
+        <svg class="thread-3d t-gold" viewBox="0 0 1440 400">
+            <path d="M0,200 C300,350 600,50 900,200 C1200,350 1300,100 1440,200" />
+        </svg>
+        <svg class="thread-3d t-burgundy" viewBox="0 0 1440 400">
+            <path d="M1440,150 C1100,-50 800,350 500,150 C200,-50 100,250 0,150" />
+        </svg>
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo-wrapper">
+                <img src="lo.png" alt="شعار النرجس" class="logo-img">
+                <div class="logo-text"><span>النرجس</span></div>
+            </div>
+            <nav>
+                <a href="index.html">الرئيسية</a>
+                <a href="services.html" class="active">خدماتنا</a>
+                <a href="order.html">اطلب الآن</a>
+                <a href="contact.html">اتصل بنا</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>خدمات النرجس للتطريز</h1>
+        <div class="header-divider"></div>
+    </div>
+
+    <div class="services-container">
+
+        <!-- الخدمة الأولى -->
+        <div class="detailed-service-card">
+            <div class="service-title-wrapper">
+                <div class="service-page-icon">👕</div>
+                <h2>التطريز على ملابسك الخاصة</h2>
+            </div>
+            <p>نمنح قطع الملابس التي تمتلكها بالفعل بعداً جديداً من التميّز والفخامة. سواء كانت قمصان، فساتين، أو عباءات، يمكنك إرسالها إلينا وتحديد التصميم أو الشعار المفضل لديك وسنقوم بتطريزها بأعلى درجات الدقة والاحترافية.</p>
+            <ul class="features-list">
+                <li>استخدام خيوط ممتازة مقاومة للبهتان وتتحمل الغسيل المتكرر.</li>
+                <li>إمكانية تنفيذ الشعارات الشخصية، الأسماء، والرسومات المعقدة.</li>
+                <li>دقة متناهية بفضل دمج مهارات التطريز اليدوي والآلي الحديث.</li>
+            </ul>
+            <a href="order.html" class="btn-order-service">اطلب هذه الخدمة الآن</a>
+        </div>
+
+        <!-- الخدمة الثانية -->
+        <div class="detailed-service-card">
+            <div class="service-title-wrapper">
+                <div class="service-page-icon">🧵</div>
+                <h2>تصميم وتفصيل متكامل</h2>
+            </div>
+            <p>نبدأ معك من الصفر حتى تكتمل إطلالتك. نتيح لك اختيار نوع القماش الفاخر، وتحديد المقاسات والأبعاد المطلوبة، ثم نقوم بتفصيل اللباس وتطريزه بالكامل بناءً على فكرتك الخاصة ليخرج قطعة فريدة مصنوعة خصيصاً لك.</p>
+            <ul class="features-list">
+                <li>توفير تشكيلة واسعة من الأقمشة الفاخرة ذات الجودة العالية.</li>
+                <li>تفصيل مخصص بالكامل يناسب مقاساتك واختياراتك بدقة.</li>
+                <li>تطريز مدمج متناسق مع تصميم ولون القماش لضمان مظهر ملكي.</li>
+            </ul>
+            <a href="order.html" class="btn-order-service">اطلب هذه الخدمة الآن</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 النرجس للتطريز. جميع الحقوق محفوظة.</p>
+    </footer>
+
+</body>
+</html>

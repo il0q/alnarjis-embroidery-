@@ -16,8 +16,8 @@
         /* الألوان والهوية البصرية الدافئة والمريحة للعين المتطابقة مع الهوية الجديدة */
         :root {
             --primary-color: #5c3d48; /* العنابي الملكي للمطرزات */
-            --accent-color: #b89424;  /* الذهبي الدافئ المريح */
-            --bg-color: #f7f4ed;      /* درجة كريمية دافئة جداً وناعمة للعين */
+            --accent-color: #3DB7B5;  /* الذهبي الدافئ المريح */
+            --bg-color: #FAF9F6;      /* درجة كريمية دافئة جداً وناعمة للعين */
             --card-bg: #f0eae1;       /* درجة دافئة للبطاقات بدلاً من الأبيض الصريح */
             --text-dark: #2d2d2d;     /* رمادي داكن ناعم للنصوص */
             --text-muted: #554d4f;    /* لون مريح للقراءة */
@@ -26,7 +26,9 @@
         }
         
         body {
+            overflow-x: clip;
             font-family: 'Cairo', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #FAF9F6 0%, #B7EBE3 100%);
             background-color: var(--bg-color);
             color: var(--text-dark);
             display: flex;
@@ -53,7 +55,8 @@
 
         .thread-3d {
             position: absolute;
-            width: 150%;
+            width: 100%;
+            max-width: 100%;
             height: 300px;
             fill: none;
             stroke-linecap: round;
@@ -61,16 +64,16 @@
 
         .t-gold {
             top: 10%;
-            left: -25%;
-            stroke: rgba(184, 148, 36, 0.2); 
+            left: 0;
+            stroke: rgba(61, 183, 181, 0.24); 
             stroke-width: 2.5;
             animation: weave3D-Gold 25s infinite ease-in-out alternate;
         }
 
         .t-burgundy {
             bottom: 10%;
-            right: -25%;
-            stroke: rgba(92, 61, 72, 0.15); 
+            right: 0;
+            stroke: rgba(92, 61, 72, 0.22); 
             stroke-width: 2;
             animation: weave3D-Burgundy 30s infinite ease-in-out alternate;
         }
@@ -125,7 +128,7 @@
             height: 4px;
             margin: 15px auto 25px auto;
             border-radius: 10px;
-            background: linear-gradient(270deg, var(--primary-color), var(--accent-color), #ca5cdd, var(--primary-color));
+            background: linear-gradient(270deg, var(--primary-color), var(--accent-color), #3DB7B5, var(--primary-color));
             background-size: 600% 600%;
             animation: animateGradientStream 6s infinite linear;
         }
@@ -139,7 +142,7 @@
 
         /* ✨ زر العودة المطور بتأثير اللمعان والتوهج الذهبي المتطابق مع الموقع */
         .btn-back {
-            background: linear-gradient(135deg, var(--accent-color) 0%, #a3811f 100%);
+            background: linear-gradient(135deg, var(--accent-color) 0%, #2F8F8B 100%);
             color: white;
             text-decoration: none;
             padding: 14px 40px;
@@ -192,14 +195,14 @@
 
         @keyframes weave3D-Gold {
             0% { transform: translate3d(0, 0, -100px) rotateX(10deg) rotateY(5deg); stroke-dashoffset: 0; }
-            50% { transform: translate3d(40px, 30px, 50px) rotateX(-5deg) rotateY(15deg); }
-            100% { transform: translate3d(-20px, -20px, -50px) rotateX(5deg) rotateY(-10deg); stroke-dashoffset: -300; }
+            50% { transform: translate3d(20px, 30px, 50px) rotateX(-5deg) rotateY(15deg); }
+            100% { transform: translate3d(-10px, -20px, -50px) rotateX(5deg) rotateY(-10deg); stroke-dashoffset: -300; }
         }
 
         @keyframes weave3D-Burgundy {
             0% { transform: translate3d(0, 0, -50px) rotateX(-10deg) rotateY(-10deg); stroke-dashoffset: 0; }
-            50% { transform: translate3d(-50px, -40px, 80px) rotateX(15deg) rotateY(5deg); }
-            100% { transform: translate3d(30px, 20px, -120px) rotateX(-5deg) rotateY(10deg); stroke-dashoffset: 300; }
+            50% { transform: translate3d(-20px, -40px, 80px) rotateX(15deg) rotateY(5deg); }
+            100% { transform: translate3d(15px, 20px, -120px) rotateX(-5deg) rotateY(10deg); stroke-dashoffset: 300; }
         }
 
         /* التوافق مع الهواتف الذكية */
@@ -219,10 +222,24 @@
             }
         }
     </style>
+
+<style id="thread-motion">
+.thread-motion{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;opacity:.38;}
+.thread-motion span{position:absolute;width:42vw;height:2px;background:linear-gradient(90deg,transparent,rgba(61,183,181,.28),transparent);border-radius:999px;transform-origin:center;animation:threadDrift 14s ease-in-out infinite;}
+.thread-motion span:nth-child(1){top:22%;left:-12%;transform:rotate(18deg);animation-delay:-2s;}
+.thread-motion span:nth-child(2){top:48%;left:45%;width:35vw;transform:rotate(-24deg);animation-delay:-7s;}
+.thread-motion span:nth-child(3){top:72%;left:-8%;width:48vw;transform:rotate(12deg);animation-delay:-10s;}
+.thread-motion span:nth-child(4){top:34%;left:68%;width:30vw;transform:rotate(32deg);animation-delay:-5s;}
+@keyframes threadDrift{0%,100%{translate:0 0;scale:1;opacity:.55;}50%{translate:18px -10px;scale:1.04;opacity:1;}}
+@media (prefers-reduced-motion:reduce){.thread-motion span{animation:none;}}
+@media (max-width:600px){.thread-motion{opacity:.22}.thread-motion span{width:70vw}.thread-motion span:nth-child(2){left:35%;width:55vw}.thread-motion span:nth-child(4){left:55%;width:45vw;}}
+</style>
 </head>
 <body>
-<!-- 🧵 الخلفية الحية الممتدة ثلاثية الأبعاد -->
-    <div class="bg-threads-3d">
+
+    <!-- 🧵 الخلفية الحية الممتدة ثلاثية الأبعاد -->
+    <div class="thread-motion" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+<div class="bg-threads-3d">
         <svg class="thread-3d t-gold" viewBox="0 0 1440 400">
             <path d="M0,200 C300,350 600,50 900,200 C1200,350 1300,100 1440,200" />
         </svg>
@@ -231,8 +248,7 @@
         </svg>
     </div>
 
-    <div class="thank-you-card narjis-top-motion">
-    <canvas id="narjisParticleCanvas" aria-hidden="true"></canvas>
+    <div class="thank-you-card">
         <!-- شعار النرجس الدائري المحدث -->
         <img src="lo.png" alt="شعار النرجس" class="logo-img-thank">
         
@@ -244,107 +260,5 @@
         <a href="index.html" class="btn-back">العودة للرئيسية</a>
     </div>
 
-
-
-<script>
-(() => {
-  const canvas = document.getElementById("narjisParticleCanvas");
-  if (!canvas) return;
-  const host = canvas.parentElement;
-  const ctx = canvas.getContext("2d", { alpha: true });
-  if (!ctx) return;
-  const particles = [];
-  const pointer = { x: -9999, y: -9999, active: false, radius: 150 };
-  let w = 0, h = 0, dpr = 1, raf = 0;
-  const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-  const settings = { density: 9000, min: 24, max: 85, link: 125, speed: reduced ? 0.08 : 0.22 };
-
-  function resize() {
-    const r = host.getBoundingClientRect();
-    w = Math.max(1, r.width); h = Math.max(1, r.height);
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
-    canvas.style.width = w + "px"; canvas.style.height = h + "px";
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const count = Math.max(settings.min, Math.min(settings.max, Math.floor((w * h) / settings.density)));
-    particles.length = 0;
-    for (let i = 0; i < count; i++) {
-      const a = Math.random() * Math.PI * 2;
-      const s = settings.speed * (0.35 + Math.random() * 0.65);
-      particles.push({
-        x: Math.random() * w, y: Math.random() * h,
-        vx: Math.cos(a) * s, vy: Math.sin(a) * s,
-        r: 0.75 + Math.random() * 1.3,
-        phase: Math.random() * Math.PI * 2,
-        pulse: 0.006 + Math.random() * 0.012
-      });
-    }
-  }
-
-  function pointerMove(e) {
-    const r = host.getBoundingClientRect();
-    const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
-    pointer.active = inside;
-    if (inside) {
-      pointer.x = e.clientX - r.left;
-      pointer.y = e.clientY - r.top;
-    }
-  }
-  function pointerLeave() { pointer.active = false; pointer.x = pointer.y = -9999; }
-  window.addEventListener("pointermove", pointerMove, { passive: true });
-  window.addEventListener("blur", pointerLeave, { passive: true });
-  window.addEventListener("resize", resize, { passive: true });
-
-  function frame() {
-    ctx.clearRect(0, 0, w, h);
-    for (const p of particles) {
-      p.x += p.vx; p.y += p.vy; p.phase += p.pulse;
-      if (p.x < -8) p.x = w + 8; else if (p.x > w + 8) p.x = -8;
-      if (p.y < -8) p.y = h + 8; else if (p.y > h + 8) p.y = -8;
-      if (pointer.active) {
-        const dx = p.x - pointer.x, dy = p.y - pointer.y, d = Math.hypot(dx, dy);
-        if (d > 0 && d < pointer.radius) {
-          const force = (1 - d / pointer.radius) * 0.45;
-          p.x += dx / d * force; p.y += dy / d * force;
-        }
-      }
-    }
-    for (let i = 0; i < particles.length; i++) {
-      const a = particles[i];
-      for (let j = i + 1; j < particles.length; j++) {
-        const b = particles[j], d = Math.hypot(a.x - b.x, a.y - b.y);
-        if (d < settings.link) {
-          const alpha = (1 - d / settings.link) * 0.16;
-          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
-          ctx.strokeStyle = `rgba(61,183,181,${alpha})`; ctx.lineWidth = 0.7; ctx.stroke();
-        }
-      }
-    }
-    for (const p of particles) {
-      const pulse = 0.72 + Math.sin(p.phase) * 0.24;
-      ctx.beginPath(); ctx.arc(p.x, p.y, p.r * 3.5, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(61,183,181,${0.04 * pulse})`; ctx.fill();
-      ctx.beginPath(); ctx.arc(p.x, p.y, p.r * pulse, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(61,183,181,${0.72 * pulse})`; ctx.fill();
-    }
-    if (pointer.active) {
-      ctx.beginPath(); ctx.arc(pointer.x, pointer.y, 2.5, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(232,190,75,.65)"; ctx.fill();
-      for (const p of particles) {
-        const d = Math.hypot(p.x - pointer.x, p.y - pointer.y);
-        if (d < pointer.radius) {
-          const alpha = (1 - d / pointer.radius) * 0.24;
-          ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(pointer.x, pointer.y);
-          ctx.strokeStyle = `rgba(232,190,75,${alpha})`; ctx.lineWidth = 0.75; ctx.stroke();
-        }
-      }
-    }
-    raf = requestAnimationFrame(frame);
-  }
-  resize();
-  cancelAnimationFrame(raf);
-  frame();
-})();
-</script>
 </body>
 </html>
