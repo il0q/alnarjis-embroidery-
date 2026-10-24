@@ -631,26 +631,23 @@ html.theme-welcome-lock,body.theme-welcome-open{overflow:hidden!important;oversc
 @media(prefers-reduced-motion:reduce){.theme-welcome,.theme-welcome-card,.theme-welcome-option,.welcome-switch,.welcome-switch-thumb,.theme-welcome-continue{transition-duration:.01ms!important;animation:none!important}}
 
 
-/* إصلاح إظهار شاشة الترحيب: البطاقة نفسها تبقى ظاهرة فوق طبقة الضباب */
-html.narjis-welcome-seen #theme-welcome{display:none!important}
-#theme-welcome:not([hidden]){display:grid!important;position:fixed!important;inset:0!important;z-index:2147483000!important;place-items:center!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;}
-#theme-welcome:not([hidden]) > #theme-welcome-card,
-#theme-welcome:not([hidden]) > .theme-welcome-card{display:block!important;position:relative!important;z-index:1!important;visibility:visible!important;opacity:1!important;flex:none!important;width:min(100%,560px)!important;max-height:calc(100dvh - 32px)!important;overflow-y:auto!important;margin:auto!important;box-sizing:border-box!important;}
+/* تثبيت شاشة الترحيب ومنع ظهور الضباب وحده */
+#theme-welcome[hidden]{display:none!important}
+#theme-welcome:not([hidden]){display:grid!important;position:fixed!important;inset:0!important;z-index:2147483000!important;place-items:center!important;pointer-events:auto!important;}
+#theme-welcome:not([hidden]) > #theme-welcome-card{display:block!important;position:relative!important;z-index:1!important;visibility:visible!important;opacity:1!important;flex:none!important;width:min(100%,560px)!important;max-height:calc(100dvh - 32px)!important;overflow-y:auto!important;margin:auto!important;box-sizing:border-box!important;}
 #theme-welcome:not([hidden]) > #theme-welcome-card *{visibility:visible;}
+#theme-welcome:not([hidden]).is-closing{pointer-events:none!important;}
 @media(max-width:480px){#theme-welcome:not([hidden]){padding:12px!important}#theme-welcome:not([hidden]) > #theme-welcome-card{width:min(100%,560px)!important;max-height:calc(100dvh - 24px)!important;padding:24px 16px 20px!important;border-radius:22px!important}}
 
 </style>
 <script id="alnarjis-theme-init">
 (function(){try{var saved=localStorage.getItem('alnarjis-theme');if(saved==='dark'||saved==='light'){document.documentElement.setAttribute('data-theme',saved);}else{document.documentElement.setAttribute('data-theme','light');}}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
 </script>
-<script id="alnarjis-welcome-preflight">
-(function(){try{if(sessionStorage.getItem('alnarjis-theme-welcomed')==='yes'){document.documentElement.classList.add('narjis-welcome-seen');}}catch(e){}})();
-</script>
 </head>
 <body>
 <div class="theme-control" aria-label="مظهر الموقع"><span class="theme-label" id="theme-label">الوضع النهاري</span><button type="button" class="theme-toggle" id="theme-toggle" role="switch" aria-checked="false" aria-label="التبديل بين الوضع النهاري والليلي" title="التبديل بين الوضع النهاري والليلي"><span class="theme-icon sun" aria-hidden="true">☀</span><span class="theme-icon moon" aria-hidden="true">☾</span><span class="theme-thumb" aria-hidden="true"></span></button></div>
 
-<div class="theme-welcome" id="theme-welcome" role="dialog" aria-modal="true" aria-labelledby="theme-welcome-title">
+<div class="theme-welcome" id="theme-welcome" hidden role="dialog" aria-modal="true" aria-labelledby="theme-welcome-title">
   <section id="theme-welcome-card" class="theme-welcome-card" style="display:block;visibility:visible;opacity:1;position:relative;z-index:1;">
     <div class="theme-welcome-brand">
       <img class="theme-welcome-logo" src="lo.png" alt="شعار النرجس للتطريز" onerror="this.style.display='none'">
@@ -835,69 +832,113 @@ html.narjis-welcome-seen #theme-welcome{display:none!important}
 
 <script id="alnarjis-theme-welcome-behavior">
 (function(){
- var root=document.documentElement, overlay=document.getElementById('theme-welcome');
- if(!overlay)return;
- var switcher=document.getElementById('welcome-switch'), continueBtn=document.getElementById('theme-welcome-continue');
- var options=Array.prototype.slice.call(overlay.querySelectorAll('[data-welcome-theme]'));
- var selected='light', previousFocus=null;
- try { selected=localStorage.getItem('alnarjis-theme')==='dark'?'dark':'light'; } catch(e) {}
- function setTheme(theme, animate){
-   selected=theme;
-   if(animate) root.classList.add('theme-animating');
-   root.setAttribute('data-theme',theme);
-   var pageToggle=document.getElementById('theme-toggle'), pageLabel=document.getElementById('theme-label');
-   if(pageToggle){pageToggle.setAttribute('aria-checked',theme==='dark'?'true':'false');pageToggle.setAttribute('aria-label',theme==='dark'?'التبديل إلى الوضع النهاري':'التبديل إلى الوضع الليلي');pageToggle.setAttribute('title',theme==='dark'?'التبديل إلى الوضع النهاري':'التبديل إلى الوضع الليلي');}
-   if(pageLabel){pageLabel.textContent=theme==='dark'?'الوضع الليلي':'الوضع النهاري';}
-   options.forEach(function(option){option.setAttribute('aria-pressed',option.getAttribute('data-welcome-theme')===theme?'true':'false');});
-   switcher.setAttribute('aria-checked',theme==='dark'?'true':'false');
-   var thumb=switcher.querySelector('.welcome-switch-thumb');
-   if(thumb) thumb.textContent=theme==='dark'?'☾':'☀';
-   switcher.setAttribute('aria-label',theme==='dark'?'الوضع الليلي محدد، اضغط للتبديل إلى النهاري':'الوضع النهاري محدد، اضغط للتبديل إلى الليلي');
-   if(animate) window.setTimeout(function(){root.classList.remove('theme-animating');},750);
- }
- function closeOverlay(){
-   try { localStorage.setItem('alnarjis-theme',selected); sessionStorage.setItem('alnarjis-theme-welcomed','yes'); } catch(e) {}
-   setTheme(selected,true);
-   overlay.classList.add('is-closing');
-   document.body.classList.remove('theme-welcome-open');
-   root.classList.remove('theme-welcome-lock');
-   window.setTimeout(function(){overlay.hidden=true;overlay.classList.remove('is-closing');},560);
- }
- options.forEach(function(option){option.addEventListener('click',function(){setTheme(option.getAttribute('data-welcome-theme'),true);});});
- switcher.addEventListener('click',function(){setTheme(selected==='dark'?'light':'dark',true);});
- continueBtn.addEventListener('click',closeOverlay);
- var shouldShow=true;
- try { shouldShow=sessionStorage.getItem('alnarjis-theme-welcomed')!=='yes'; } catch(e) { shouldShow=true; }
- setTheme(selected,false);
- if(shouldShow){
-   previousFocus=document.activeElement;
-   overlay.hidden=false;
-   overlay.classList.remove('is-closing');
-   overlay.style.display='grid';
-   overlay.style.visibility='visible';
-   overlay.style.opacity='1';
-   overlay.style.pointerEvents='auto';
-   document.documentElement.classList.remove('narjis-welcome-seen');
-   document.body.classList.add('theme-welcome-open');
-   root.classList.add('theme-welcome-lock');
-   window.requestAnimationFrame(function(){try{continueBtn.focus({preventScroll:true});}catch(e){continueBtn.focus();}});
- } else {
-   overlay.hidden=true;
-   overlay.style.removeProperty('display');
-   document.body.classList.remove('theme-welcome-open');
-   root.classList.remove('theme-welcome-lock');
- }
- document.addEventListener('keydown',function(event){
-   if(overlay.hidden)return;
-   if(event.key==='Escape'){event.preventDefault();}
-   if(event.key==='Tab'){
-     var focusable=overlay.querySelectorAll('button:not([disabled])');
-     if(!focusable.length)return;
-     var first=focusable[0], last=focusable[focusable.length-1];
-     if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
-     else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
-   }
- });
+  var root=document.documentElement;
+  var overlay=document.getElementById('theme-welcome');
+  if(!overlay) return;
+  var card=document.getElementById('theme-welcome-card');
+  var switcher=document.getElementById('welcome-switch');
+  var continueBtn=document.getElementById('theme-welcome-continue');
+  if(!switcher || !continueBtn || !card) return;
+  var options=Array.prototype.slice.call(overlay.querySelectorAll('[data-welcome-theme]'));
+  var selected='light';
+  try { selected=localStorage.getItem('alnarjis-theme')==='dark'?'dark':'light'; } catch(e) {}
+
+  function setTheme(theme, animate){
+    selected=theme;
+    if(animate) root.classList.add('theme-animating');
+    root.setAttribute('data-theme',theme);
+    try { localStorage.setItem('alnarjis-theme',theme); } catch(e) {}
+    var pageToggle=document.getElementById('theme-toggle');
+    var pageLabel=document.getElementById('theme-label');
+    if(pageToggle){
+      pageToggle.setAttribute('aria-checked',theme==='dark'?'true':'false');
+      pageToggle.setAttribute('aria-label',theme==='dark'?'التبديل إلى الوضع النهاري':'التبديل إلى الوضع الليلي');
+      pageToggle.setAttribute('title',theme==='dark'?'التبديل إلى الوضع النهاري':'التبديل إلى الوضع الليلي');
+    }
+    if(pageLabel) pageLabel.textContent=theme==='dark'?'الوضع الليلي':'الوضع النهاري';
+    options.forEach(function(option){option.setAttribute('aria-pressed',option.getAttribute('data-welcome-theme')===theme?'true':'false');});
+    switcher.setAttribute('aria-checked',theme==='dark'?'true':'false');
+    var thumb=switcher.querySelector('.welcome-switch-thumb');
+    if(thumb) thumb.textContent=theme==='dark'?'☾':'☀';
+    switcher.setAttribute('aria-label',theme==='dark'?'الوضع الليلي محدد، اضغط للتبديل إلى النهاري':'الوضع النهاري محدد، اضغط للتبديل إلى الليلي');
+    if(animate) window.setTimeout(function(){root.classList.remove('theme-animating');},750);
+  }
+
+  function closeOverlay(){
+    if(overlay.hidden || overlay.classList.contains('is-closing')) return;
+    setTheme(selected,true);
+    try { sessionStorage.setItem('alnarjis-theme-welcomed-v3','yes'); } catch(e) {}
+    overlay.classList.add('is-closing');
+    // Keep the background locked until the whole overlay has finished fading away.
+    window.setTimeout(function(){
+      overlay.hidden=true;
+      overlay.classList.remove('is-closing');
+      overlay.style.removeProperty('display');
+      overlay.style.removeProperty('visibility');
+      overlay.style.removeProperty('opacity');
+      overlay.style.removeProperty('pointer-events');
+      document.body.classList.remove('theme-welcome-open');
+      root.classList.remove('theme-welcome-lock');
+    },600);
+  }
+
+  options.forEach(function(option){
+    option.addEventListener('click',function(){setTheme(option.getAttribute('data-welcome-theme'),true);});
+  });
+  switcher.addEventListener('click',function(){setTheme(selected==='dark'?'light':'dark',true);});
+  continueBtn.addEventListener('click',closeOverlay);
+
+  // Use a versioned session key so old saved flags cannot instantly dismiss the welcome screen.
+  var shouldShow=true;
+  try { shouldShow=sessionStorage.getItem('alnarjis-theme-welcomed-v3')!=='yes'; } catch(e) {}
+  setTheme(selected,false);
+  if(shouldShow){
+    overlay.hidden=false;
+    overlay.classList.remove('is-closing');
+    overlay.style.display='grid';
+    overlay.style.visibility='visible';
+    overlay.style.opacity='1';
+    overlay.style.pointerEvents='auto';
+    card.hidden=false;
+    card.style.display='block';
+    card.style.visibility='visible';
+    card.style.opacity='1';
+    card.style.position='relative';
+    card.style.zIndex='1';
+    document.body.classList.add('theme-welcome-open');
+    root.classList.add('theme-welcome-lock');
+    // Reassert visibility on the next paint to prevent a card-less blurred overlay.
+    window.requestAnimationFrame(function(){
+      if(overlay.hidden) return;
+      overlay.style.display='grid';
+      overlay.style.visibility='visible';
+      overlay.style.opacity='1';
+      card.style.display='block';
+      card.style.visibility='visible';
+      card.style.opacity='1';
+      try { continueBtn.focus({preventScroll:true}); } catch(e) { try { continueBtn.focus(); } catch(e2) {} }
+    });
+  } else {
+    overlay.hidden=true;
+    overlay.style.removeProperty('display');
+    overlay.style.removeProperty('visibility');
+    overlay.style.removeProperty('opacity');
+    overlay.style.removeProperty('pointer-events');
+    document.body.classList.remove('theme-welcome-open');
+    root.classList.remove('theme-welcome-lock');
+  }
+
+  document.addEventListener('keydown',function(event){
+    if(overlay.hidden) return;
+    if(event.key==='Escape'){event.preventDefault();}
+    if(event.key==='Tab'){
+      var focusable=overlay.querySelectorAll('button:not([disabled])');
+      if(!focusable.length) return;
+      var first=focusable[0], last=focusable[focusable.length-1];
+      if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+      else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+    }
+  });
 })();
 </script>
 
