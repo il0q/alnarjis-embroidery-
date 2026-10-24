@@ -544,16 +544,28 @@ html.theme-welcome-lock,body.theme-welcome-open{overflow:hidden!important;oversc
 @media(max-width:480px){.theme-welcome{padding:13px;align-items:center}.theme-welcome-card{padding:27px 18px 22px;border-radius:23px}.theme-welcome-brand{margin-bottom:15px}.theme-welcome-logo{width:48px;height:48px}.theme-welcome-description{font-size:13px;margin-bottom:20px}.theme-welcome-options{gap:9px}.theme-welcome-option{min-height:123px;padding:13px 11px}.theme-mode-emoji{width:39px;height:39px;margin-bottom:9px}.theme-mode-name{font-size:14px}.theme-mode-note{font-size:10px}.theme-welcome-switchrow{margin-bottom:16px}.theme-welcome-continue{min-height:49px}}
 @media(prefers-reduced-motion:reduce){.theme-welcome,.theme-welcome-card,.theme-welcome-option,.welcome-switch,.welcome-switch-thumb,.theme-welcome-continue{transition-duration:.01ms!important;animation:none!important}}
 
+
+/* إصلاح إظهار شاشة الترحيب: البطاقة نفسها تبقى ظاهرة فوق طبقة الضباب */
+html.narjis-welcome-seen #theme-welcome{display:none!important}
+#theme-welcome:not([hidden]){display:grid!important;position:fixed!important;inset:0!important;z-index:2147483000!important;place-items:center!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;}
+#theme-welcome:not([hidden]) > #theme-welcome-card,
+#theme-welcome:not([hidden]) > .theme-welcome-card{display:block!important;position:relative!important;z-index:1!important;visibility:visible!important;opacity:1!important;flex:none!important;width:min(100%,560px)!important;max-height:calc(100dvh - 32px)!important;overflow-y:auto!important;margin:auto!important;box-sizing:border-box!important;}
+#theme-welcome:not([hidden]) > #theme-welcome-card *{visibility:visible;}
+@media(max-width:480px){#theme-welcome:not([hidden]){padding:12px!important}#theme-welcome:not([hidden]) > #theme-welcome-card{width:min(100%,560px)!important;max-height:calc(100dvh - 24px)!important;padding:24px 16px 20px!important;border-radius:22px!important}}
+
 </style>
 <script id="alnarjis-theme-init">
 (function(){try{var saved=localStorage.getItem('alnarjis-theme');if(saved==='dark'||saved==='light'){document.documentElement.setAttribute('data-theme',saved);}else{document.documentElement.setAttribute('data-theme','light');}}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
+</script>
+<script id="alnarjis-welcome-preflight">
+(function(){try{if(sessionStorage.getItem('alnarjis-theme-welcomed')==='yes'){document.documentElement.classList.add('narjis-welcome-seen');}}catch(e){}})();
 </script>
 </head>
 <body>
 <div class="theme-control" aria-label="مظهر الموقع"><span class="theme-label" id="theme-label">الوضع النهاري</span><button type="button" class="theme-toggle" id="theme-toggle" role="switch" aria-checked="false" aria-label="التبديل بين الوضع النهاري والليلي" title="التبديل بين الوضع النهاري والليلي"><span class="theme-icon sun" aria-hidden="true">☀</span><span class="theme-icon moon" aria-hidden="true">☾</span><span class="theme-thumb" aria-hidden="true"></span></button></div>
 
-<div class="theme-welcome" id="theme-welcome" role="dialog" aria-modal="true" aria-labelledby="theme-welcome-title" hidden>
-  <section class="theme-welcome-card">
+<div class="theme-welcome" id="theme-welcome" role="dialog" aria-modal="true" aria-labelledby="theme-welcome-title">
+  <section id="theme-welcome-card" class="theme-welcome-card" style="display:block;visibility:visible;opacity:1;position:relative;z-index:1;">
     <div class="theme-welcome-brand">
       <img class="theme-welcome-logo" src="lo.png" alt="شعار النرجس للتطريز" onerror="this.style.display='none'">
       <div class="theme-welcome-brand-name">النرجس للتطريز</div>
@@ -769,9 +781,20 @@ html.theme-welcome-lock,body.theme-welcome-open{overflow:hidden!important;oversc
  if(shouldShow){
    previousFocus=document.activeElement;
    overlay.hidden=false;
+   overlay.classList.remove('is-closing');
+   overlay.style.display='grid';
+   overlay.style.visibility='visible';
+   overlay.style.opacity='1';
+   overlay.style.pointerEvents='auto';
+   document.documentElement.classList.remove('narjis-welcome-seen');
    document.body.classList.add('theme-welcome-open');
    root.classList.add('theme-welcome-lock');
-   window.requestAnimationFrame(function(){continueBtn.focus({preventScroll:true});});
+   window.requestAnimationFrame(function(){try{continueBtn.focus({preventScroll:true});}catch(e){continueBtn.focus();}});
+ } else {
+   overlay.hidden=true;
+   overlay.style.removeProperty('display');
+   document.body.classList.remove('theme-welcome-open');
+   root.classList.remove('theme-welcome-lock');
  }
  document.addEventListener('keydown',function(event){
    if(overlay.hidden)return;
