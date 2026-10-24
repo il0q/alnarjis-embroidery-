@@ -337,6 +337,8 @@ body:has(.form-step) .choice, body:has(.form-step) .color-card, body:has(.form-s
 :root{color-scheme:light;}
 html[data-theme="dark"]{color-scheme:dark;--primary-color:#d5a8b9;--accent-color:#55d2cb;--bg-color:#111619;--card-bg:#1b252a;--card-hover:#26363b;--text-dark:#f3edf0;--text-muted:#c7b8bf;--shadow:0 16px 40px rgba(0,0,0,.22);--wine:#d5a8b9;--teal:#55d2cb;--mint:#11191c;--line:#30494b;--ink:#f4edf0;--muted:#aebdc1;}
 html.theme-animating *,html.theme-animating *::before,html.theme-animating *::after{transition-property:color,background-color,border-color,box-shadow,fill,stroke !important;transition-duration:.58s !important;transition-timing-function:cubic-bezier(.22,1,.36,1) !important;}
+/* Keep theme-switch transforms animating smoothly; do not let the global color fade override them. */
+html.theme-animating .theme-toggle,html.theme-animating .theme-thumb,html.theme-animating .theme-icon,html.theme-animating .welcome-switch,html.theme-animating .welcome-switch-thumb{transition-property:transform,background-color,border-color,opacity,box-shadow !important;transition-duration:.62s !important;transition-timing-function:cubic-bezier(.22,1,.36,1) !important;will-change:transform,background-color;}
 body{transition:background-color .58s cubic-bezier(.22,1,.36,1),color .45s ease;}
 .theme-control{position:fixed;left:16px;bottom:16px;z-index:100000;display:flex;align-items:center;gap:9px;padding:7px 9px 7px 11px;border:1px solid rgba(61,183,181,.35);border-radius:999px;background:rgba(250,249,246,.92);color:#44323a;box-shadow:0 8px 28px rgba(35,25,30,.15);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);font-family:Cairo,Arial,sans-serif;direction:rtl;}
 .theme-label{font-size:11px;font-weight:700;white-space:nowrap;user-select:none;min-width:52px;text-align:center;}
@@ -634,7 +636,8 @@ html[data-theme="dark"] .theme-control { background: rgba(24,31,35,.96) !importa
  var root=document.documentElement, toggle=document.getElementById('theme-toggle'), label=document.getElementById('theme-label');
  if(!toggle)return;
  function sync(){var dark=root.getAttribute('data-theme')==='dark';toggle.setAttribute('aria-checked',dark?'true':'false');toggle.setAttribute('aria-label',dark?'التبديل إلى الوضع النهاري':'التبديل إلى الوضع الليلي');toggle.setAttribute('title',dark?'التبديل إلى الوضع النهاري':'التبديل إلى الوضع الليلي');if(label)label.textContent=dark?'الوضع الليلي':'الوضع النهاري';}
- toggle.addEventListener('click',function(){var next=root.getAttribute('data-theme')==='dark'?'light':'dark';root.classList.add('theme-animating');root.setAttribute('data-theme',next);try{localStorage.setItem('alnarjis-theme',next);}catch(e){}sync();window.setTimeout(function(){root.classList.remove('theme-animating');},750);});
+ function scheduleThemeAnimationEnd(){if(window.__narjisThemeAnimTimer)window.clearTimeout(window.__narjisThemeAnimTimer);window.__narjisThemeAnimTimer=window.setTimeout(function(){root.classList.remove('theme-animating');window.__narjisThemeAnimTimer=0;},820);}
+ toggle.addEventListener('click',function(){var next=root.getAttribute('data-theme')==='dark'?'light':'dark';root.classList.add('theme-animating');root.setAttribute('data-theme',next);try{localStorage.setItem('alnarjis-theme',next);}catch(e){}sync();scheduleThemeAnimationEnd();});
  sync();
 })();
 </script>
