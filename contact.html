@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="تواصل مع النرجس للتطريز للاستفسارات وطلبات التطريز وتأكيد تفاصيل الخدمة.">
+    <meta name="theme-color" content="#5c3d48">
     <title>من نحن واتصل بنا | النرجس للتطريز</title>
     <!-- استدعاء خط Cairo ليتناسب مع الهوية البصرية الجديدة للموقع -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -557,7 +559,50 @@ body:has(.form-step) .choice, body:has(.form-step) .color-card, body:has(.form-s
 <style id="alnarjis-theme-styles">
 :root{color-scheme:light;}
 html[data-theme="dark"]{color-scheme:dark;--primary-color:#d5a8b9;--accent-color:#55d2cb;--bg-color:#111619;--card-bg:#1b252a;--card-hover:#26363b;--text-dark:#f3edf0;--text-muted:#c7b8bf;--shadow:0 16px 40px rgba(0,0,0,.22);--wine:#d5a8b9;--teal:#55d2cb;--mint:#11191c;--line:#30494b;--ink:#f4edf0;--muted:#aebdc1;}
-html.theme-animating *,html.theme-animating *::before,html.theme-animating *::after{transition-property:color,background-color,border-color,box-shadow,fill,stroke !important;transition-duration:.58s !important;transition-timing-function:cubic-bezier(.22,1,.36,1) !important;}
+/* لا نفرض انتقالًا على كل عنصر في الصفحة؛ ذلك يعطّل حركات التحويل ويزيد إعادة الرسم. */
+html.theme-animating body,
+html.theme-animating header,
+html.theme-animating footer,
+html.theme-animating .nav-container,
+html.theme-animating .hero,
+html.theme-animating .page-header,
+html.theme-animating .about-brief,
+html.theme-animating .about-section,
+html.theme-animating .services-preview,
+html.theme-animating .services-container,
+html.theme-animating .main-container,
+html.theme-animating .service-card,
+html.theme-animating .detailed-service-card,
+html.theme-animating .contact-card,
+html.theme-animating .thank-you-card,
+html.theme-animating .panel,
+html.theme-animating .form-step,
+html.theme-animating .review-card,
+html.theme-animating .review-grid,
+html.theme-animating .cost-card,
+html.theme-animating .color-card,
+html.theme-animating .choice,
+html.theme-animating .upload,
+html.theme-animating .field input,
+html.theme-animating .field textarea,
+html.theme-animating .field select,
+html.theme-animating #summary,
+html.theme-animating .theme-control,
+html.theme-animating .theme-welcome-card,
+html.theme-animating .theme-welcome-option,
+html.theme-animating .theme-welcome-switchrow,
+html.theme-animating .theme-welcome-continue {
+  transition-property: background, background-color, color, border-color, box-shadow, filter !important;
+  transition-duration: 420ms !important;
+  transition-timing-function: cubic-bezier(.22,.72,.22,1) !important;
+}
+html.theme-animating h1, html.theme-animating h2, html.theme-animating h3,
+html.theme-animating h4, html.theme-animating p, html.theme-animating li,
+html.theme-animating label, html.theme-animating small,
+html.theme-animating nav a, html.theme-animating .logo-text,
+html.theme-animating .theme-label, html.theme-animating .review-row {
+  transition: color 360ms cubic-bezier(.22,.72,.22,1) !important;
+}
 /* Keep theme-switch transforms animating smoothly; do not let the global color fade override them. */
 html.theme-animating .theme-toggle,html.theme-animating .theme-thumb,html.theme-animating .theme-icon,html.theme-animating .welcome-switch,html.theme-animating .welcome-switch-thumb{transition-property:transform,background-color,border-color,opacity,box-shadow !important;transition-duration:.62s !important;transition-timing-function:cubic-bezier(.22,1,.36,1) !important;will-change:transform,background-color;}
 body{transition:background-color .58s cubic-bezier(.22,1,.36,1),color .45s ease;}
@@ -755,8 +800,137 @@ html[data-theme="dark"] .theme-control { background: rgba(24,31,35,.96) !importa
 }
 </style>
 
+<style id="alnarjis-quality-polish">
+/* افصل منظور الحركة الثلاثية الأبعاد عن كامل الصفحة لتقليل كلفة الرسم. */
+body { perspective: none !important; }
+.bg-threads-3d { perspective: 1000px; }
+html[data-welcome-seen="true"] #theme-welcome { display: none !important; }
+@media (max-width: 720px) {
+  .bg-threads-3d { opacity: .11 !important; }
+  .thread-3d { filter: none !important; }
+  .thread-motion { opacity: .16 !important; }
+}
+
+/* تحسين عام للأداء وسلاسة التفاعل */
+html { text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+body { overflow-x: clip; }
+button, .btn, [class*="btn-"] { transform: none; }
+button:active, .btn:active, [class*="btn-"]:active { transform: translateY(1px) scale(.99); }
+.theme-toggle, .theme-thumb, .theme-icon, .welcome-switch, .welcome-switch-thumb {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.theme-toggle, .welcome-switch { touch-action: manipulation; }
+/* تقليل المسافة والحركة في عناصر الظهور حتى لا يشعر الزائر بتأخر المحتوى */
+.motion-enhanced .motion-reveal { transition-duration: 420ms !important; transition-delay: min(var(--reveal-delay,0ms), 120ms) !important; transform: translate3d(0,10px,0); will-change: auto !important; }
+.motion-enhanced .motion-reveal.is-visible { transform: translate3d(0,0,0); }
+/* صفحة الطلب: سطح أنيق بدون البرواز الأبيض الكبير، في النهاري والليلي */
+#orderForm.panel { border-radius: 24px; overflow: clip; }
+html[data-theme="dark"] #orderForm.panel {
+  background: linear-gradient(145deg,#172126,#121a1e) !important;
+  border: 1px solid rgba(85,210,203,.24) !important;
+  box-shadow: 0 18px 44px rgba(0,0,0,.24) !important;
+}
+html[data-theme="dark"] #summary { background: #141d21 !important; border: 1px solid #30464b !important; color: #f0e8ec !important; }
+html[data-theme="dark"] .review-grid .review-card { background: #192328 !important; }
+html[data-theme="dark"] .urgent-invoice-note { color: #f4d59b !important; background: rgba(184,133,43,.12) !important; border-color: rgba(224,180,92,.32) !important; }
+html[data-theme="light"] #orderForm.panel { background: rgba(255,255,255,.76); border-color: rgba(61,183,181,.24); box-shadow: 0 18px 46px rgba(57,82,80,.08); }
+/* أزرار وخيارات واضحة وسريعة الاستجابة */
+.choice, .color-card, .upload, .service-card, .detailed-service-card, .contact-card, .review-card, .cost-card { -webkit-tap-highlight-color: transparent; }
+.choice:focus-visible, .theme-welcome-option:focus-visible, .welcome-switch:focus-visible { outline-offset: 4px; }
+.form-step:not(.hidden) { animation: narjis-step-enter 240ms cubic-bezier(.22,.72,.22,1) both; }
+@keyframes narjis-step-enter { from { opacity: .55; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+/* ألوان مريحة ومتناسقة في شاشة اختيار المظهر */
+.theme-welcome { transition: opacity 420ms cubic-bezier(.22,.72,.22,1), visibility 420ms; }
+.theme-welcome-card, .theme-welcome-option, .welcome-switch-thumb { transition-timing-function: cubic-bezier(.22,.72,.22,1); }
+.welcome-switch-thumb { transition-duration: 420ms !important; }
+/* لا نعيق حركة الأزرار والتحويلات عند تبديل المظهر؛ ننتقل فقط بالألوان على الأسطح المهمة */
+@media (max-width: 720px) {
+  .theme-control { box-shadow: 0 6px 18px rgba(20,20,20,.14); }
+  .theme-welcome { padding: max(12px, env(safe-area-inset-top)) 12px max(12px, env(safe-area-inset-bottom)); }
+  #orderForm.panel { width: min(100% - 20px, 900px); margin-inline: auto; }
+  .form-step:not(.hidden) { animation-duration: 190ms; }
+}
+@media (max-width: 420px) {
+  .theme-welcome-options { gap: 8px; }
+  .theme-welcome-option { min-width: 0; }
+  .theme-label { min-width: 40px; }
+  #orderForm.panel { padding: 14px !important; border-radius: 18px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .form-step:not(.hidden) { animation: none !important; }
+  .motion-enhanced .motion-reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+<style id="narjis-usability-v3">
+/* راحة القراءة والوصول في كل الصفحات */
+html{scroll-padding-top:92px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{overflow-x:clip}
+a,button,input,select,textarea{ -webkit-tap-highlight-color:transparent }
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #3db7b5!important;outline-offset:3px!important}
+.skip-to-content{position:fixed;top:8px;right:8px;z-index:900000;padding:10px 16px;border-radius:12px;background:#5c3d48;color:#fff!important;font:700 14px Cairo,Arial,sans-serif;text-decoration:none;transform:translateY(-160%);transition:transform .18s ease}
+.skip-to-content:focus{transform:translateY(0)}
+header nav a{min-height:42px;display:inline-flex!important;align-items:center;justify-content:center;line-height:1.5}
+.logo-wrapper{min-width:0}
+.logo-img{flex-shrink:0}
+.narjis-back-top{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:99000;width:46px;height:46px;border:1px solid rgba(61,183,181,.48);border-radius:50%;display:grid;place-items:center;background:rgba(92,61,72,.96);color:#fff;box-shadow:0 8px 22px rgba(25,20,23,.18);font:900 22px/1 Cairo,Arial,sans-serif;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .22s ease,transform .22s ease,visibility .22s ease,background-color .22s ease}
+.narjis-back-top.is-visible{opacity:1;visibility:visible;transform:translateY(0)}
+.narjis-back-top:hover{background:#2f9692}
+#narjis-scroll-progress{position:fixed;top:0;right:0;left:auto;height:3px;z-index:110000;width:0;background:linear-gradient(90deg,#5c3d48,#3db7b5);pointer-events:none}
+@media(max-width:720px){
+ .nav-container{padding:9px 12px!important;gap:8px!important;flex-wrap:wrap;justify-content:center!important}
+ .logo-wrapper{justify-content:center}
+ .logo-img{width:40px!important;height:40px!important}
+ .logo-text{font-size:21px!important}
+ header nav{width:100%;display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:2px 9px!important}
+ header nav a{margin:0!important;min-height:40px;padding:6px 4px!important;font-size:13px!important}
+ .narjis-back-top{right:10px;bottom:calc(10px + env(safe-area-inset-bottom));width:44px;height:44px}
+}
+@media(max-width:390px){header nav{gap:0 5px!important}header nav a{font-size:12px!important;padding-inline:3px!important}.logo-img{width:36px!important;height:36px!important}.logo-text{font-size:19px!important}}
+@media(prefers-reduced-motion:reduce){.skip-to-content,.narjis-back-top{transition:none!important}html{scroll-behavior:auto!important}}
+</style>
+<style id="narjis-footer-usability">
+#site-footer.site-footer{display:grid!important;grid-template-columns:1.35fr 1fr 1fr;gap:28px!important;align-items:start!important;position:relative;background:#171114!important;color:#f6edf1!important;border-top:2px solid #3db7b5!important;padding:28px clamp(18px,5vw,72px) 44px!important;font:13px/1.8 Cairo,Arial,sans-serif!important}
+#site-footer .footer-brand-link{display:inline-flex;align-items:center;gap:10px;color:#f4dfe6;text-decoration:none;font-size:17px;font-weight:900}
+#site-footer .footer-brand-link img{object-fit:cover;border:1px solid #3db7b5;border-radius:50%}
+#site-footer .footer-brand p{margin:8px 0 0;color:#c9bdc2;font-size:12px}
+#site-footer .footer-links,#site-footer .footer-contact{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+#site-footer .footer-links>strong,#site-footer .footer-contact>strong{margin-bottom:5px;color:#fff;font-size:13px}
+#site-footer a:not(.footer-brand-link){color:#c9bdc2;text-decoration:none;display:inline-flex;align-items:center;min-height:34px;border-radius:7px;transition:color .18s ease,background-color .18s ease}
+#site-footer a:not(.footer-brand-link):hover{color:#68ded7}
+#site-footer a:focus-visible{outline:2px solid #68ded7!important;outline-offset:3px}
+#site-footer .footer-order-link{margin-top:4px;padding:4px 11px!important;background:#2f9692;color:white!important;border-radius:9px!important;font-weight:800}
+#site-footer .footer-bottom{position:absolute;right:clamp(18px,5vw,72px);left:clamp(18px,5vw,72px);bottom:10px;padding-top:8px;border-top:1px solid rgba(255,255,255,.12);font-size:10px;color:#a99ca2;text-align:center}
+html[data-theme="dark"] #site-footer.site-footer{background:#0f1518!important;border-top-color:#55d2cb!important}
+@media(max-width:650px){#site-footer.site-footer{grid-template-columns:1fr 1fr;gap:19px 14px!important;padding:23px 17px 54px!important;font-size:12px!important}#site-footer .footer-brand{grid-column:1/-1}#site-footer .footer-brand-link{font-size:16px}#site-footer .footer-bottom{right:16px;left:16px;font-size:9px}}
+@media(max-width:360px){#site-footer.site-footer{grid-template-columns:1fr}#site-footer .footer-brand{grid-column:auto}}
+</style>
+<style id="narjis-usability-v4">
+:root{--narjis-burgundy:#5c3d48;--narjis-teal:#3db7b5;--narjis-focus:rgba(61,183,181,.32)}
+html{scroll-padding-top:100px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{overflow-x:clip}
+button,a,input,select,textarea{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--narjis-teal)!important;outline-offset:3px!important;box-shadow:0 0 0 4px var(--narjis-focus)}
+img,video,svg{max-width:100%}
+input,select,textarea{max-width:100%}
+::selection{background:rgba(61,183,181,.25);color:inherit}
+header{padding-top:env(safe-area-inset-top,0px)}
+header nav a{min-height:42px;display:inline-flex!important;align-items:center;justify-content:center;line-height:1.55}
+@media(hover:hover) and (pointer:fine){a,button{transition-property:color,background-color,border-color,box-shadow,transform;transition-duration:.2s;transition-timing-function:cubic-bezier(.2,.7,.2,1)}}
+@media(max-width:720px){
+ html{scroll-padding-top:84px}
+ .nav-container{padding:9px 12px!important;gap:6px!important}
+ header nav a{min-height:42px;padding:6px 5px!important}
+ input,select,textarea{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-transition:none!important}
+ .bg-threads-3d,.thread-3d{animation:none!important;filter:none!important}
+}
+</style>
 </head>
 <body>
+<a class="skip-to-content" href="#main-content">انتقل إلى المحتوى الرئيسي</a>
 <div class="theme-control" aria-label="مظهر الموقع"><span class="theme-label" id="theme-label">الوضع النهاري</span><button type="button" class="theme-toggle" id="theme-toggle" role="switch" aria-checked="false" aria-label="التبديل بين الوضع النهاري والليلي" title="التبديل بين الوضع النهاري والليلي"><span class="theme-icon sun" aria-hidden="true">☀</span><span class="theme-icon moon" aria-hidden="true">☾</span><span class="theme-thumb" aria-hidden="true"></span></button></div>
 
 
@@ -782,16 +956,16 @@ html[data-theme="dark"] .theme-control { background: rgba(24,31,35,.96) !importa
                 <img src="lo.png" alt="شعار النرجس" class="logo-img">
                 <div class="logo-text"><span>النرجس</span></div>
             </div>
-            <nav>
+            <nav aria-label="التنقل الرئيسي">
                 <a href="index.html">الرئيسية</a>
                 <a href="services.html">خدماتنا</a>
                 <a href="order.html">اطلب الآن</a>
-                <a href="contact.html" class="active">اتصل بنا</a>
+                <a href="contact.html" class="active" aria-current="page">اتصل بنا</a>
             </nav>
         </div>
     </header>
 
-    <div class="page-header">
+    <div id="main-content" tabindex="-1" class="page-header">
         <h1>من نحن واتصل بنا</h1>
         <p>تعرف على حكايتنا وتواصل معنا مباشرة عبر قنواتنا الرسمية</p>
     </div>
@@ -809,14 +983,14 @@ html[data-theme="dark"] .theme-control { background: rgba(24,31,35,.96) !importa
 
         <div class="contact-grid">
 
-            <a href="https://api.whatsapp.com/send?phone=96892908668" target="_blank" class="contact-card">
+            <a href="https://api.whatsapp.com/send?phone=96892908668" target="_blank" rel="noopener noreferrer" class="contact-card">
                 <div class="icon-box">💬</div>
                 <h3>تواصل عبر الواتساب</h3>
                 <p>للإجابة السريعة على استفساراتكم وتأكيد تفاصيل الطلب</p>
                 <span class="card-btn btn-whatsapp">اضغط للمحادثة الفورية</span>
             </a>
 
-            <a href="https://instagram.com/alnargis_te" target="_blank" class="contact-card">
+            <a href="https://instagram.com/alnargis_te" target="_blank" rel="noopener noreferrer" class="contact-card">
                 <div class="icon-box">📸</div>
                 <h3>تابعنا على الإنستغرام</h3>
                 <p>شاهد أحدث تصاميمنا اليومية وتفاعل مع مجتمعنا الخاص</p>
@@ -834,9 +1008,28 @@ html[data-theme="dark"] .theme-control { background: rgba(24,31,35,.96) !importa
 
     </div>
 
-    <footer>
-        <p>&copy; 2026 النرجس للتطريز. جميع الحقوق محفوظة.</p>
-    </footer>
+    <footer id="site-footer" class="site-footer">
+  <div class="footer-brand">
+    <a class="footer-brand-link" href="index.html" aria-label="العودة إلى الصفحة الرئيسية">
+      <img src="lo.png" alt="" width="42" height="42" loading="lazy">
+      <strong>النرجس للتطريز</strong>
+    </a>
+    <p>نحوّل أفكاركم إلى تفاصيل مطرزة بعناية.</p>
+  </div>
+  <nav class="footer-links" aria-label="روابط سريعة">
+    <strong>روابط سريعة</strong>
+    <a href="index.html">الرئيسية</a>
+    <a href="services.html">خدماتنا</a>
+    <a href="order.html">اطلب الآن</a>
+    <a href="contact.html">اتصل بنا</a>
+  </nav>
+  <div class="footer-contact">
+    <strong>تواصل معنا</strong>
+    <a href="https://api.whatsapp.com/send?phone=96892908668" target="_blank" rel="noopener noreferrer">افتح محادثة واتساب ↗</a>
+    <a class="footer-order-link" href="order.html">ابدأ طلب تطريزك</a>
+  </div>
+  <div class="footer-bottom">© 2026 النرجس للتطريز. جميع الحقوق محفوظة.</div>
+</footer>
 
 <script id="alnarjis-smooth-motion-script">
 (() => {
@@ -906,15 +1099,59 @@ html[data-theme="dark"] .theme-control { background: rgba(24,31,35,.96) !importa
 <script id="alnarjis-theme-behavior">
 (function(){
  var root=document.documentElement, toggle=document.getElementById('theme-toggle'), label=document.getElementById('theme-label');
- if(!toggle)return;
- function sync(){var dark=root.getAttribute('data-theme')==='dark';toggle.setAttribute('aria-checked',dark?'true':'false');toggle.setAttribute('aria-label',dark?'التبديل إلى الوضع النهاري':'التبديل إلى الوضع الليلي');toggle.setAttribute('title',dark?'التبديل إلى الوضع النهاري':'التبديل إلى الوضع الليلي');if(label)label.textContent=dark?'الوضع الليلي':'الوضع النهاري';}
- function scheduleThemeAnimationEnd(){if(window.__narjisThemeAnimTimer)window.clearTimeout(window.__narjisThemeAnimTimer);window.__narjisThemeAnimTimer=window.setTimeout(function(){root.classList.remove('theme-animating');window.__narjisThemeAnimTimer=0;},820);}
- toggle.addEventListener('click',function(){var next=root.getAttribute('data-theme')==='dark'?'light':'dark';root.classList.add('theme-animating');root.setAttribute('data-theme',next);try{localStorage.setItem('alnarjis-theme',next);}catch(e){}sync();scheduleThemeAnimationEnd();});
- sync();
+ var requestedTheme=root.getAttribute('data-theme')==='dark'?'dark':'light';
+ var frame=0, endTimer=0;
+ var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ function sync(theme){
+   var dark=theme==='dark';
+   if(toggle){toggle.setAttribute('aria-checked',dark?'true':'false');toggle.setAttribute('aria-label',dark?'التبديل إلى الوضع النهاري':'التبديل إلى الوضع الليلي');toggle.setAttribute('title',dark?'التبديل إلى الوضع النهاري':'التبديل إلى الوضع الليلي');}
+   if(label)label.textContent=dark?'الوضع الليلي':'الوضع النهاري';
+ }
+ window.__narjisApplyTheme=function(theme,animate){
+   if(theme!=='dark'&&theme!=='light')return;
+   requestedTheme=theme;
+   try{localStorage.setItem('alnarjis-theme',theme);}catch(e){}
+   if(frame){cancelAnimationFrame(frame);frame=0;}
+   if(endTimer){clearTimeout(endTimer);endTimer=0;}
+   if(!animate||reduced){root.classList.remove('theme-animating');root.setAttribute('data-theme',theme);sync(theme);return;}
+   root.classList.add('theme-animating');
+   /* اترك المتصفح يرسم الحالة القديمة أولًا، ثم غيّر المظهر في الإطار التالي. */
+   frame=requestAnimationFrame(function(){
+     root.setAttribute('data-theme',theme);frame=0;sync(theme);
+     endTimer=setTimeout(function(){root.classList.remove('theme-animating');endTimer=0;},470);
+   });
+   sync(theme);
+ };
+ if(toggle){toggle.addEventListener('click',function(){window.__narjisApplyTheme(requestedTheme==='dark'?'light':'dark',true);});}
+ sync(requestedTheme);
 })();
 </script>
 
 
 
+<script id="narjis-usability-script-v3">
+(function(){
+  'use strict';
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var topButton=document.createElement('button');
+  topButton.type='button';topButton.className='narjis-back-top';topButton.setAttribute('aria-label','العودة إلى أعلى الصفحة');topButton.title='العودة إلى أعلى الصفحة';topButton.innerHTML='<span aria-hidden="true">↑</span>';
+  document.body.appendChild(topButton);
+  var queued=false;
+  function refresh(){queued=false;topButton.classList.toggle('is-visible',window.scrollY>420);topButton.tabIndex=window.scrollY>420?0:-1;}
+  window.addEventListener('scroll',function(){if(!queued){queued=true;requestAnimationFrame(refresh)}},{passive:true});
+  window.addEventListener('resize',refresh,{passive:true});refresh();
+  topButton.addEventListener('click',function(){window.scrollTo({top:0,behavior:reduced?'auto':'smooth'});});
+  // منع تشغيل فيديو الحركة تلقائيًا عند تفضيل تقليل الحركة أو استخدام وضع تقليل البيانات.
+  var vid=document.querySelector('.hero-video-bg');
+  if(vid){
+    var connection=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
+    if(reduced||(connection&&connection.saveData)){vid.pause();vid.removeAttribute('autoplay');vid.preload='none';vid.style.display='none';document.body.classList.add('hero-motion-paused');}
+  }
+  // اجعل اختيار المظهر قابلاً للاستخدام من لوحة المفاتيح، مع الحفاظ على مفاتيح الصفحة الحالية.
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){
+    link.addEventListener('click',function(){var id=link.getAttribute('href');if(!id||id==='#')return;var target=document.querySelector(id);if(target){target.setAttribute('tabindex','-1');setTimeout(function(){try{target.focus({preventScroll:true})}catch(e){}},reduced?0:250)}})
+  });
+})();
+</script>
 </body>
 </html>
