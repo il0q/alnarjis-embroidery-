@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+
+<html dir="rtl" lang="ar">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="أنشئ طلب تطريز لدى النرجس خطوة بخطوة، واختر القطعة والخامة والتصميم والكمية وطريقة الاستلام.">
-    <meta name="theme-color" content="#5c3d48">
-    <title>اطلب الآن | النرجس للتطريز</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="أنشئ طلب تطريز لدى النرجس خطوة بخطوة، واختر القطعة والخامة والتصميم والكمية وطريقة الاستلام." name="description"/>
+<meta content="#5c3d48" name="theme-color"/>
+<title>اطلب الآن | النرجس للتطريز</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{--wine:#5c3d48;--teal:#2f9692;--mint:#f2f8f7;--line:#d8e8e7;--ink:#44323a;--muted:#87949a}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Cairo,Arial,sans-serif;color:var(--ink);background:var(--mint);font-size:12px;line-height:1.8;overflow-x:hidden}
@@ -498,7 +499,6 @@ html.theme-welcome-lock,body.theme-welcome-open{overflow:hidden!important;oversc
 <script id="alnarjis-theme-init">
 (function(){try{var saved=localStorage.getItem('alnarjis-theme');if(saved==='dark'||saved==='light'){document.documentElement.setAttribute('data-theme',saved);}else{document.documentElement.setAttribute('data-theme','light');}}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
 </script>
-
 <style id="alnarjis-theme-final-polish">
 /* ضبط نهاري/ليلي موحّد — تُعرّف القيم هنا بعد جميع أنماط الصفحات حتى لا تطغى عليها قواعد قديمة */
 html[data-theme="light"] { color-scheme: light; }
@@ -607,7 +607,6 @@ html[data-theme="dark"] .theme-control { background: rgba(24,31,35,.96) !importa
   .welcome-switch .welcome-switch-thumb { transition-duration: .12s !important; }
 }
 </style>
-
 <style id="alnarjis-quality-polish">
 /* افصل منظور الحركة الثلاثية الأبعاد عن كامل الصفحة لتقليل كلفة الرسم. */
 body { perspective: none !important; }
@@ -812,96 +811,274 @@ html[data-theme="dark"] .quantity-field{background:rgba(85,210,203,.06);border-c
 html[data-theme="dark"] .quantity-field small,html[data-theme="dark"] .file-status{color:#b8c4c7}
 @media(max-width:720px){.quantity-field{padding:12px}.quantity-control{max-width:none}.quantity-control button{width:46px;height:46px;flex-basis:46px}#designPreview{max-height:190px}}
 </style>
+<style id="alnarjis-order-visual-parity-v3">
+/* صفحة الطلب: نفس الغلاف البصري المشترك للموقع */
+html { background:var(--bg-color,#FAF9F6); }
+body {
+  margin:0!important; min-width:0!important; min-height:100vh;
+  font-family:'Cairo','Segoe UI',sans-serif!important;
+  background:linear-gradient(135deg,#FAF9F6 0%,#B7EBE3 100%)!important;
+  color:var(--text-dark,#2d2d2d)!important; line-height:1.8!important;
+  overflow-x:clip!important;
+}
+header {
+  height:auto!important; min-height:0!important; display:block!important;
+  padding:0!important; position:sticky!important; top:0!important; z-index:1000!important;
+  background:rgba(247,244,237,.95)!important;
+  border-bottom:1px solid rgba(61,183,181,.22)!important;
+  box-shadow:0 4px 25px rgba(92,61,72,.03)!important;
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+}
+.nav-container {
+  width:100%!important; max-width:1200px!important; margin:0 auto!important;
+  display:flex!important; justify-content:space-between!important; align-items:center!important;
+  padding:15px 20px!important; gap:24px!important;
+}
+.logo-wrapper { display:flex!important; align-items:center!important; gap:15px!important; flex-shrink:0!important; }
+.logo-img { width:55px!important; height:55px!important; min-height:0!important; object-fit:cover!important; border-radius:50%!important; border:2px solid var(--accent-color,#3DB7B5)!important; }
+.logo-text { font-size:26px!important; font-weight:700!important; color:var(--primary-color,#5c3d48)!important; white-space:nowrap!important; }
+.nav-container nav { display:flex!important; align-items:center!important; justify-content:flex-start!important; flex-wrap:wrap!important; gap:0!important; }
+.nav-container nav a {
+  color:var(--text-dark,#2d2d2d)!important; margin:0 0 0 25px!important; padding:8px 0!important;
+  font-family:'Cairo','Segoe UI',sans-serif!important; font-size:16px!important; font-weight:600!important;
+  text-decoration:none!important; border:0!important; background:none!important; position:relative!important;
+}
+.nav-container nav a:hover,.nav-container nav a.active { color:var(--primary-color,#5c3d48)!important; }
+main#main-content {
+  width:100%!important; max-width:1200px!important; min-height:calc(100vh - 160px)!important;
+  margin:0 auto!important; padding:clamp(36px,5vw,70px) clamp(18px,3vw,28px) 70px!important;
+  background:transparent!important; position:relative!important; z-index:1!important;
+}
+.intro { max-width:850px!important; margin:0 auto 32px!important; text-align:center!important; }
+.intro h1 { font-size:clamp(28px,3.2vw,42px)!important; margin:0 0 12px!important; font-weight:900!important; color:var(--primary-color,#5c3d48)!important; line-height:1.4!important; }
+.intro h1:after { content:''; display:block; width:90px; height:4px; border-radius:8px; background:linear-gradient(90deg,var(--primary-color,#5c3d48),var(--accent-color,#3DB7B5)); margin:10px auto 0; }
+.intro p { font-size:15px!important; color:var(--text-muted,#554d4f)!important; max-width:680px!important; margin:0 auto!important; line-height:1.9!important; }
+.steps { max-width:920px!important; margin:30px auto 34px!important; gap:12px!important; }
+.steps:before { background:#dfe7e5!important; }
+.step { color:#66575e!important; font-size:13px!important; line-height:1.5!important; }
+.step .circle { width:44px!important; height:44px!important; font-size:18px!important; margin-bottom:8px!important; }
+.step.active .circle,.step.done .circle { background:var(--primary-color,#5c3d48)!important; border-color:var(--accent-color,#3DB7B5)!important; color:#fff!important; }
+/* لا توجد بطاقة بيضاء داخل إطار فاتح؛ نموذج الطلب يستخدم بطاقة الهوية نفسها */
+#orderForm.panel {
+  width:min(100%,1080px)!important; max-width:1080px!important; margin:0 auto!important;
+  padding:clamp(22px,3.5vw,42px)!important; font-size:15px!important;
+  background:rgba(243,249,248,.90)!important;
+  border:1px solid rgba(61,183,181,.28)!important; border-radius:26px!important;
+  box-shadow:0 14px 42px rgba(92,61,72,.07),0 2px 0 rgba(61,183,181,.08)!important;
+  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+}
+#orderForm .form-step { background:transparent!important; border:0!important; box-shadow:none!important; }
+#orderForm .panel-head { border-bottom:1px solid rgba(92,61,72,.13)!important; }
+#orderForm .panel-head h2 { color:var(--primary-color,#5c3d48)!important; }
+#orderForm .panel-head p { color:var(--text-muted,#554d4f)!important; }
+#orderForm .choice:not(.selected) { background:#fff!important; color:#4e4046!important; border-color:#e2e5e5!important; }
+#orderForm .choice.selected { background:var(--primary-color,#5c3d48)!important; color:#fff!important; border-color:var(--primary-color,#5c3d48)!important; }
+#orderForm .color-card,#orderForm .upload,#orderForm #summary,#orderForm .review-card,#orderForm .cost-card { background:rgba(255,255,255,.72)!important; }
+#site-footer.site-footer {
+  display:grid!important; grid-template-columns:1.35fr 1fr 1fr!important; gap:28px!important;
+  align-items:start!important; position:relative!important; background:#171114!important; color:#f6edf1!important;
+  border-top:2px solid #3db7b5!important; padding:28px clamp(18px,5vw,72px) 44px!important;
+  font:13px/1.8 Cairo,Arial,sans-serif!important; text-align:initial!important; min-height:0!important;
+}
+/* توحيد الواجهة الداكنة ومنع الإطار الفاتح الذي كان يتغلب على نمط الليل */
+html[data-theme="dark"] body { background:radial-gradient(ellipse at 12% 0%,rgba(37,117,117,.10),transparent 38%),radial-gradient(ellipse at 92% 80%,rgba(92,61,72,.13),transparent 36%),#101518!important; color:#f2edf0!important; }
+html[data-theme="dark"] header { background:rgba(18,24,28,.93)!important; border-bottom-color:rgba(85,210,203,.28)!important; }
+html[data-theme="dark"] .nav-container nav a { color:#d6cbd0!important; }
+html[data-theme="dark"] .nav-container nav a.active,html[data-theme="dark"] .nav-container nav a:hover { color:#65ddd5!important; }
+html[data-theme="dark"] .logo-text { color:#e5bdcc!important; }
+html[data-theme="dark"] .intro h1 { color:#f1dbe3!important; }
+html[data-theme="dark"] .intro p { color:#c6b9bf!important; }
+html[data-theme="dark"] .steps:before { background:#35454a!important; }
+html[data-theme="dark"] .step { color:#c9bcc2!important; }
+html[data-theme="dark"] .step .circle { background:#1a2429!important; color:#b9c5ca!important; border-color:#405156!important; box-shadow:none!important; }
+html[data-theme="dark"] .step.active .circle,html[data-theme="dark"] .step.done .circle { background:#5c3d48!important; color:#fff!important; border-color:#55d2cb!important; box-shadow:0 0 0 4px rgba(85,210,203,.13)!important; }
+html[data-theme="dark"] #orderForm.panel {
+  background:rgba(25,34,38,.97)!important; border-color:rgba(85,210,203,.24)!important;
+  box-shadow:0 18px 45px rgba(0,0,0,.28),0 1px 0 rgba(85,210,203,.08)!important; color:#f3edf0!important;
+}
+html[data-theme="dark"] #orderForm .form-step { background:transparent!important; border:0!important; box-shadow:none!important; }
+html[data-theme="dark"] #orderForm .panel-head { border-bottom-color:rgba(85,210,203,.20)!important; }
+html[data-theme="dark"] #orderForm .panel-head h2 { color:#eccbd8!important; }
+html[data-theme="dark"] #orderForm .panel-head p,html[data-theme="dark"] #orderForm label,html[data-theme="dark"] #orderForm .field-label { color:#d6cbd0!important; }
+html[data-theme="dark"] #orderForm .choice:not(.selected) { background:#151d21!important; color:#f0e8ec!important; border-color:#30464b!important; }
+html[data-theme="dark"] #orderForm .choice.selected { background:#5c3d48!important; color:#fff!important; border-color:#d5a8b9!important; }
+html[data-theme="dark"] #orderForm .color-card,html[data-theme="dark"] #orderForm .upload,html[data-theme="dark"] #orderForm #summary,html[data-theme="dark"] #orderForm .review-card,html[data-theme="dark"] #orderForm .cost-card {
+  background:#151e22!important; border-color:#30464b!important; color:#f0e8ec!important;
+}
+html[data-theme="dark"] #orderForm .review-card h3,html[data-theme="dark"] #orderForm .review-row b,html[data-theme="dark"] #orderForm .cost-card>b,html[data-theme="dark"] #orderForm .cost-card p { color:#ebd3dc!important; }
+html[data-theme="dark"] #orderForm .review-row span { color:#b8c1c5!important; }
+html[data-theme="dark"] #orderForm .review-row { border-bottom-color:#2e3b40!important; }
+html[data-theme="dark"] #orderForm .btn.back { background:#1a2429!important; border-color:#405156!important; color:#f1e8ed!important; }
+html[data-theme="dark"] #orderForm .urgency-note,html[data-theme="dark"] #orderForm .urgent-invoice-note { background:#17292b!important; border-color:#315d5c!important; color:#d2dddd!important; }
+html[data-theme="dark"] #site-footer.site-footer { background:#0f1518!important; border-top-color:#55d2cb!important; }
+@media(max-width:760px) {
+  .nav-container { flex-direction:column!important; gap:8px!important; padding:12px 14px!important; }
+  .logo-img { width:46px!important; height:46px!important; }
+  .logo-text { font-size:22px!important; }
+  .nav-container nav { justify-content:center!important; gap:6px 16px!important; }
+  .nav-container nav a { margin:0!important; font-size:13px!important; padding:5px 0!important; }
+  main#main-content { padding:32px 14px 40px!important; }
+  .intro h1 { font-size:28px!important; }
+  .intro p { font-size:14px!important; }
+  .steps { gap:3px!important; margin:22px auto 26px!important; }
+  .steps:before { top:18px!important; left:12px!important; right:12px!important; }
+  .step { max-width:25%; font-size:10px!important; overflow-wrap:anywhere; }
+  .step .circle { width:36px!important; height:36px!important; font-size:15px!important; margin-bottom:6px!important; }
+  #orderForm.panel { padding:20px 14px!important; border-radius:20px!important; }
+  .panel-head h2 { font-size:20px!important; }
+  .panel-head p { font-size:12px!important; }
+  .grid { grid-template-columns:repeat(2,minmax(0,1fr))!important; gap:8px!important; }
+  .choice { font-size:12px!important; min-height:44px!important; padding:9px 7px!important; }
+  .two { grid-template-columns:1fr!important; gap:8px!important; }
+  .review-grid { grid-template-columns:1fr!important; }
+  #site-footer.site-footer { grid-template-columns:1fr 1fr!important; gap:19px 14px!important; padding:23px 17px 54px!important; font-size:12px!important; }
+  #site-footer .footer-brand { grid-column:1/-1; }
+}
+@media(max-width:380px) {
+  .nav-container nav { gap:4px 10px!important; }
+  .nav-container nav a { font-size:12px!important; }
+  #orderForm.panel { padding:16px 10px!important; }
+  .grid { gap:6px!important; }
+  .choice { font-size:11px!important; }
+}
+@media(max-width:360px) { #site-footer.site-footer { grid-template-columns:1fr!important; } #site-footer .footer-brand { grid-column:auto; } }
+@media(prefers-reduced-motion:reduce) { #orderForm *,header *,#site-footer * { animation:none!important; transition:none!important; } }
+</style>
+<style id="narjis-enhancements-v5">
+:root{--narjis-focus-ring:rgba(61,183,181,.34)}
+html{scroll-padding-top:100px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+#main-content,.main-content,.intro,.form-step .panel-head h2{scroll-margin-top:110px}
+.skip-to-content{z-index:100000!important}
+.narjis-scroll-progress{position:fixed;top:0;right:0;width:100%;height:3px;z-index:1900;pointer-events:none;background:linear-gradient(90deg,#5c3d48,#3db7b5);transform:scaleX(0);transform-origin:right center;will-change:transform}
+.narjis-back-top{position:fixed;right:20px;bottom:20px;z-index:1600;width:46px;height:46px;display:grid;place-items:center;border:1px solid rgba(61,183,181,.55);border-radius:50%;background:rgba(92,61,72,.96);color:#fff;font:800 24px/1 'Cairo','Segoe UI',sans-serif;box-shadow:0 8px 24px rgba(27,32,34,.2);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(9px);transition:opacity .22s ease,transform .22s ease,visibility .22s ease,background-color .2s ease;cursor:pointer;touch-action:manipulation}
+.narjis-back-top.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+.narjis-back-top:hover{background:#2f8f8b}
+.narjis-back-top:focus-visible{outline:3px solid #3db7b5;outline-offset:4px}
+html[data-theme="dark"] .narjis-back-top{background:#1c3336;border-color:#55d2cb;color:#e8ffff}
+html[data-theme="dark"] .narjis-back-top:hover{background:#286e6b}
+@media(max-width:600px){html{scroll-padding-top:86px}#main-content,.main-content,.intro,.form-step .panel-head h2{scroll-margin-top:92px}.narjis-back-top{right:12px;bottom:calc(14px + env(safe-area-inset-bottom));width:44px;height:44px}}
+@media(prefers-reduced-motion:reduce){.narjis-back-top{transition:none!important}.narjis-scroll-progress{transition:none!important}}
+@media print{.narjis-scroll-progress,.narjis-back-top,.theme-control,.theme-welcome,.thread-motion,.bg-threads-3d,.skip-to-content,header,footer{display:none!important}}
+</style>
+<style id="narjis-order-print-v5">
+#orderForm .panel-head h2{scroll-margin-top:110px}
+@media print{
+  @page{size:auto;margin:14mm}
+  body{background:#fff!important;color:#151515!important;font-size:11pt!important}
+  body *{visibility:hidden!important}
+  #main-content .intro,#main-content .intro * ,#orderForm,#orderForm *{visibility:visible!important}
+  #main-content{position:absolute!important;inset:0!important;width:100%!important;max-width:none!important;min-height:0!important;margin:0!important;padding:0!important;background:#fff!important}
+  #main-content .intro{margin:0 0 14px!important;text-align:right!important}
+  #main-content .intro h1{font-size:22pt!important;color:#5c3d48!important}
+  #main-content .intro p{color:#333!important}
+  #main-content .steps,#main-content #stepStatus{display:none!important}
+  #orderForm{position:relative!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:#fff!important;box-shadow:none!important;backdrop-filter:none!important}
+  #orderForm .form-step{display:none!important;visibility:hidden!important}
+  #orderForm .form-step[data-step="4"]{display:block!important;visibility:visible!important;break-inside:auto}
+  #orderForm .form-step[data-step="4"] *{visibility:visible!important}
+  #orderForm .form-step[data-step="4"] .panel-head p,#orderForm .form-step[data-step="4"] .actions,#orderForm #copyOrderStatus,#orderForm .panel-head::after{display:none!important}
+  #orderForm #summary{background:#fff!important;border:1px solid #c9d1d1!important;color:#111!important;box-shadow:none!important;padding:10px!important}
+  #orderForm .review-card,#orderForm .cost-card{break-inside:avoid;background:#fff!important;color:#111!important;border:1px solid #d5d5d5!important;box-shadow:none!important}
+  #orderForm .review-card h3,#orderForm .review-row b,#orderForm .cost-card p,#orderForm .cost-card>b{color:#222!important}
+  #orderForm .review-row span{color:#555!important}
+  #orderForm .review-row{border-color:#ddd!important}
+  #orderForm .urgent-invoice-note{background:#fff7e4!important;color:#4c3a17!important;border-color:#e1c98c!important}
+  #orderForm label{color:#222!important}
+  #orderForm input[type="checkbox"]{visibility:visible!important}
+  .narjis-scroll-progress,.narjis-back-top{display:none!important}
+}
+</style>
+<style id="narjis-order-print-button-v5">
+#printOrderSummary{border-color:rgba(61,183,181,.34);background:rgba(61,183,181,.08);color:var(--text-dark,#40353a)}
+#printOrderSummary:hover{background:rgba(61,183,181,.17)}
+html[data-theme="dark"] #printOrderSummary{background:#18272a!important;color:#eaf5f4!important;border-color:#386c6b!important}
+@media(max-width:600px){#printOrderSummary{width:100%;min-height:46px}}
+</style>
 </head>
 <body>
 <a class="skip-to-content" href="#main-content">انتقل إلى المحتوى الرئيسي</a>
-<div class="theme-control" aria-label="مظهر الموقع"><span class="theme-label" id="theme-label">الوضع النهاري</span><button type="button" class="theme-toggle" id="theme-toggle" role="switch" aria-checked="false" aria-label="التبديل بين الوضع النهاري والليلي" title="التبديل بين الوضع النهاري والليلي"><span class="theme-icon sun" aria-hidden="true">☀</span><span class="theme-icon moon" aria-hidden="true">☾</span><span class="theme-thumb" aria-hidden="true"></span></button></div>
-
-
-
-
-
+<div aria-label="مظهر الموقع" class="theme-control"><span class="theme-label" id="theme-label">الوضع النهاري</span><button aria-checked="false" aria-label="التبديل بين الوضع النهاري والليلي" class="theme-toggle" id="theme-toggle" role="switch" title="التبديل بين الوضع النهاري والليلي" type="button"><span aria-hidden="true" class="theme-icon sun">☀</span><span aria-hidden="true" class="theme-icon moon">☾</span><span aria-hidden="true" class="theme-thumb"></span></button></div>
 <div class="bg-threads-3d">
-        <svg class="thread-3d t-gold" viewBox="0 0 1440 400">
-            <path d="M0,200 C300,350 600,50 900,200 C1200,350 1300,100 1440,200" />
-        </svg>
-        <svg class="thread-3d t-burgundy" viewBox="0 0 1440 400">
-            <path d="M1440,150 C1100,-50 800,350 500,150 C200,-50 100,250 0,150" />
-        </svg>
-    </div>
+<svg class="thread-3d t-gold" viewbox="0 0 1440 400">
+<path d="M0,200 C300,350 600,50 900,200 C1200,350 1300,100 1440,200"></path>
+</svg>
+<svg class="thread-3d t-burgundy" viewbox="0 0 1440 400">
+<path d="M1440,150 C1100,-50 800,350 500,150 C200,-50 100,250 0,150"></path>
+</svg>
+</div>
 <header>
-        <div class="nav-container">
-            <div class="logo-wrapper">
-                <img src="lo.png" alt="شعار النرجس" class="logo-img">
-                <div class="logo-text"><span>النرجس</span></div>
-            </div>
-            <nav aria-label="التنقل الرئيسي">
-                <a href="index.html">الرئيسية</a>
-                <a href="services.html">خدماتنا</a>
-                <a href="order.html" class="active" aria-current="page">اطلب الآن</a>
-                <a href="contact.html">اتصل بنا</a>
-            </nav>
-        </div>
-    </header>
+<div class="nav-container">
+<div class="logo-wrapper">
+<img alt="شعار النرجس" class="logo-img" decoding="async" src="lo.png"/>
+<div class="logo-text"><span>النرجس</span></div>
+</div>
+<nav aria-label="التنقل الرئيسي">
+<a href="index.html">الرئيسية</a>
+<a href="services.html">خدماتنا</a>
+<a aria-current="page" class="active" href="order.html">اطلب الآن</a>
+<a href="contact.html">اتصل بنا</a>
+</nav>
+</div>
+</header>
 <main id="main-content" tabindex="-1">
 <div class="intro"><h1>استمارة طلب التطريز</h1><p>يرجى ملء البيانات التالية بدقة، وسنتواصل معك فريق النرجس فوراً لتأكيد تفاصيل القطعة والسعر.</p></div>
-<div class="steps" aria-label="مراحل الطلب" role="group">
+<div aria-label="مراحل الطلب" class="steps" role="group">
 <div class="step active" data-step-label="1"><div class="circle">✿</div>التصميم والخامة</div><div class="step" data-step-label="2"><div class="circle">♧</div>تفاصيل التطريز</div><div class="step" data-step-label="3"><div class="circle">♧</div>الشحن والتوصيل</div><div class="step" data-step-label="4"><div class="circle">✓</div>المراجعة والتأكيد</div>
 </div>
-<p id="stepStatus" class="step-status" aria-live="polite">الخطوة 1 من 4</p>
-<form class="panel" id="orderForm" action="https://formsubmit.co/loaialdhawi@gmail.com" method="POST" enctype="multipart/form-data">
-<input type="hidden" name="_subject" value="طلب تطريز جديد - النرجس"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_next" value="https://il0q.github.io/alnarjis-embroidery/thank-you.html">
+<p aria-live="polite" class="step-status" id="stepStatus">الخطوة 1 من 4</p>
+<form action="https://formsubmit.co/loaialdhawi@gmail.com" class="panel" enctype="multipart/form-data" id="orderForm" method="POST">
+<input name="_subject" type="hidden" value="طلب تطريز جديد - النرجس"/><input name="_captcha" type="hidden" value="false"/><input name="_next" type="hidden" value="https://il0q.github.io/alnarjis-embroidery/thank-you.html"/>
 <section class="form-step" data-step="1"><div class="panel-head"><h2>الخطوة 1: مواصفات قطعة الملابس</h2><p>حدد نوع القطعة وخياراتك لتجهيز طلب التطريز المناسب لك</p></div>
-<span class="field-label">نوع القطعة:</span><div class="grid" id="garmentChoices" role="group" aria-label="نوع القطعة"><button type="button" class="choice selected">دشداشة عمانية</button><button type="button" class="choice">عباءة نسائية</button><button type="button" class="choice">قميص رسمي</button><button type="button" class="choice">بشت / مطرز</button><button type="button" class="choice">ملابس أطفال / مواليد</button><button type="button" class="choice">شيء آخر (اكتب بنفسك)</button></div><input type="hidden" name="نوع القطعة" id="garment" value="دشداشة عمانية"><div class="field hidden" id="garmentOtherWrap"><label for="garmentOther">اكتب نوع القطعة التي تريدها</label><input id="garmentOther" type="text" placeholder="مثال: غترة، كمة، حقيبة..." autocomplete="off"></div>
-<div class="field quantity-field"><label for="quantity">الكمية المطلوبة</label><div class="quantity-control" dir="ltr"><button type="button" id="quantityMinus" aria-label="تقليل الكمية">−</button><input id="quantity" name="الكمية المطلوبة" type="number" value="1" min="1" max="500" step="1" inputmode="numeric" required aria-describedby="quantityHint"><button type="button" id="quantityPlus" aria-label="زيادة الكمية">+</button></div><small id="quantityHint">اختر عدد القطع المطلوب تطريزها. السعر النهائي يؤكده فريق النرجس بعد مراجعة الكمية والتصميم.</small></div>
-<div class="color-card"><div><label for="fabricColor">اختر لون قطعة الملابس من دائرة الألوان</label><div class="color-text">كود اللون: <strong id="colorCode">#FFFFFF</strong></div></div><div class="color-side"><input id="fabricColor" type="color" value="#ffffff" aria-label="لون قطعة الملابس"><span class="color-text">معاينة اللون</span></div></div>
+<span class="field-label">نوع القطعة:</span><div aria-label="نوع القطعة" class="grid" id="garmentChoices" role="group"><button class="choice selected" type="button">دشداشة عمانية</button><button class="choice" type="button">عباءة نسائية</button><button class="choice" type="button">قميص رسمي</button><button class="choice" type="button">بشت / مطرز</button><button class="choice" type="button">ملابس أطفال / مواليد</button><button class="choice" type="button">شيء آخر (اكتب بنفسك)</button></div><input id="garment" name="نوع القطعة" type="hidden" value="دشداشة عمانية"/><div class="field hidden" id="garmentOtherWrap"><label for="garmentOther">اكتب نوع القطعة التي تريدها</label><input autocomplete="off" id="garmentOther" placeholder="مثال: غترة، كمة، حقيبة..." type="text"/></div>
+<div class="field quantity-field"><label for="quantity">الكمية المطلوبة</label><div class="quantity-control" dir="ltr"><button aria-label="تقليل الكمية" id="quantityMinus" type="button">−</button><input aria-describedby="quantityHint" id="quantity" inputmode="numeric" max="500" min="1" name="الكمية المطلوبة" required="" step="1" type="number" value="1"/><button aria-label="زيادة الكمية" id="quantityPlus" type="button">+</button></div><small id="quantityHint">اختر عدد القطع المطلوب تطريزها. السعر النهائي يؤكده فريق النرجس بعد مراجعة الكمية والتصميم.</small></div>
+<div class="color-card"><div><label for="fabricColor">اختر لون قطعة الملابس من دائرة الألوان</label><div class="color-text">كود اللون: <strong id="colorCode">#FFFFFF</strong></div></div><div class="color-side"><input aria-label="لون قطعة الملابس" id="fabricColor" type="color" value="#ffffff"/><span class="color-text">معاينة اللون</span></div></div>
 <div class="two"><div class="field"><label for="fabric">نوع القماش (الخامة)</label><select id="fabric" name="نوع القماش"><option>قطن فاخر</option><option>كتان فاخر</option><option>قماش بارد</option><option>حرير</option><option>أخرى</option></select></div><div class="field"><label for="condition">حالة القطعة</label><select id="condition" name="حالة القطعة"><option>جديدة تماماً (غير مستعملة وببطاقتها)</option><option>قطعة أملكها وأريد تطريزها</option></select></div></div>
-<div class="field"><label for="customerName">الاسم الكامل</label><input id="customerName" name="الاسم الكامل" required placeholder="اكتب اسمك الكامل" autocomplete="name" maxlength="100"></div>
-<div class="actions"><span></span><button type="button" class="btn next" data-next>التالي: تفاصيل التطريز ‹</button></div></section>
+<div class="field"><label for="customerName">الاسم الكامل</label><input autocomplete="name" id="customerName" maxlength="100" name="الاسم الكامل" placeholder="اكتب اسمك الكامل" required=""/></div>
+<div class="actions"><span></span><button class="btn next" data-next="" type="button">التالي: تفاصيل التطريز ‹</button></div></section>
 <section class="form-step hidden" data-step="2"><div class="panel-head"><h2>الخطوة 2: تفاصيل التطريز</h2><p>اختر تفاصيل التصميم وأرفق الصورة إن كانت متوفرة</p></div>
 <div class="two"><div class="field"><label for="service">نوع الخدمة</label><select id="service" name="نوع الخدمة"><option>تطريز حسب الطلب</option><option>تطريز على ملابس خاصة</option><option>تصميم وتفصيل متكامل</option><option>طلب آخر / استفسار</option></select></div><div class="field"><label for="threadColor">لون الخيط المفضل</label><select id="threadColor" name="لون الخيط"><option>ذهبي</option><option>أبيض</option><option>أسود</option><option>عنابي</option><option>فضي</option><option>حسب اقتراح النرجس</option></select></div></div>
-<div class="field"><label>هل لديك صورة للتصميم؟</label><div class="grid"><button type="button" class="choice selected" data-image="yes">لدي صورة للتصميم</button><button type="button" class="choice" data-image="no">لا أملك صورة</button></div><input type="hidden" name="حالة الصورة" id="imageChoice" value="لدي صورة للتصميم"></div>
-<label class="upload" id="uploadBox"><strong>⇧ ارفع صورة التصميم هنا</strong><span>اختر صورة واضحة للتطريز · يُفضّل أن تكون الصورة أقل من 8 ميغابايت</span><input type="file" id="designFile" name="ملف التصميم" accept="image/*"><span id="designFileStatus" class="file-status" aria-live="polite">لم يتم اختيار صورة بعد</span></label><img id="designPreview" alt="معاينة صورة التصميم المختارة" hidden>
-<div class="field"><label for="details">ملاحظات أو تفاصيل إضافية للتطريز</label><textarea id="details" name="تفاصيل الطلب" placeholder="اكتب هنا أي تفاصيل ترغب في مراعاتها أثناء التنفيذ..." required maxlength="800" aria-describedby="detailsCount"></textarea><small id="detailsCount" class="field-hint" aria-live="polite">0 / 800 حرف</small></div>
-<div class="field"><label>موضع التطريز على القطعة</label><div class="grid" id="placementChoices" role="group" aria-label="موضع التطريز">
-<button type="button" class="choice selected" data-pick="placement">جيب الصدر الأيسر</button><button type="button" class="choice" data-pick="placement">الياقة / الدشداشة / الرقبة</button><button type="button" class="choice" data-pick="placement">منتصف الصدر</button><button type="button" class="choice" data-pick="placement">أطراف الأكمام</button><button type="button" class="choice" data-pick="placement">أعلى الظهر</button><button type="button" class="choice" data-pick="placement">موضع آخر (اكتب بنفسك)</button></div><input type="hidden" id="placementValue" name="موضع التطريز" value="جيب الصدر الأيسر"><div class="field hidden" id="placementOtherWrap"><label for="placementOther">اكتب موضع التطريز الذي تريده</label><input id="placementOther" type="text" placeholder="اكتب الموضع المطلوب بالتحديد" autocomplete="off"></div></div>
-<div class="field"><label>الحجم التقريبي للتطريز</label><div class="grid" id="sizeChoices" role="group" aria-label="حجم التطريز"><button type="button" class="choice selected" data-pick="size">صغير (3 × 5 سم)</button><button type="button" class="choice" data-pick="size">متوسط (6 × 10 سم)</button><button type="button" class="choice" data-pick="size">كبير (12 × 18 سم)</button><button type="button" class="choice" data-pick="size">مقاس آخر (اكتب بنفسك)</button></div><input type="hidden" id="sizeValue" name="حجم التطريز" value="صغير (3 × 5 سم)"><div class="field hidden" id="sizeOtherWrap"><label for="sizeOther">اكتب المقاس الذي تريده</label><input id="sizeOther" type="text" placeholder="مثال: 8 × 12 سم" autocomplete="off"></div></div>
-<div class="actions"><button type="button" class="btn back" data-back>رجوع</button><button type="button" class="btn next" data-next>التالي: الشحن والتوصيل ‹</button></div></section>
+<div class="field"><label>هل لديك صورة للتصميم؟</label><div class="grid"><button class="choice selected" data-image="yes" type="button">لدي صورة للتصميم</button><button class="choice" data-image="no" type="button">لا أملك صورة</button></div><input id="imageChoice" name="حالة الصورة" type="hidden" value="لدي صورة للتصميم"/></div>
+<label class="upload" id="uploadBox"><strong>⇧ ارفع صورة التصميم هنا</strong><span>اختر صورة واضحة للتطريز · يُفضّل أن تكون الصورة أقل من 8 ميغابايت</span><input accept="image/*" id="designFile" name="ملف التصميم" type="file"/><span aria-live="polite" class="file-status" id="designFileStatus">لم يتم اختيار صورة بعد</span></label><img alt="معاينة صورة التصميم المختارة" decoding="async" hidden="" id="designPreview" loading="lazy"/>
+<div class="field"><label for="details">ملاحظات أو تفاصيل إضافية للتطريز</label><textarea aria-describedby="detailsCount" id="details" maxlength="800" name="تفاصيل الطلب" placeholder="اكتب هنا أي تفاصيل ترغب في مراعاتها أثناء التنفيذ..." required=""></textarea><small aria-live="polite" class="field-hint" id="detailsCount">0 / 800 حرف</small></div>
+<div class="field"><label>موضع التطريز على القطعة</label><div aria-label="موضع التطريز" class="grid" id="placementChoices" role="group">
+<button class="choice selected" data-pick="placement" type="button">جيب الصدر الأيسر</button><button class="choice" data-pick="placement" type="button">الياقة / الدشداشة / الرقبة</button><button class="choice" data-pick="placement" type="button">منتصف الصدر</button><button class="choice" data-pick="placement" type="button">أطراف الأكمام</button><button class="choice" data-pick="placement" type="button">أعلى الظهر</button><button class="choice" data-pick="placement" type="button">موضع آخر (اكتب بنفسك)</button></div><input id="placementValue" name="موضع التطريز" type="hidden" value="جيب الصدر الأيسر"/><div class="field hidden" id="placementOtherWrap"><label for="placementOther">اكتب موضع التطريز الذي تريده</label><input autocomplete="off" id="placementOther" placeholder="اكتب الموضع المطلوب بالتحديد" type="text"/></div></div>
+<div class="field"><label>الحجم التقريبي للتطريز</label><div aria-label="حجم التطريز" class="grid" id="sizeChoices" role="group"><button class="choice selected" data-pick="size" type="button">صغير (3 × 5 سم)</button><button class="choice" data-pick="size" type="button">متوسط (6 × 10 سم)</button><button class="choice" data-pick="size" type="button">كبير (12 × 18 سم)</button><button class="choice" data-pick="size" type="button">مقاس آخر (اكتب بنفسك)</button></div><input id="sizeValue" name="حجم التطريز" type="hidden" value="صغير (3 × 5 سم)"/><div class="field hidden" id="sizeOtherWrap"><label for="sizeOther">اكتب المقاس الذي تريده</label><input autocomplete="off" id="sizeOther" placeholder="مثال: 8 × 12 سم" type="text"/></div></div>
+<div class="actions"><button class="btn back" data-back="" type="button">رجوع</button><button class="btn next" data-next="" type="button">التالي: الشحن والتوصيل ‹</button></div></section>
 <section class="form-step hidden" data-step="3"><div class="panel-head"><h2>الخطوة 3: الشحن والتوصيل</h2><p>أدخل بيانات التواصل ومكان استلام الطلب</p></div>
-<div class="two"><div class="field"><label for="phone">رقم الهاتف</label><input id="phone" name="رقم الهاتف" type="tel" required minlength="8" maxlength="20" pattern="[0-9+()\-\s]{8,20}" placeholder="رقم الهاتف مع مفتاح الدولة عند الحاجة" autocomplete="tel" inputmode="tel"></div><div class="field"><label for="email">البريد الإلكتروني (اختياري)</label><input id="email" name="email" type="email" placeholder="name@example.com" autocomplete="email"></div></div>
-<div class="field"><label for="address" id="addressLabel">عنوان التوصيل</label><input id="address" name="العنوان" required placeholder="الولاية والمنطقة" autocomplete="street-address"></div>
+<div class="two"><div class="field"><label for="phone">رقم الهاتف</label><input autocomplete="tel" id="phone" inputmode="tel" maxlength="20" minlength="8" name="رقم الهاتف" pattern="[0-9+()\-\s]{8,20}" placeholder="رقم الهاتف مع مفتاح الدولة عند الحاجة" required="" type="tel"/></div><div class="field"><label for="email">البريد الإلكتروني (اختياري)</label><input autocomplete="email" id="email" name="email" placeholder="name@example.com" type="email"/></div></div>
+<div class="field"><label for="address" id="addressLabel">عنوان التوصيل</label><input autocomplete="street-address" id="address" name="العنوان" placeholder="الولاية والمنطقة" required=""/></div>
 <div class="field"><label for="delivery">طريقة الاستلام</label><select id="delivery" name="طريقة الاستلام"><option>توصيل إلى العنوان</option><option>استلام بالتنسيق مع فريق النرجس</option></select></div>
-<div class="two"><div class="field"><label for="governorate">المحافظة</label><select id="governorate" name="المحافظة" required autocomplete="address-level1"><option value="" selected disabled>اختر المحافظة</option><option>محافظة مسقط</option><option>محافظة شمال الباطنة</option><option>محافظة جنوب الباطنة</option><option>محافظة الداخلية</option><option>محافظة شمال الشرقية</option><option>محافظة جنوب الشرقية</option><option>محافظة الظاهرة</option><option>محافظة البريمي</option><option>محافظة الوسطى</option><option>محافظة ظفار</option><option>محافظة مسندم</option></select></div><div class="field"><label for="wilaya">الولاية</label><input id="wilaya" name="الولاية" required placeholder="اكتب الولاية" autocomplete="address-level2"></div></div>
-<div class="field"><label>سرعة الإنجاز والتنفيذ</label><div class="grid" id="urgencyChoices" role="group" aria-label="سرعة الإنجاز"><button type="button" class="choice selected" data-pick="urgency">المدة العادية — حسب جدول الطلبات</button><button type="button" class="choice" data-pick="urgency">مستعجل — إن أمكن</button></div><input type="hidden" name="سرعة الإنجاز" value="المدة العادية — حسب جدول الطلبات"></div>
-<div class="actions"><button type="button" class="btn back" data-back>رجوع</button><button type="button" class="btn next" data-next>التالي: مراجعة الطلب ‹</button></div></section>
-<section class="form-step hidden" data-step="4"><div class="panel-head"><h2>الخطوة 4: المراجعة والتأكيد</h2><p>راجع بياناتك قبل إرسال الطلب إلى فريق النرجس</p></div><div id="summary" style="background:white;border:1px solid #e0e8e8;border-radius:12px;padding:14px;margin:12px 0"></div><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" required> أؤكد أن البيانات المدخلة صحيحة</label><div class="actions" style="flex-wrap:wrap"><button type="button" class="btn back" data-back>رجوع</button><button type="button" class="btn next" id="sendWhatsApp" style="background:#25D366;color:#fff">إرسال الفاتورة عبر واتساب ☎</button><button type="button" class="btn back" id="copyOrderSummary">نسخ ملخص الطلب</button><button type="submit" class="btn next">إرسال الطلب بالبريد الإلكتروني ✓</button></div><p id="copyOrderStatus" class="copy-order-status" aria-live="polite"></p><p style="font-size:12px;color:#657078;margin-top:10px">سيُفتح واتساب برسالة تحتوي على تفاصيل الطلب والفاتورة التقديرية. إذا أرفقت صورة تصميم، أرسلها داخل محادثة واتساب أيضًا.</p></section>
+<div class="two"><div class="field"><label for="governorate">المحافظة</label><select autocomplete="address-level1" id="governorate" name="المحافظة" required=""><option disabled="" selected="" value="">اختر المحافظة</option><option>محافظة مسقط</option><option>محافظة شمال الباطنة</option><option>محافظة جنوب الباطنة</option><option>محافظة الداخلية</option><option>محافظة شمال الشرقية</option><option>محافظة جنوب الشرقية</option><option>محافظة الظاهرة</option><option>محافظة البريمي</option><option>محافظة الوسطى</option><option>محافظة ظفار</option><option>محافظة مسندم</option></select></div><div class="field"><label for="wilaya">الولاية</label><input autocomplete="address-level2" id="wilaya" name="الولاية" placeholder="اكتب الولاية" required=""/></div></div>
+<div class="field"><label>سرعة الإنجاز والتنفيذ</label><div aria-label="سرعة الإنجاز" class="grid" id="urgencyChoices" role="group"><button class="choice selected" data-pick="urgency" type="button">المدة العادية — حسب جدول الطلبات</button><button class="choice" data-pick="urgency" type="button">مستعجل — إن أمكن</button></div><input name="سرعة الإنجاز" type="hidden" value="المدة العادية — حسب جدول الطلبات"/></div>
+<div class="actions"><button class="btn back" data-back="" type="button">رجوع</button><button class="btn next" data-next="" type="button">التالي: مراجعة الطلب ‹</button></div></section>
+<section class="form-step hidden" data-step="4"><div class="panel-head"><h2>الخطوة 4: المراجعة والتأكيد</h2><p>راجع بياناتك قبل إرسال الطلب إلى فريق النرجس</p></div><div id="summary" style="background:white;border:1px solid #e0e8e8;border-radius:12px;padding:14px;margin:12px 0"></div><label style="display:flex;gap:8px;align-items:center"><input required="" type="checkbox"/> أؤكد أن البيانات المدخلة صحيحة</label><div class="actions" style="flex-wrap:wrap"><button class="btn back" data-back="" type="button">رجوع</button><button class="btn next" id="sendWhatsApp" style="background:#25D366;color:#fff" type="button">إرسال الفاتورة عبر واتساب ☎</button><button class="btn back" id="copyOrderSummary" type="button">نسخ ملخص الطلب</button><button type="button" class="btn back" id="printOrderSummary">طباعة / حفظ الفاتورة PDF</button><button class="btn next" type="submit">إرسال الطلب بالبريد الإلكتروني ✓</button></div><p aria-live="polite" class="copy-order-status" id="copyOrderStatus"></p><p style="font-size:12px;color:#657078;margin-top:10px">سيُفتح واتساب برسالة تحتوي على تفاصيل الطلب والفاتورة التقديرية. إذا أرفقت صورة تصميم، أرسلها داخل محادثة واتساب أيضًا.</p></section>
 </form></main>
-<footer id="site-footer" class="site-footer">
-  <div class="footer-brand">
-    <a class="footer-brand-link" href="index.html" aria-label="العودة إلى الصفحة الرئيسية">
-      <img src="lo.png" alt="" width="42" height="42" loading="lazy">
-      <strong>النرجس للتطريز</strong>
-    </a>
-    <p>نحوّل أفكاركم إلى تفاصيل مطرزة بعناية.</p>
-  </div>
-  <nav class="footer-links" aria-label="روابط سريعة">
-    <strong>روابط سريعة</strong>
-    <a href="index.html">الرئيسية</a>
-    <a href="services.html">خدماتنا</a>
-    <a href="order.html">اطلب الآن</a>
-    <a href="contact.html">اتصل بنا</a>
-  </nav>
-  <div class="footer-contact">
-    <strong>تواصل معنا</strong>
-    <a href="https://api.whatsapp.com/send?phone=96892908668" target="_blank" rel="noopener noreferrer">افتح محادثة واتساب ↗</a>
-    <a class="footer-order-link" href="order.html">ابدأ طلب تطريزك</a>
-  </div>
-  <div class="footer-bottom">© 2026 النرجس للتطريز. جميع الحقوق محفوظة.</div>
+<footer class="site-footer" id="site-footer">
+<div class="footer-brand">
+<a aria-label="العودة إلى الصفحة الرئيسية" class="footer-brand-link" href="index.html">
+<img alt="شعار النرجس للتطريز" decoding="async" height="42" loading="lazy" src="lo.png" width="42"/>
+<strong>النرجس للتطريز</strong>
+</a>
+<p>نحوّل أفكاركم إلى تفاصيل مطرزة بعناية.</p>
+</div>
+<nav aria-label="روابط سريعة" class="footer-links">
+<strong>روابط سريعة</strong>
+<a href="index.html">الرئيسية</a>
+<a href="services.html">خدماتنا</a>
+<a href="order.html">اطلب الآن</a>
+<a href="contact.html">اتصل بنا</a>
+</nav>
+<div class="footer-contact">
+<strong>تواصل معنا</strong>
+<a href="https://api.whatsapp.com/send?phone=96892908668" rel="noopener noreferrer" target="_blank">افتح محادثة واتساب ↗</a>
+<a class="footer-order-link" href="order.html">ابدأ طلب تطريزك</a>
+</div>
+<div class="footer-bottom">© 2026 النرجس للتطريز. جميع الحقوق محفوظة.</div>
 </footer>
 <script>
 (function(){
 let step=1;const form=document.getElementById('orderForm');
-function showStep(n){step=n;document.querySelectorAll('.form-step').forEach(s=>s.classList.toggle('hidden',Number(s.dataset.step)!==n));document.querySelectorAll('.step').forEach((s,i)=>{s.classList.toggle('active',i+1===n);s.classList.toggle('done',i+1<n);if(i+1===n)s.setAttribute('aria-current','step');else s.removeAttribute('aria-current')});const progress=document.querySelector('.steps');progress.style.setProperty('--progress',(n-1)/3);progress.setAttribute('aria-label','مراحل الطلب، الخطوة '+n+' من 4');document.getElementById('stepStatus').textContent='الخطوة '+n+' من 4';if(n===4)makeSummary();document.querySelector('.intro').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});const heading=form.querySelector('.form-step:not(.hidden) .panel-head h2');if(heading){heading.setAttribute('tabindex','-1');heading.focus({preventScroll:true})}}
+function showStep(n){step=n;document.querySelectorAll('.form-step').forEach(s=>s.classList.toggle('hidden',Number(s.dataset.step)!==n));document.querySelectorAll('.step').forEach((s,i)=>{s.classList.toggle('active',i+1===n);s.classList.toggle('done',i+1<n);if(i+1===n)s.setAttribute('aria-current','step');else s.removeAttribute('aria-current')});const progress=document.querySelector('.steps');progress.style.setProperty('--progress',(n-1)/3);progress.setAttribute('aria-label','مراحل الطلب، الخطوة '+n+' من 4');document.getElementById('stepStatus').textContent='الخطوة '+n+' من 4';if(n===4)makeSummary();const heading=form.querySelector('.form-step:not(.hidden) .panel-head h2');if(heading){heading.setAttribute('tabindex','-1');heading.focus({preventScroll:true});requestAnimationFrame(()=>heading.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'}))}}
 document.querySelectorAll('[data-next]').forEach(b=>b.addEventListener('click',()=>{const current=form.querySelector('.form-step:not(.hidden)');const required=[...current.querySelectorAll('[required]')];for(const el of required){if(!el.checkValidity()){el.reportValidity();el.focus({preventScroll:true});return}}if(step===1&&document.getElementById('garmentChoices').querySelector('.selected')?.textContent.includes('شيء آخر')&&!garmentOther.value.trim()){garmentOther.required=true;garmentOther.reportValidity();garmentOther.focus({preventScroll:true});return}else garmentOther.required=false;if(step===1){const fo=document.getElementById('fabricOther');if(fo&&fo.required&&!fo.value.trim()){fo.reportValidity();fo.focus({preventScroll:true});return}}if(step===2){const so2=document.getElementById('serviceOther');if(so2&&so2.required&&!so2.value.trim()){so2.reportValidity();so2.focus({preventScroll:true});return}const po=document.getElementById('placementChoices').querySelector('.selected')?.textContent.includes('موضع آخر');const so=document.getElementById('sizeChoices').querySelector('.selected')?.textContent.includes('مقاس آخر');const p=document.getElementById('placementOther'),z=document.getElementById('sizeOther');p.required=!!po;z.required=!!so;if(po&&!p.value.trim()){p.reportValidity();p.focus({preventScroll:true});return}if(so&&!z.value.trim()){z.reportValidity();z.focus({preventScroll:true});return}}showStep(Math.min(4,step+1))}));
 document.querySelectorAll('[data-back]').forEach(b=>b.addEventListener('click',()=>showStep(Math.max(1,step-1))));
 form.addEventListener('submit',e=>{for(const id of ['fabricOther','serviceOther']){const el=document.getElementById(id);if(el&&el.required&&!el.value.trim()){e.preventDefault();el.reportValidity();el.focus();return}}});
@@ -924,8 +1101,19 @@ const color=document.getElementById('fabricColor');color.addEventListener('input
 const designFile=document.getElementById('designFile');const designFileStatus=document.getElementById('designFileStatus');
 designFile.addEventListener('change',()=>{const file=designFile.files&&designFile.files[0];if(!file){designFileStatus.textContent='لم يتم اختيار صورة بعد';return}if(file.size>8*1024*1024){designFile.value='';designFileStatus.textContent='حجم الصورة أكبر من 8 ميغابايت؛ اختر صورة أصغر.';designFileStatus.setAttribute('role','alert');return}designFileStatus.removeAttribute('role');designFileStatus.textContent='تم اختيار الصورة: '+file.name;});
 document.querySelectorAll('[data-image]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-image]').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');const yes=b.dataset.image==='yes';document.getElementById('imageChoice').value=yes?'لدي صورة للتصميم':'لا أملك صورة وأرغب بمساعدة النرجس';document.getElementById('uploadBox').classList.toggle('hidden',!yes);document.getElementById('designFile').disabled=!yes;if(!yes)document.getElementById('designFile').value=''}));
+function validateWholeOrder(){
+ const controls=Array.from(form.querySelectorAll('input,select,textarea'));
+ const invalid=controls.find(el=>!el.disabled&&el.type!=='hidden'&&el.willValidate&&!el.checkValidity());
+ if(!invalid)return true;
+ const stepNode=invalid.closest('.form-step');
+ const targetStep=stepNode?Number(stepNode.dataset.step):step;
+ if(targetStep&&targetStep!==step){showStep(targetStep);window.setTimeout(()=>{invalid.reportValidity();invalid.focus({preventScroll:true})},80)}
+ else{invalid.reportValidity();invalid.focus({preventScroll:true})}
+ return false;
+}
 document.getElementById('sendWhatsApp').addEventListener('click',()=>{
-const check=form.querySelector('input[type=checkbox][required]');if(check&&!check.checked){check.reportValidity();check.focus({preventScroll:true});return}for(const id of ['fabricOther','serviceOther','garmentOther','placementOther','sizeOther']){const el=document.getElementById(id);if(el&&el.required&&!el.value.trim()){el.reportValidity();el.focus({preventScroll:true});return}}
+if(!validateWholeOrder())return;
+for(const id of ['fabricOther','serviceOther','garmentOther','placementOther','sizeOther']){const el=document.getElementById(id);if(el&&el.required&&!el.value.trim()){el.reportValidity();el.focus({preventScroll:true});return}}
 const fields=[...form.querySelectorAll('input[name],select[name],textarea[name]')].filter(el=>!el.disabled&&el.type!=='file'&&el.type!=='checkbox'&&el.name&&!el.name.startsWith('_'));
 const seen=new Set();const lines=['طلب جديد — النرجس للتطريز','فاتورة / ملخص الطلب',''];
 fields.forEach(el=>{if(seen.has(el.name))return;seen.add(el.name);let val=el.value.trim();if(val)lines.push(el.name+': '+val)});
@@ -985,6 +1173,7 @@ const preview=document.getElementById('designPreview');let previewUrl='';
 designFile.addEventListener('change',()=>{if(previewUrl){URL.revokeObjectURL(previewUrl);previewUrl=''}const file=designFile.files&&designFile.files[0];if(!file){preview.hidden=true;preview.removeAttribute('src');return}if(file.size>8*1024*1024){preview.hidden=true;preview.removeAttribute('src');return}if(!file.type.startsWith('image/')){designFile.value='';designFileStatus.textContent='يرجى اختيار ملف صورة فقط.';designFileStatus.setAttribute('role','alert');preview.hidden=true;return}previewUrl=URL.createObjectURL(file);preview.src=previewUrl;preview.hidden=false;});
 document.querySelectorAll('[data-image]').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.image==='no'){if(previewUrl){URL.revokeObjectURL(previewUrl);previewUrl=''}preview.hidden=true;preview.removeAttribute('src')}}));
 // نسخ ملخص الطلب كخيار بديل إذا لم يتوفر واتساب على الجهاز.
+document.getElementById('printOrderSummary').addEventListener('click',()=>{makeSummary();window.print();});
 document.getElementById('copyOrderSummary').addEventListener('click',async()=>{const status=document.getElementById('copyOrderStatus');const fields=[...form.querySelectorAll('input[name],select[name],textarea[name]')].filter(el=>!el.disabled&&el.type!=='file'&&el.type!=='checkbox'&&el.name&&!el.name.startsWith('_'));const seen=new Set();const lines=['النرجس للتطريز — ملخص الطلب'];fields.forEach(el=>{if(seen.has(el.name))return;seen.add(el.name);const value=String(el.value||'').trim();if(value)lines.push(el.name+': '+value)});lines.push('لون القطعة: '+color.value.toUpperCase(),'التكلفة النهائية: تحدد بعد مراجعة الطلب');const text=lines.join('\n');try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(text)}else{const ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();const ok=document.execCommand('copy');ta.remove();if(!ok)throw new Error('copy-failed')}status.textContent='تم نسخ ملخص الطلب. يمكنك لصقه في واتساب أو أي محادثة.';}catch(e){status.textContent='تعذر النسخ تلقائيًا على هذا المتصفح. استخدم زر واتساب لإرسال التفاصيل.';}});
 
 })();
@@ -1083,9 +1272,6 @@ document.getElementById('copyOrderSummary').addEventListener('click',async()=>{c
  sync(requestedTheme);
 })();
 </script>
-
-
-
 <script id="narjis-usability-script-v3">
 (function(){
   'use strict';
@@ -1108,6 +1294,29 @@ document.getElementById('copyOrderSummary').addEventListener('click',async()=>{c
   document.querySelectorAll('a[href^="#"]').forEach(function(link){
     link.addEventListener('click',function(){var id=link.getAttribute('href');if(!id||id==='#')return;var target=document.querySelector(id);if(target){target.setAttribute('tabindex','-1');setTimeout(function(){try{target.focus({preventScroll:true})}catch(e){}},reduced?0:250)}})
   });
+})();
+</script>
+<script id="narjis-enhancements-script-v5">
+(function(){
+  'use strict';
+  if(document.querySelector('.narjis-scroll-progress')) return;
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bar=document.createElement('div');bar.className='narjis-scroll-progress';bar.setAttribute('aria-hidden','true');
+  var top=document.createElement('button');top.type='button';top.className='narjis-back-top';top.setAttribute('aria-label','العودة إلى أعلى الصفحة');top.setAttribute('title','العودة إلى أعلى الصفحة');top.setAttribute('aria-hidden','true');top.tabIndex=-1;top.innerHTML='<span aria-hidden="true">↑</span>';
+  document.body.appendChild(bar);document.body.appendChild(top);
+  var queued=false;
+  function update(){
+    queued=false;
+    var doc=document.documentElement, range=doc.scrollHeight-window.innerHeight;
+    var ratio=range>0?Math.max(0,Math.min(1,window.scrollY/range)):0;
+    bar.style.transform='scaleX('+ratio+')';
+    var show=window.scrollY>360;
+    top.classList.toggle('is-visible',show);top.setAttribute('aria-hidden',show?'false':'true');top.tabIndex=show?0:-1;
+  }
+  function schedule(){if(queued)return;queued=true;window.requestAnimationFrame(update)}
+  window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule,{passive:true});window.addEventListener('pageshow',schedule);
+  top.addEventListener('click',function(){window.scrollTo({top:0,behavior:reduced?'auto':'smooth'});});
+  update();
 })();
 </script>
 </body></html>

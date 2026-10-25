@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+
+<html dir="rtl" lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="موقع النرجس للتطريز العماني. اكتشف خدمات التطريز وابدأ طلبك بسهولة وتواصل مع فريق النرجس لتأكيد التفاصيل والسعر.">
-    <meta name="theme-color" content="#5c3d48">
-    <title>النرجس للتطريز | الفخامة والإتقان</title>
-    <!-- استدعاء خط Cairo من جوجل -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=300;400;600;700;900&display=swap" rel="stylesheet">
-    
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="موقع النرجس للتطريز العماني. اكتشف خدمات التطريز وابدأ طلبك بسهولة وتواصل مع فريق النرجس لتأكيد التفاصيل والسعر." name="description"/>
+<meta content="#5c3d48" name="theme-color"/>
+<title>النرجس للتطريز | الفخامة والإتقان</title>
+<!-- استدعاء خط Cairo من جوجل -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght=300;400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<style>
         /* الألوان والهوية البصرية الدافئة والمريحة للعين */
         :root {
             --primary-color: #5c3d48; /* العنابي الملكي للمطرزات */
@@ -423,7 +423,7 @@
             .bg-threads-3d { opacity: 0.15; }
         }
     </style>
-    <link rel="icon" type="image/png" href="lo.png">
+<link href="lo.png" rel="icon" type="image/png"/>
 <style id="thread-motion">
 /* خيوط تطريز متحركة - للصفحة الرئيسية فقط */
 .thread-motion{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;opacity:.38;}
@@ -436,7 +436,6 @@
 @media (prefers-reduced-motion:reduce){.thread-motion span{animation:none;}}
 @media (max-width:600px){.thread-motion{opacity:.22}.thread-motion span{width:70vw}.thread-motion span:nth-child(2){left:35%;width:55vw}.thread-motion span:nth-child(4){left:55%;width:45vw;}}
 </style>
-
 <style id="mobile-experience-improvements">
 /* قواعد عامة لتحسين الاستخدام على الهاتف دون تغيير تصميم الكمبيوتر */
 html{max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
@@ -483,7 +482,6 @@ img,video,svg,iframe{max-width:100%}
 @media(hover:none){.service-card:hover,.contact-card:hover,.btn-main:hover,.btn-order-service:hover,.btn-back:hover{transform:none!important;}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation:none!important;transition:none!important;}}
 </style>
-
 <style id="alnarjis-smooth-motion">
 /* طبقة حركة موحّدة: انتقالات ناعمة ومتزنة على جميع صفحات الموقع */
 :root { --motion-ease: cubic-bezier(.22,.72,.22,1); --motion-fast: 220ms; --motion-medium: 420ms; }
@@ -672,7 +670,6 @@ body.theme-welcome-open{overflow:hidden!important;overscroll-behavior:none!impor
 <script id="alnarjis-welcome-session-init">
 (function(){try{if(sessionStorage.getItem('alnarjis-welcome-v2')==='seen')document.documentElement.setAttribute('data-welcome-seen','true');}catch(e){}})();
 </script>
-
 <style id="alnarjis-theme-final-polish">
 /* ضبط نهاري/ليلي موحّد — تُعرّف القيم هنا بعد جميع أنماط الصفحات حتى لا تطغى عليها قواعد قديمة */
 html[data-theme="light"] { color-scheme: light; }
@@ -781,7 +778,6 @@ html[data-theme="dark"] .theme-control { background: rgba(24,31,35,.96) !importa
   .welcome-switch .welcome-switch-thumb { transition-duration: .12s !important; }
 }
 </style>
-
 <style id="alnarjis-quality-polish">
 /* افصل منظور الحركة الثلاثية الأبعاد عن كامل الصفحة لتقليل كلفة الرسم. */
 body { perspective: none !important; }
@@ -910,124 +906,134 @@ header nav a{min-height:42px;display:inline-flex!important;align-items:center;ju
  .bg-threads-3d,.thread-3d{animation:none!important;filter:none!important}
 }
 </style>
+<style id="narjis-enhancements-v5">
+:root{--narjis-focus-ring:rgba(61,183,181,.34)}
+html{scroll-padding-top:100px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+#main-content,.main-content,.intro,.form-step .panel-head h2{scroll-margin-top:110px}
+.skip-to-content{z-index:100000!important}
+.narjis-scroll-progress{position:fixed;top:0;right:0;width:100%;height:3px;z-index:1900;pointer-events:none;background:linear-gradient(90deg,#5c3d48,#3db7b5);transform:scaleX(0);transform-origin:right center;will-change:transform}
+.narjis-back-top{position:fixed;right:20px;bottom:20px;z-index:1600;width:46px;height:46px;display:grid;place-items:center;border:1px solid rgba(61,183,181,.55);border-radius:50%;background:rgba(92,61,72,.96);color:#fff;font:800 24px/1 'Cairo','Segoe UI',sans-serif;box-shadow:0 8px 24px rgba(27,32,34,.2);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(9px);transition:opacity .22s ease,transform .22s ease,visibility .22s ease,background-color .2s ease;cursor:pointer;touch-action:manipulation}
+.narjis-back-top.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+.narjis-back-top:hover{background:#2f8f8b}
+.narjis-back-top:focus-visible{outline:3px solid #3db7b5;outline-offset:4px}
+html[data-theme="dark"] .narjis-back-top{background:#1c3336;border-color:#55d2cb;color:#e8ffff}
+html[data-theme="dark"] .narjis-back-top:hover{background:#286e6b}
+@media(max-width:600px){html{scroll-padding-top:86px}#main-content,.main-content,.intro,.form-step .panel-head h2{scroll-margin-top:92px}.narjis-back-top{right:12px;bottom:calc(14px + env(safe-area-inset-bottom));width:44px;height:44px}}
+@media(prefers-reduced-motion:reduce){.narjis-back-top{transition:none!important}.narjis-scroll-progress{transition:none!important}}
+@media print{.narjis-scroll-progress,.narjis-back-top,.theme-control,.theme-welcome,.thread-motion,.bg-threads-3d,.skip-to-content,header,footer{display:none!important}}
+</style>
 </head>
 <body class="theme-welcome-open">
 <a class="skip-to-content" href="#main-content">انتقل إلى المحتوى الرئيسي</a>
-<div class="theme-control" aria-label="مظهر الموقع"><span class="theme-label" id="theme-label">الوضع النهاري</span><button type="button" class="theme-toggle" id="theme-toggle" role="switch" aria-checked="false" aria-label="التبديل بين الوضع النهاري والليلي" title="التبديل بين الوضع النهاري والليلي"><span class="theme-icon sun" aria-hidden="true">☀</span><span class="theme-icon moon" aria-hidden="true">☾</span><span class="theme-thumb" aria-hidden="true"></span></button></div>
-
-<div class="theme-welcome" id="theme-welcome" role="dialog" aria-modal="true" aria-labelledby="theme-welcome-title">
-  <section id="theme-welcome-card" class="theme-welcome-card" style="display:block;visibility:visible;opacity:1;position:relative;z-index:1;">
-    <div class="theme-welcome-brand">
-      <img class="theme-welcome-logo" src="lo.png" alt="شعار النرجس للتطريز" onerror="this.style.display='none'">
-      <div class="theme-welcome-brand-name">النرجس للتطريز</div>
-    </div>
-    <div class="theme-welcome-eyebrow"><span aria-hidden="true">✦</span> أهلًا بك في موقع النرجس</div>
-    <h1 class="theme-welcome-title" id="theme-welcome-title">اختر أجواء زيارتك</h1>
-    <p class="theme-welcome-description">نمنحك تجربة مريحة كما تحب. اختر الوضع الذي يناسبك، ويمكنك تغييره في أي وقت.</p>
-    <div class="theme-welcome-options" role="group" aria-label="اختر مظهر الموقع">
-      <button class="theme-welcome-option" type="button" data-welcome-theme="light" aria-pressed="true">
-        <span class="theme-mode-emoji day" aria-hidden="true">☀️</span>
-        <span class="theme-mode-name">الوضع النهاري</span>
-        <span class="theme-mode-note">ألوان فاتحة وهادئة</span>
-      </button>
-      <button class="theme-welcome-option" type="button" data-welcome-theme="dark" aria-pressed="false">
-        <span class="theme-mode-emoji night" aria-hidden="true">☾</span>
-        <span class="theme-mode-name">الوضع الليلي</span>
-        <span class="theme-mode-note">ألوان داكنة مريحة</span>
-      </button>
-    </div>
-    <div class="theme-welcome-switchrow">
-      <span class="theme-welcome-switchlabel">نهاري</span>
-      <button class="welcome-switch" id="welcome-switch" type="button" role="switch" aria-checked="false" aria-label="التبديل بين الوضع النهاري والليلي"><span class="welcome-switch-thumb" aria-hidden="true">☀</span></button>
-      <span class="theme-welcome-switchlabel">ليلي</span>
-    </div>
-    <button class="theme-welcome-continue" id="theme-welcome-continue" type="button">الدخول إلى الموقع <span aria-hidden="true">←</span></button>
-    <p class="theme-welcome-foot">سيُحفظ اختيارك لهذا الجهاز، ويمكنك تغييره لاحقًا من مفتاح المظهر.</p>
-  </section>
+<div aria-label="مظهر الموقع" class="theme-control"><span class="theme-label" id="theme-label">الوضع النهاري</span><button aria-checked="false" aria-label="التبديل بين الوضع النهاري والليلي" class="theme-toggle" id="theme-toggle" role="switch" title="التبديل بين الوضع النهاري والليلي" type="button"><span aria-hidden="true" class="theme-icon sun">☀</span><span aria-hidden="true" class="theme-icon moon">☾</span><span aria-hidden="true" class="theme-thumb"></span></button></div>
+<div aria-labelledby="theme-welcome-title" aria-modal="true" class="theme-welcome" id="theme-welcome" role="dialog">
+<section class="theme-welcome-card" id="theme-welcome-card" style="display:block;visibility:visible;opacity:1;position:relative;z-index:1;">
+<div class="theme-welcome-brand">
+<img alt="شعار النرجس للتطريز" class="theme-welcome-logo" decoding="async" onerror="this.style.display='none'" src="lo.png"/>
+<div class="theme-welcome-brand-name">النرجس للتطريز</div>
 </div>
-
-
-
-<div class="thread-motion" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-    <!-- 🧵 الخلفية الحية ممتدة ثلاثية الأبعاد -->
-    <div class="bg-threads-3d">
-        <svg class="thread-3d t-gold" viewBox="0 0 1440 400">
-            <path d="M0,200 C300,350 600,50 900,200 C1200,350 1300,100 1440,200" />
-        </svg>
-        <svg class="thread-3d t-burgundy" viewBox="0 0 1440 400">
-            <path d="M1440,150 C1100,-50 800,350 500,150 C200,-50 100,250 0,150" />
-        </svg>
-    </div>
-    <header>
-        <div class="nav-container">
-            <div class="logo-wrapper">
-                <img src="lo.png" alt="شعار النرجس" class="logo-img">
-                <div class="logo-text"><span>النرجس</span></div>
-            </div>
-            <nav aria-label="التنقل الرئيسي">
-                <a href="index.html" class="active" aria-current="page">الرئيسية</a>
-                <a href="services.html">خدماتنا</a>
-                <a href="order.html">اطلب الآن</a>
-                <a href="contact.html">اتصل بنا</a>
-            </nav>
-        </div>
-    </header>
-    <section id="main-content" tabindex="-1" class="hero">
-        <video autoplay loop muted playsinline preload="metadata" class="hero-video-bg" aria-hidden="true">
-            <source src="er.mp4" type="video/mp4">
+<div class="theme-welcome-eyebrow"><span aria-hidden="true">✦</span> أهلًا بك في موقع النرجس</div>
+<h1 class="theme-welcome-title" id="theme-welcome-title">اختر أجواء زيارتك</h1>
+<p class="theme-welcome-description">نمنحك تجربة مريحة كما تحب. اختر الوضع الذي يناسبك، ويمكنك تغييره في أي وقت.</p>
+<div aria-label="اختر مظهر الموقع" class="theme-welcome-options" role="group">
+<button aria-pressed="true" class="theme-welcome-option" data-welcome-theme="light" type="button">
+<span aria-hidden="true" class="theme-mode-emoji day">☀️</span>
+<span class="theme-mode-name">الوضع النهاري</span>
+<span class="theme-mode-note">ألوان فاتحة وهادئة</span>
+</button>
+<button aria-pressed="false" class="theme-welcome-option" data-welcome-theme="dark" type="button">
+<span aria-hidden="true" class="theme-mode-emoji night">☾</span>
+<span class="theme-mode-name">الوضع الليلي</span>
+<span class="theme-mode-note">ألوان داكنة مريحة</span>
+</button>
+</div>
+<div class="theme-welcome-switchrow">
+<span class="theme-welcome-switchlabel">نهاري</span>
+<button aria-checked="false" aria-label="التبديل بين الوضع النهاري والليلي" class="welcome-switch" id="welcome-switch" role="switch" type="button"><span aria-hidden="true" class="welcome-switch-thumb">☀</span></button>
+<span class="theme-welcome-switchlabel">ليلي</span>
+</div>
+<button class="theme-welcome-continue" id="theme-welcome-continue" type="button">الدخول إلى الموقع <span aria-hidden="true">←</span></button>
+<p class="theme-welcome-foot">سيُحفظ اختيارك لهذا الجهاز، ويمكنك تغييره لاحقًا من مفتاح المظهر.</p>
+</section>
+</div>
+<div aria-hidden="true" class="thread-motion"><span></span><span></span><span></span><span></span></div>
+<!-- 🧵 الخلفية الحية ممتدة ثلاثية الأبعاد -->
+<div class="bg-threads-3d">
+<svg class="thread-3d t-gold" viewbox="0 0 1440 400">
+<path d="M0,200 C300,350 600,50 900,200 C1200,350 1300,100 1440,200"></path>
+</svg>
+<svg class="thread-3d t-burgundy" viewbox="0 0 1440 400">
+<path d="M1440,150 C1100,-50 800,350 500,150 C200,-50 100,250 0,150"></path>
+</svg>
+</div>
+<header>
+<div class="nav-container">
+<div class="logo-wrapper">
+<img alt="شعار النرجس" class="logo-img" decoding="async" src="lo.png"/>
+<div class="logo-text"><span>النرجس</span></div>
+</div>
+<nav aria-label="التنقل الرئيسي">
+<a aria-current="page" class="active" href="index.html">الرئيسية</a>
+<a href="services.html">خدماتنا</a>
+<a href="order.html">اطلب الآن</a>
+<a href="contact.html">اتصل بنا</a>
+</nav>
+</div>
+</header>
+<section class="hero" id="main-content" tabindex="-1">
+<video aria-hidden="true" autoplay="" class="hero-video-bg" loop="" muted="" playsinline="" preload="metadata">
+<source src="er.mp4" type="video/mp4"/>
             عذراً، متصفحك لا يدعم تشغيل الفيديو.
         </video>
-        
-        <div class="hero-content">
-            <h1>نُحوّل ثيابكم إلى لوحات فنية</h1>
-            <p>مرحباً بكم في النرجس.. حيث ندمج دقة الخيوط بفخامة التصميم لتطريز يعبر عن ذوقكم الرفيع.</p>
-            <a href="order.html" class="btn-main">اطلب تطريزك الآن</a>
-        </div>
-    </section>
-    <section class="about-brief">
-        <h2>لماذا تختار النرجس؟</h2>
-        <div class="divider"></div>
-        <p>في النرجس، لا نكتفي بالتطريز فقط، بل نختار أجود أنواع الخيوط التي لا تتأثر بالغسيل، ونستخدم تقنيات حديثة تضمن لكم دقة متناهية في التفاصيل، لتبقى ملابسكم مميزة وتدوم طويلاً.</p>
-    </section>
-    <section class="services-preview">
-        <h2>أبرز خدماتنا</h2>
-        <div class="services-grid">
-            
-            <div class="service-card" style="animation-delay: 0.15s;">
-                <div class="service-icon">👕</div>
-                <h3>التطريز على ملابسك الخاصة</h3>
-                <p>هل لديك لباس جاهز (قميص، فستان، عباءة) وتريد إضافة لمسة مميزة عليه؟ ارفع تصميمك وسنتولى الباقي.</p>
-                <a href="services.html" class="btn-secondary">التفاصيل ←</a>
-            </div>
-            <div class="service-card" style="animation-delay: 0.35s;">
-                <div class="service-icon">🧵</div>
-                <h3>تصميم وتفصيل متكامل</h3>
-                <p>نوفر لكم أفخم الأقمشة والملابس المجهزة مسبقاً، ونقوم بتطريزها بناءً على رغبتكم بالكامل ومن الصفر.</p>
-                <a href="services.html" class="btn-secondary">التفاصيل ←</a>
-            </div>
-        </div>
-    </section>
-    <footer id="site-footer" class="site-footer">
-  <div class="footer-brand">
-    <a class="footer-brand-link" href="index.html" aria-label="العودة إلى الصفحة الرئيسية">
-      <img src="lo.png" alt="" width="42" height="42" loading="lazy">
-      <strong>النرجس للتطريز</strong>
-    </a>
-    <p>نحوّل أفكاركم إلى تفاصيل مطرزة بعناية.</p>
-  </div>
-  <nav class="footer-links" aria-label="روابط سريعة">
-    <strong>روابط سريعة</strong>
-    <a href="index.html">الرئيسية</a>
-    <a href="services.html">خدماتنا</a>
-    <a href="order.html">اطلب الآن</a>
-    <a href="contact.html">اتصل بنا</a>
-  </nav>
-  <div class="footer-contact">
-    <strong>تواصل معنا</strong>
-    <a href="https://api.whatsapp.com/send?phone=96892908668" target="_blank" rel="noopener noreferrer">افتح محادثة واتساب ↗</a>
-    <a class="footer-order-link" href="order.html">ابدأ طلب تطريزك</a>
-  </div>
-  <div class="footer-bottom">© 2026 النرجس للتطريز. جميع الحقوق محفوظة.</div>
+<div class="hero-content">
+<h1>نُحوّل ثيابكم إلى لوحات فنية</h1>
+<p>مرحباً بكم في النرجس.. حيث ندمج دقة الخيوط بفخامة التصميم لتطريز يعبر عن ذوقكم الرفيع.</p>
+<a class="btn-main" href="order.html">اطلب تطريزك الآن</a>
+</div>
+</section>
+<section class="about-brief">
+<h2>لماذا تختار النرجس؟</h2>
+<div class="divider"></div>
+<p>في النرجس، لا نكتفي بالتطريز فقط، بل نختار أجود أنواع الخيوط التي لا تتأثر بالغسيل، ونستخدم تقنيات حديثة تضمن لكم دقة متناهية في التفاصيل، لتبقى ملابسكم مميزة وتدوم طويلاً.</p>
+</section>
+<section class="services-preview">
+<h2>أبرز خدماتنا</h2>
+<div class="services-grid">
+<div class="service-card" style="animation-delay: 0.15s;">
+<div class="service-icon">👕</div>
+<h3>التطريز على ملابسك الخاصة</h3>
+<p>هل لديك لباس جاهز (قميص، فستان، عباءة) وتريد إضافة لمسة مميزة عليه؟ ارفع تصميمك وسنتولى الباقي.</p>
+<a class="btn-secondary" href="services.html">التفاصيل ←</a>
+</div>
+<div class="service-card" style="animation-delay: 0.35s;">
+<div class="service-icon">🧵</div>
+<h3>تصميم وتفصيل متكامل</h3>
+<p>نوفر لكم أفخم الأقمشة والملابس المجهزة مسبقاً، ونقوم بتطريزها بناءً على رغبتكم بالكامل ومن الصفر.</p>
+<a class="btn-secondary" href="services.html">التفاصيل ←</a>
+</div>
+</div>
+</section>
+<footer class="site-footer" id="site-footer">
+<div class="footer-brand">
+<a aria-label="العودة إلى الصفحة الرئيسية" class="footer-brand-link" href="index.html">
+<img alt="شعار النرجس للتطريز" decoding="async" height="42" loading="lazy" src="lo.png" width="42"/>
+<strong>النرجس للتطريز</strong>
+</a>
+<p>نحوّل أفكاركم إلى تفاصيل مطرزة بعناية.</p>
+</div>
+<nav aria-label="روابط سريعة" class="footer-links">
+<strong>روابط سريعة</strong>
+<a href="index.html">الرئيسية</a>
+<a href="services.html">خدماتنا</a>
+<a href="order.html">اطلب الآن</a>
+<a href="contact.html">اتصل بنا</a>
+</nav>
+<div class="footer-contact">
+<strong>تواصل معنا</strong>
+<a href="https://api.whatsapp.com/send?phone=96892908668" rel="noopener noreferrer" target="_blank">افتح محادثة واتساب ↗</a>
+<a class="footer-order-link" href="order.html">ابدأ طلب تطريزك</a>
+</div>
+<div class="footer-bottom">© 2026 النرجس للتطريز. جميع الحقوق محفوظة.</div>
 </footer>
 <script id="alnarjis-smooth-motion-script">
 (() => {
@@ -1124,7 +1130,6 @@ header nav a{min-height:42px;display:inline-flex!important;align-items:center;ju
  sync(requestedTheme);
 })();
 </script>
-
 <script id="alnarjis-theme-welcome-behavior">
 (function(){
   'use strict';
@@ -1175,7 +1180,6 @@ header nav a{min-height:42px;display:inline-flex!important;align-items:center;ju
   setTheme(selected,false);
 })();
 </script>
-
 <script id="narjis-usability-script-v3">
 (function(){
   'use strict';
@@ -1198,6 +1202,29 @@ header nav a{min-height:42px;display:inline-flex!important;align-items:center;ju
   document.querySelectorAll('a[href^="#"]').forEach(function(link){
     link.addEventListener('click',function(){var id=link.getAttribute('href');if(!id||id==='#')return;var target=document.querySelector(id);if(target){target.setAttribute('tabindex','-1');setTimeout(function(){try{target.focus({preventScroll:true})}catch(e){}},reduced?0:250)}})
   });
+})();
+</script>
+<script id="narjis-enhancements-script-v5">
+(function(){
+  'use strict';
+  if(document.querySelector('.narjis-scroll-progress')) return;
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bar=document.createElement('div');bar.className='narjis-scroll-progress';bar.setAttribute('aria-hidden','true');
+  var top=document.createElement('button');top.type='button';top.className='narjis-back-top';top.setAttribute('aria-label','العودة إلى أعلى الصفحة');top.setAttribute('title','العودة إلى أعلى الصفحة');top.setAttribute('aria-hidden','true');top.tabIndex=-1;top.innerHTML='<span aria-hidden="true">↑</span>';
+  document.body.appendChild(bar);document.body.appendChild(top);
+  var queued=false;
+  function update(){
+    queued=false;
+    var doc=document.documentElement, range=doc.scrollHeight-window.innerHeight;
+    var ratio=range>0?Math.max(0,Math.min(1,window.scrollY/range)):0;
+    bar.style.transform='scaleX('+ratio+')';
+    var show=window.scrollY>360;
+    top.classList.toggle('is-visible',show);top.setAttribute('aria-hidden',show?'false':'true');top.tabIndex=show?0:-1;
+  }
+  function schedule(){if(queued)return;queued=true;window.requestAnimationFrame(update)}
+  window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule,{passive:true});window.addEventListener('pageshow',schedule);
+  top.addEventListener('click',function(){window.scrollTo({top:0,behavior:reduced?'auto':'smooth'});});
+  update();
 })();
 </script>
 </body>
