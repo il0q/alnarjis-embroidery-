@@ -1,0 +1,28 @@
+{
+  "id": "./index.html",
+  "name": "النرجس للتطريز",
+  "short_name": "النرجس",
+  "description": "موقع النرجس للتطريز — الخدمات والطلبات والتواصل.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#101518",
+  "theme_color": "#5c3d48",
+  "icons": [
+    {
+      "src": "./assets/alnarjis-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/alnarjis-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
