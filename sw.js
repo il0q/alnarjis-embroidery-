@@ -1,6 +1,6 @@
 /* Alnarjis PWA shell — bump this version whenever core assets change. */
 'use strict';
-const CACHE_NAME = 'alnarjis-site-shell-v1-20261025';
+const CACHE_NAME = 'alnarjis-site-shell-v2-20261028';
 const CORE_FILES = [
   'index.html', 'services.html', 'order.html', 'contact.html', 'thank-you.html',
   'offline.html', 'manifest.webmanifest', 'lo.png', 'lo.webp',
