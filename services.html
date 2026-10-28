@@ -1079,41 +1079,5 @@ html[data-theme="dark"] .narjis-back-top:hover{background:#286e6b}
   update();
 })();
 </script>
-<script id="narjis-current-page-nav">
-(function(){
-  'use strict';
-  var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
-  if(!path)path='index.html';
-  document.querySelectorAll('.nav-container nav a[href], header nav a[href]').forEach(function(link){
-    var raw=(link.getAttribute('href')||'').split('#')[0].split('?')[0].toLowerCase();
-    var target=raw.split('/').pop()||'index.html';
-    if(target===path){
-      link.classList.add('active');
-      link.setAttribute('aria-current','page');
-    }else{
-      link.classList.remove('active');
-      link.removeAttribute('aria-current');
-    }
-  });
-})();
-</script>
-<script id="narjis-native-scroll-safety">
-(function(){
-  'use strict';
-  /* لا نمنع wheel/touch: التمرير الأصلي يبقى بيد المتصفح. */
-  function unlockIfWelcomeGone(){
-    var root=document.documentElement, body=document.body;
-    if(!body)return;
-    var overlay=document.getElementById('theme-welcome');
-    if(!overlay || root.getAttribute('data-welcome-seen')==='true'){
-      body.classList.remove('theme-welcome-open');
-      root.classList.remove('theme-welcome-lock');
-    }
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',unlockIfWelcomeGone,{once:true});
-  else unlockIfWelcomeGone();
-  window.addEventListener('pageshow',unlockIfWelcomeGone);
-})();
-</script>
 </body>
 </html>

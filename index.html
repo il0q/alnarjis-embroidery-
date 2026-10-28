@@ -1135,30 +1135,12 @@ html[data-theme="dark"] .narjis-back-top:hover{background:#286e6b}
   'use strict';
   var root=document.documentElement;
   var overlay=document.getElementById('theme-welcome');
-  /* إصلاح قفل التمرير: قد تكون شاشة الترحيب قد أُغلقت في جلسة سابقة.
-     في هذه الحالة يجب إزالة قفل الصفحة أيضًا، لا إزالة الطبقة وحدها. */
-  function releaseScrollLock(){
-    if(document.body) document.body.classList.remove('theme-welcome-open');
-    root.classList.remove('theme-welcome-lock');
-  }
-  if(!overlay){releaseScrollLock();return;}
-  if(root.getAttribute('data-welcome-seen')==='true'){
-    overlay.remove();
-    releaseScrollLock();
-    return;
-  }
+  if(!overlay)return;
+  if(root.getAttribute('data-welcome-seen')==='true'){overlay.remove();return;}
   var card=document.getElementById('theme-welcome-card');
   var switcher=document.getElementById('welcome-switch');
   var continueBtn=document.getElementById('theme-welcome-continue');
-  if(!card||!switcher||!continueBtn){
-    overlay.remove();
-    releaseScrollLock();
-    return;
-  }
-  /* استعادة آمنة بعد الرجوع من ذاكرة المتصفح، طالما شاشة الاختيار ليست معروضة. */
-  window.addEventListener('pageshow',function(){
-    if(root.getAttribute('data-welcome-seen')==='true'||!document.getElementById('theme-welcome')) releaseScrollLock();
-  });
+  if(!card||!switcher||!continueBtn)return;
   var options=Array.prototype.slice.call(overlay.querySelectorAll('[data-welcome-theme]'));
   var selected=root.getAttribute('data-theme')==='dark'?'dark':'light';
   function setTheme(theme,animate){
@@ -1182,7 +1164,8 @@ html[data-theme="dark"] .narjis-back-top:hover{background:#286e6b}
     window.setTimeout(function(){
       overlay.remove();
       root.setAttribute('data-welcome-seen','true');
-      releaseScrollLock();
+      document.body.classList.remove('theme-welcome-open');
+      root.classList.remove('theme-welcome-lock');
     },430);
   });
   overlay.classList.remove('is-closing');
@@ -1242,42 +1225,6 @@ html[data-theme="dark"] .narjis-back-top:hover{background:#286e6b}
   window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule,{passive:true});window.addEventListener('pageshow',schedule);
   top.addEventListener('click',function(){window.scrollTo({top:0,behavior:reduced?'auto':'smooth'});});
   update();
-})();
-</script>
-<script id="narjis-current-page-nav">
-(function(){
-  'use strict';
-  var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
-  if(!path)path='index.html';
-  document.querySelectorAll('.nav-container nav a[href], header nav a[href]').forEach(function(link){
-    var raw=(link.getAttribute('href')||'').split('#')[0].split('?')[0].toLowerCase();
-    var target=raw.split('/').pop()||'index.html';
-    if(target===path){
-      link.classList.add('active');
-      link.setAttribute('aria-current','page');
-    }else{
-      link.classList.remove('active');
-      link.removeAttribute('aria-current');
-    }
-  });
-})();
-</script>
-<script id="narjis-native-scroll-safety">
-(function(){
-  'use strict';
-  /* لا نمنع wheel/touch: التمرير الأصلي يبقى بيد المتصفح. */
-  function unlockIfWelcomeGone(){
-    var root=document.documentElement, body=document.body;
-    if(!body)return;
-    var overlay=document.getElementById('theme-welcome');
-    if(!overlay || root.getAttribute('data-welcome-seen')==='true'){
-      body.classList.remove('theme-welcome-open');
-      root.classList.remove('theme-welcome-lock');
-    }
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',unlockIfWelcomeGone,{once:true});
-  else unlockIfWelcomeGone();
-  window.addEventListener('pageshow',unlockIfWelcomeGone);
 })();
 </script>
 </body>
