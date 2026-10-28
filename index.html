@@ -783,6 +783,7 @@ html[data-theme="dark"] .theme-control { background: rgba(24,31,35,.96) !importa
 body { perspective: none !important; }
 .bg-threads-3d { perspective: 1000px; }
 html[data-welcome-seen="true"] #theme-welcome { display: none !important; }
+html[data-welcome-seen="true"], html[data-welcome-seen="true"] body.theme-welcome-open, html[data-welcome-seen="true"].theme-welcome-lock { overflow-y: auto !important; overscroll-behavior: auto !important; }
 @media (max-width: 720px) {
   .bg-threads-3d { opacity: .11 !important; }
   .thread-3d { filter: none !important; }
@@ -1136,15 +1137,7 @@ html[data-theme="dark"] .narjis-back-top:hover{background:#286e6b}
   var root=document.documentElement;
   var overlay=document.getElementById('theme-welcome');
   if(!overlay)return;
-  if(root.getAttribute('data-welcome-seen')==='true'){
-    overlay.remove();
-    /* إصلاح قفل التمرير الذي كان يبقى على الصفحة بعد إخفاء شاشة الترحيب */
-    document.body.classList.remove('theme-welcome-open');
-    root.classList.remove('theme-welcome-lock');
-    document.documentElement.style.removeProperty('overflow');
-    document.body.style.removeProperty('overflow');
-    return;
-  }
+  if(root.getAttribute('data-welcome-seen')==='true'){overlay.remove();document.body.classList.remove('theme-welcome-open');root.classList.remove('theme-welcome-lock');return;}
   var card=document.getElementById('theme-welcome-card');
   var switcher=document.getElementById('welcome-switch');
   var continueBtn=document.getElementById('theme-welcome-continue');
