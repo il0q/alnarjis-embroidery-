@@ -1136,7 +1136,15 @@ html[data-theme="dark"] .narjis-back-top:hover{background:#286e6b}
   var root=document.documentElement;
   var overlay=document.getElementById('theme-welcome');
   if(!overlay)return;
-  if(root.getAttribute('data-welcome-seen')==='true'){overlay.remove();return;}
+  if(root.getAttribute('data-welcome-seen')==='true'){
+    overlay.remove();
+    /* إصلاح قفل التمرير الذي كان يبقى على الصفحة بعد إخفاء شاشة الترحيب */
+    document.body.classList.remove('theme-welcome-open');
+    root.classList.remove('theme-welcome-lock');
+    document.documentElement.style.removeProperty('overflow');
+    document.body.style.removeProperty('overflow');
+    return;
+  }
   var card=document.getElementById('theme-welcome-card');
   var switcher=document.getElementById('welcome-switch');
   var continueBtn=document.getElementById('theme-welcome-continue');
