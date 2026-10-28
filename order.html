@@ -1002,60 +1002,6 @@ html[data-theme="dark"] #site-footer.site-footer { background:#0f1518!important;
 @media(max-width:360px) { #site-footer.site-footer { grid-template-columns:1fr!important; } #site-footer .footer-brand { grid-column:auto; } }
 @media(prefers-reduced-motion:reduce) { #orderForm *,header *,#site-footer * { animation:none!important; transition:none!important; } }
 </style>
-
-<!-- Alnarjis premium metadata -->
-<link rel="manifest" href="./manifest.webmanifest">
-<link rel="apple-touch-icon" href="./assets/alnarjis-192.png">
-<meta name="theme-color" content="#5c3d48">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="النرجس للتطريز">
-<meta name="description" content="جهّز طلب التطريز خطوة بخطوة، واختر القطعة والخامة والتفاصيل وطريقة الاستلام، ثم راجع الملخص قبل الإرسال.">
-<link rel="canonical" href="https://il0q.github.io/alnarjis-embroidery/order.html">
-<meta property="og:site_name" content="النرجس للتطريز">
-<meta property="og:locale" content="ar_OM">
-<meta property="og:type" content="website">
-<meta property="og:title" content="اطلب الآن | النرجس للتطريز">
-<meta property="og:description" content="جهّز طلب التطريز خطوة بخطوة، واختر القطعة والخامة والتفاصيل وطريقة الاستلام، ثم راجع الملخص قبل الإرسال.">
-<meta property="og:url" content="https://il0q.github.io/alnarjis-embroidery/order.html">
-<meta property="og:image" content="https://il0q.github.io/alnarjis-embroidery/lo.png">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="اطلب الآن | النرجس للتطريز">
-<meta name="twitter:description" content="جهّز طلب التطريز خطوة بخطوة، واختر القطعة والخامة والتفاصيل وطريقة الاستلام، ثم راجع الملخص قبل الإرسال.">
-
-<style id="alnarjis-premium-ui">
-:root{--narjis-motion: cubic-bezier(.22,.75,.22,1)}
-html{scroll-padding-top:100px;text-size-adjust:100%;-webkit-text-size-adjust:100%}
-body{overflow-x:clip}
-:where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:3px solid #3db7b5!important;outline-offset:3px!important}
-button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
-img{max-width:100%;height:auto}
-.narjis-scroll-progress{position:fixed;z-index:110000;top:0;left:0;right:auto;height:3px;width:100%;transform:scaleX(0);transform-origin:right center;background:linear-gradient(90deg,#5c3d48,#3db7b5);pointer-events:none;will-change:transform}
-.narjis-back-top{position:fixed!important;right:16px!important;bottom:calc(16px + env(safe-area-inset-bottom))!important;z-index:10050!important;width:46px!important;height:46px!important;border-radius:50%!important;display:grid!important;place-items:center!important;background:#5c3d48!important;color:#fff!important;border:1px solid rgba(61,183,181,.65)!important;box-shadow:0 8px 22px rgba(0,0,0,.2)!important;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(7px);transition:opacity .2s ease,transform .2s ease,visibility .2s ease!important;cursor:pointer}
-.narjis-back-top.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
-html[data-theme="dark"] .narjis-back-top{background:#203638!important;color:#e9ffff!important;border-color:#59d2cb!important}
-.narjis-offline-banner{position:fixed;z-index:120000;top:10px;left:50%;transform:translateX(-50%);width:min(calc(100% - 24px),620px);padding:12px 16px;border:1px solid #d8ab5f;border-radius:14px;background:#fff8e9;color:#4d3921;box-shadow:0 12px 34px #0002;font:700 13px/1.7 Cairo,"Segoe UI",sans-serif;text-align:center}
-html[data-theme="dark"] .narjis-offline-banner{background:#2b2921;color:#fff1d4;border-color:#9f834e}
-.narjis-install-app{position:fixed;z-index:10040;left:16px;bottom:calc(78px + env(safe-area-inset-bottom));max-width:calc(100vw - 32px);min-height:44px;padding:10px 16px;border-radius:999px;border:1px solid #3db7b5;background:linear-gradient(100deg,#5c3d48,#2d9994);color:#fff;box-shadow:0 9px 28px #0003;font:800 13px/1.5 Cairo,"Segoe UI",sans-serif;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
-.narjis-install-app:hover{transform:translateY(-2px);box-shadow:0 13px 30px #0004}
-.narjis-install-app[hidden]{display:none!important}
-.order-draft-banner{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:0 auto 18px;padding:14px 16px;border:1px solid rgba(61,183,181,.48);border-radius:16px;background:rgba(61,183,181,.09);color:inherit;font-size:13px;line-height:1.8}
-.order-draft-banner[hidden]{display:none!important}
-.order-draft-banner button{border:1px solid #5c3d48;border-radius:10px;padding:8px 12px;background:#5c3d48;color:#fff;font:700 12px Cairo,"Segoe UI",sans-serif;min-height:38px;cursor:pointer}
-html[data-theme="dark"] .order-draft-banner{background:#172a2b;border-color:#3b7776;color:#e9f3f3}
-html[data-theme="dark"] .order-draft-banner button{background:#244d4f;border-color:#55d2cb}
-.order-draft-privacy{max-width:920px;margin:-4px auto 15px;color:#6b6267;font-size:12px;line-height:1.8;text-align:center}
-html[data-theme="dark"] .order-draft-privacy{color:#b6c1c3}
-.order-reference-card{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:10px 0 14px;padding:13px 16px;border:1px solid rgba(61,183,181,.42);border-radius:14px;background:rgba(61,183,181,.08);color:inherit}
-.order-reference-card span{font-size:12px;opacity:.82}
-.order-reference-card strong{direction:ltr;unicode-bidi:isolate;letter-spacing:.07em;font:900 16px/1.5 ui-monospace,Consolas,monospace;color:#287f7c}
-html[data-theme="dark"] .order-reference-card strong{color:#6adbd4}
-.narjis-ref-copy{border:1px solid currentColor;border-radius:9px;padding:7px 10px;background:transparent;color:inherit;font:700 12px Cairo,"Segoe UI",sans-serif;cursor:pointer}
-.narjis-ref-result{flex-basis:100%;font-size:12px;color:#287f7c}
-html[data-theme="dark"] .narjis-ref-result{color:#6adbd4}
-@media(max-width:600px){.narjis-back-top{right:12px!important;bottom:calc(12px + env(safe-area-inset-bottom))!important;width:44px!important;height:44px!important}.narjis-install-app{left:12px;bottom:calc(68px + env(safe-area-inset-bottom));font-size:12px}.order-reference-card{align-items:flex-start;flex-direction:column}.order-reference-card button{align-self:flex-start}}
-@media(prefers-reduced-motion:reduce){.narjis-back-top,.narjis-install-app{transition:none!important}.narjis-install-app:hover{transform:none}}
-@media print{.narjis-scroll-progress,.narjis-back-top,.narjis-install-app,.narjis-offline-banner,.theme-control,.theme-welcome,header,footer{display:none!important}}
-</style>
 </head>
 <body>
 <a class="skip-to-content" href="#main-content">انتقل إلى المحتوى الرئيسي</a>
@@ -1071,7 +1017,7 @@ html[data-theme="dark"] .narjis-ref-result{color:#6adbd4}
 <header>
 <div class="nav-container">
 <div class="logo-wrapper">
-<img alt="شعار النرجس" class="logo-img" decoding="async" src="lo.webp" fetchpriority="high">
+<img alt="شعار النرجس" class="logo-img" decoding="async" src="lo.png"/>
 <div class="logo-text"><span>النرجس</span></div>
 </div>
 <nav aria-label="التنقل الرئيسي">
@@ -1088,11 +1034,7 @@ html[data-theme="dark"] .narjis-ref-result{color:#6adbd4}
 <div class="step active" data-step-label="1"><div class="circle">✿</div>التصميم والخامة</div><div class="step" data-step-label="2"><div class="circle">♧</div>تفاصيل التطريز</div><div class="step" data-step-label="3"><div class="circle">♧</div>الشحن والتوصيل</div><div class="step" data-step-label="4"><div class="circle">✓</div>المراجعة والتأكيد</div>
 </div>
 <p aria-live="polite" class="step-status" id="stepStatus">الخطوة 1 من 4</p>
-<div class="order-draft-banner" id="orderDraftNotice" role="status" aria-live="polite" hidden><span id="orderDraftMessage">استعدنا مسودة طلبك من هذه الجلسة. راجع التفاصيل قبل الإرسال؛ صورة التصميم تحتاج إلى اختيارها مجددًا.</span><button type="button" id="clearOrderDraft">مسح المسودة وبدء طلب جديد</button></div>
-<p class="order-draft-privacy">لحمايتك من ضياع البيانات، يُحفظ نموذج الطلب مؤقتًا داخل جلسة المتصفح. لا تُحفظ صورة التصميم تلقائيًا؛ أعد اختيارها إذا حدّثت الصفحة.</p>
-
 <form action="https://formsubmit.co/loaialdhawi@gmail.com" class="panel" enctype="multipart/form-data" id="orderForm" method="POST">
-<input type="hidden" id="orderReference" name="رقم مرجع الطلب" value="">
 <input name="_subject" type="hidden" value="طلب تطريز جديد - النرجس"/><input name="_captcha" type="hidden" value="false"/><input name="_next" type="hidden" value="https://il0q.github.io/alnarjis-embroidery/thank-you.html"/>
 <section class="form-step" data-step="1"><div class="panel-head"><h2>الخطوة 1: مواصفات قطعة الملابس</h2><p>حدد نوع القطعة وخياراتك لتجهيز طلب التطريز المناسب لك</p></div>
 <span class="field-label">نوع القطعة:</span><div aria-label="نوع القطعة" class="grid" id="garmentChoices" role="group"><button class="choice selected" type="button">دشداشة عمانية</button><button class="choice" type="button">عباءة نسائية</button><button class="choice" type="button">قميص رسمي</button><button class="choice" type="button">بشت / مطرز</button><button class="choice" type="button">ملابس أطفال / مواليد</button><button class="choice" type="button">شيء آخر (اكتب بنفسك)</button></div><input id="garment" name="نوع القطعة" type="hidden" value="دشداشة عمانية"/><div class="field hidden" id="garmentOtherWrap"><label for="garmentOther">اكتب نوع القطعة التي تريدها</label><input autocomplete="off" id="garmentOther" placeholder="مثال: غترة، كمة، حقيبة..." type="text"/></div>
@@ -1117,12 +1059,12 @@ html[data-theme="dark"] .narjis-ref-result{color:#6adbd4}
 <div class="two"><div class="field"><label for="governorate">المحافظة</label><select autocomplete="address-level1" id="governorate" name="المحافظة" required=""><option disabled="" selected="" value="">اختر المحافظة</option><option>محافظة مسقط</option><option>محافظة شمال الباطنة</option><option>محافظة جنوب الباطنة</option><option>محافظة الداخلية</option><option>محافظة شمال الشرقية</option><option>محافظة جنوب الشرقية</option><option>محافظة الظاهرة</option><option>محافظة البريمي</option><option>محافظة الوسطى</option><option>محافظة ظفار</option><option>محافظة مسندم</option></select></div><div class="field"><label for="wilaya">الولاية</label><input autocomplete="address-level2" id="wilaya" name="الولاية" placeholder="اكتب الولاية" required=""/></div></div>
 <div class="field"><label>سرعة الإنجاز والتنفيذ</label><div aria-label="سرعة الإنجاز" class="grid" id="urgencyChoices" role="group"><button class="choice selected" data-pick="urgency" type="button">المدة العادية — حسب جدول الطلبات</button><button class="choice" data-pick="urgency" type="button">مستعجل — إن أمكن</button></div><input name="سرعة الإنجاز" type="hidden" value="المدة العادية — حسب جدول الطلبات"/></div>
 <div class="actions"><button class="btn back" data-back="" type="button">رجوع</button><button class="btn next" data-next="" type="button">التالي: مراجعة الطلب ‹</button></div></section>
-<section class="form-step hidden" data-step="4"><div class="panel-head"><h2>الخطوة 4: المراجعة والتأكيد</h2><p>راجع بياناتك قبل إرسال الطلب إلى فريق النرجس</p></div><div class="order-reference-card" id="orderReferenceCard"><div><span>رقم مرجع التواصل لهذا الطلب</span><br><strong id="orderReferenceDisplay" dir="ltr">ALN-00000000-0000</strong></div><button type="button" class="narjis-ref-copy" id="copyOrderReference">نسخ الرقم</button><span class="narjis-ref-result" id="orderReferenceStatus" aria-live="polite"></span></div><div id="summary" style="background:white;border:1px solid #e0e8e8;border-radius:12px;padding:14px;margin:12px 0"></div><label style="display:flex;gap:8px;align-items:center"><input required="" type="checkbox"/> أؤكد أن البيانات المدخلة صحيحة</label><div class="actions" style="flex-wrap:wrap"><button class="btn back" data-back="" type="button">رجوع</button><button class="btn next" id="sendWhatsApp" style="background:#25D366;color:#fff" type="button">إرسال الفاتورة عبر واتساب ☎</button><button class="btn back" id="copyOrderSummary" type="button">نسخ ملخص الطلب</button><button type="button" class="btn back" id="printOrderSummary">طباعة / حفظ الفاتورة PDF</button><button class="btn next" type="submit">إرسال الطلب بالبريد الإلكتروني ✓</button></div><p aria-live="polite" class="copy-order-status" id="copyOrderStatus"></p><p style="font-size:12px;color:#657078;margin-top:10px">سيُفتح واتساب برسالة تحتوي على تفاصيل الطلب والفاتورة التقديرية. إذا أرفقت صورة تصميم، أرسلها داخل محادثة واتساب أيضًا.</p></section>
+<section class="form-step hidden" data-step="4"><div class="panel-head"><h2>الخطوة 4: المراجعة والتأكيد</h2><p>راجع بياناتك قبل إرسال الطلب إلى فريق النرجس</p></div><div id="summary" style="background:white;border:1px solid #e0e8e8;border-radius:12px;padding:14px;margin:12px 0"></div><label style="display:flex;gap:8px;align-items:center"><input required="" type="checkbox"/> أؤكد أن البيانات المدخلة صحيحة</label><div class="actions" style="flex-wrap:wrap"><button class="btn back" data-back="" type="button">رجوع</button><button class="btn next" id="sendWhatsApp" style="background:#25D366;color:#fff" type="button">إرسال الفاتورة عبر واتساب ☎</button><button class="btn back" id="copyOrderSummary" type="button">نسخ ملخص الطلب</button><button type="button" class="btn back" id="printOrderSummary">طباعة / حفظ الفاتورة PDF</button><button class="btn next" type="submit">إرسال الطلب بالبريد الإلكتروني ✓</button></div><p aria-live="polite" class="copy-order-status" id="copyOrderStatus"></p><p style="font-size:12px;color:#657078;margin-top:10px">سيُفتح واتساب برسالة تحتوي على تفاصيل الطلب والفاتورة التقديرية. إذا أرفقت صورة تصميم، أرسلها داخل محادثة واتساب أيضًا.</p></section>
 </form></main>
 <footer class="site-footer" id="site-footer">
 <div class="footer-brand">
 <a aria-label="العودة إلى الصفحة الرئيسية" class="footer-brand-link" href="index.html">
-<img alt="شعار النرجس للتطريز" decoding="async" height="42" src="lo.webp" width="42" loading="lazy" fetchpriority="low">
+<img alt="شعار النرجس للتطريز" decoding="async" height="42" loading="lazy" src="lo.png" width="42"/>
 <strong>النرجس للتطريز</strong>
 </a>
 <p>نحوّل أفكاركم إلى تفاصيل مطرزة بعناية.</p>
@@ -1243,6 +1185,70 @@ document.getElementById('printOrderSummary').addEventListener('click',()=>{makeS
 document.getElementById('copyOrderSummary').addEventListener('click',async()=>{const status=document.getElementById('copyOrderStatus');const fields=[...form.querySelectorAll('input[name],select[name],textarea[name]')].filter(el=>!el.disabled&&el.type!=='file'&&el.type!=='checkbox'&&el.name&&!el.name.startsWith('_'));const seen=new Set();const lines=['النرجس للتطريز — ملخص الطلب'];fields.forEach(el=>{if(seen.has(el.name))return;seen.add(el.name);const value=String(el.value||'').trim();if(value)lines.push(el.name+': '+value)});lines.push('لون القطعة: '+color.value.toUpperCase(),'التكلفة النهائية: تحدد بعد مراجعة الطلب');const text=lines.join('\n');try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(text)}else{const ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();const ok=document.execCommand('copy');ta.remove();if(!ok)throw new Error('copy-failed')}status.textContent='تم نسخ ملخص الطلب. يمكنك لصقه في واتساب أو أي محادثة.';}catch(e){status.textContent='تعذر النسخ تلقائيًا على هذا المتصفح. استخدم زر واتساب لإرسال التفاصيل.';}});
 
 })();
+</script><script id="alnarjis-smooth-motion-script">
+(() => {
+  'use strict';
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const progress = document.createElement('div');
+  progress.id = 'narjis-scroll-progress';
+  progress.setAttribute('aria-hidden', 'true');
+  if (document.body) document.body.appendChild(progress);
+
+  let queued = false;
+  const updateProgress = () => {
+    queued = false;
+    const doc = document.documentElement;
+    const max = Math.max(1, doc.scrollHeight - window.innerHeight);
+    const pct = Math.min(100, Math.max(0, (window.scrollY / max) * 100));
+    progress.style.width = pct.toFixed(2) + '%';
+  };
+  const requestProgress = () => {
+    if (!queued) { queued = true; window.requestAnimationFrame(updateProgress); }
+  };
+  window.addEventListener('scroll', requestProgress, { passive: true });
+  window.addEventListener('resize', requestProgress, { passive: true });
+  updateProgress();
+
+  if (!reduced && 'IntersectionObserver' in window && document.body) {
+    const selectors = [
+      '.hero-content', '.about-brief', '.services-preview', '.service-card',
+      '.page-header', '.detailed-service-card', '.about-section', '.contact-card',
+      '.thank-you-card', '.intro', '.review-card', '.cost-card'
+    ];
+    const nodes = [...new Set(selectors.flatMap(sel => Array.from(document.querySelectorAll(sel))))];
+    if (nodes.length) {
+      document.body.classList.add('motion-enhanced');
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -28px 0px' });
+      nodes.forEach((node, i) => {
+        node.classList.add('motion-reveal');
+        node.style.setProperty('--reveal-delay', (i % 4) * 55 + 'ms');
+        observer.observe(node);
+      });
+    }
+  }
+
+  // Smoothly scroll only for same-page anchors; ordinary links/navigation remain untouched.
+  document.addEventListener('click', event => {
+    const link = event.target.closest && event.target.closest('a[href^="#"]');
+    if (!link || reduced) return;
+    const id = link.getAttribute('href');
+    if (!id || id === '#') return;
+    let target;
+    try { target = document.querySelector(id); } catch (_) { return; }
+    if (target) {
+      event.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (history.replaceState) history.replaceState(null, '', id);
+    }
+  });
+})();
 </script>
 <script id="alnarjis-theme-behavior">
 (function(){
@@ -1274,6 +1280,53 @@ document.getElementById('copyOrderSummary').addEventListener('click',async()=>{c
  sync(requestedTheme);
 })();
 </script>
+<script id="narjis-usability-script-v3">
+(function(){
+  'use strict';
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var topButton=document.createElement('button');
+  topButton.type='button';topButton.className='narjis-back-top';topButton.setAttribute('aria-label','العودة إلى أعلى الصفحة');topButton.title='العودة إلى أعلى الصفحة';topButton.innerHTML='<span aria-hidden="true">↑</span>';
+  document.body.appendChild(topButton);
+  var queued=false;
+  function refresh(){queued=false;topButton.classList.toggle('is-visible',window.scrollY>420);topButton.tabIndex=window.scrollY>420?0:-1;}
+  window.addEventListener('scroll',function(){if(!queued){queued=true;requestAnimationFrame(refresh)}},{passive:true});
+  window.addEventListener('resize',refresh,{passive:true});refresh();
+  topButton.addEventListener('click',function(){window.scrollTo({top:0,behavior:reduced?'auto':'smooth'});});
+  // منع تشغيل فيديو الحركة تلقائيًا عند تفضيل تقليل الحركة أو استخدام وضع تقليل البيانات.
+  var vid=document.querySelector('.hero-video-bg');
+  if(vid){
+    var connection=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
+    if(reduced||(connection&&connection.saveData)){vid.pause();vid.removeAttribute('autoplay');vid.preload='none';vid.style.display='none';document.body.classList.add('hero-motion-paused');}
+  }
+  // اجعل اختيار المظهر قابلاً للاستخدام من لوحة المفاتيح، مع الحفاظ على مفاتيح الصفحة الحالية.
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){
+    link.addEventListener('click',function(){var id=link.getAttribute('href');if(!id||id==='#')return;var target=document.querySelector(id);if(target){target.setAttribute('tabindex','-1');setTimeout(function(){try{target.focus({preventScroll:true})}catch(e){}},reduced?0:250)}})
+  });
+})();
+</script>
+<script id="narjis-enhancements-script-v5">
+(function(){
+  'use strict';
+  if(document.querySelector('.narjis-scroll-progress')) return;
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bar=document.createElement('div');bar.className='narjis-scroll-progress';bar.setAttribute('aria-hidden','true');
+  var top=document.createElement('button');top.type='button';top.className='narjis-back-top';top.setAttribute('aria-label','العودة إلى أعلى الصفحة');top.setAttribute('title','العودة إلى أعلى الصفحة');top.setAttribute('aria-hidden','true');top.tabIndex=-1;top.innerHTML='<span aria-hidden="true">↑</span>';
+  document.body.appendChild(bar);document.body.appendChild(top);
+  var queued=false;
+  function update(){
+    queued=false;
+    var doc=document.documentElement, range=doc.scrollHeight-window.innerHeight;
+    var ratio=range>0?Math.max(0,Math.min(1,window.scrollY/range)):0;
+    bar.style.transform='scaleX('+ratio+')';
+    var show=window.scrollY>360;
+    top.classList.toggle('is-visible',show);top.setAttribute('aria-hidden',show?'false':'true');top.tabIndex=show?0:-1;
+  }
+  function schedule(){if(queued)return;queued=true;window.requestAnimationFrame(update)}
+  window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule,{passive:true});window.addEventListener('pageshow',schedule);
+  top.addEventListener('click',function(){window.scrollTo({top:0,behavior:reduced?'auto':'smooth'});});
+  update();
+})();
+</script>
 <script id="narjis-current-page-nav">
 (function(){
   'use strict';
@@ -1292,106 +1345,22 @@ document.getElementById('copyOrderSummary').addEventListener('click',async()=>{c
   });
 })();
 </script>
-<script id="alnarjis-premium-runtime">
+<script id="narjis-native-scroll-safety">
 (function(){
   'use strict';
-  var doc=document, root=doc.documentElement, body=doc.body;
-  if(!body)return;
-  var reduced=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-  var bar=doc.getElementById('narjis-scroll-progress');
-  if(!bar){bar=doc.createElement('div');bar.id='narjis-scroll-progress';bar.className='narjis-scroll-progress';bar.setAttribute('aria-hidden','true');body.appendChild(bar)}
-  bar.style.width='100%';
-  var top=doc.querySelector('.narjis-back-top');
-  if(!top){top=doc.createElement('button');top.type='button';top.className='narjis-back-top';top.setAttribute('aria-label','العودة إلى أعلى الصفحة');top.title='العودة إلى أعلى الصفحة';top.innerHTML='<span aria-hidden="true">↑</span>';body.appendChild(top)}
-  top.setAttribute('aria-hidden','true');top.tabIndex=-1;
-  var queued=false;
-  function updateScroll(){
-    queued=false;
-    var max=Math.max(0,doc.documentElement.scrollHeight-window.innerHeight);
-    var ratio=max?Math.max(0,Math.min(1,window.scrollY/max)):0;
-    bar.style.transform='scaleX('+ratio.toFixed(4)+')';
-    var show=window.scrollY>380;
-    top.classList.toggle('is-visible',show);top.setAttribute('aria-hidden',show?'false':'true');top.tabIndex=show?0:-1;
+  /* لا نمنع wheel/touch: التمرير الأصلي يبقى بيد المتصفح. */
+  function unlockIfWelcomeGone(){
+    var root=document.documentElement, body=document.body;
+    if(!body)return;
+    var overlay=document.getElementById('theme-welcome');
+    if(!overlay || root.getAttribute('data-welcome-seen')==='true'){
+      body.classList.remove('theme-welcome-open');
+      root.classList.remove('theme-welcome-lock');
+    }
   }
-  function scheduleScroll(){if(!queued){queued=true;window.requestAnimationFrame(updateScroll)}}
-  window.addEventListener('scroll',scheduleScroll,{passive:true});window.addEventListener('resize',scheduleScroll,{passive:true});window.addEventListener('pageshow',scheduleScroll);updateScroll();
-  top.addEventListener('click',function(){window.scrollTo({top:0,behavior:reduced?'auto':'smooth'})});
-  // Recover scroll lock only when no active welcome screen remains.
-  function unlockWelcomeScroll(){var overlay=doc.getElementById('theme-welcome');if(!overlay||root.getAttribute('data-welcome-seen')==='true'){body.classList.remove('theme-welcome-open');root.classList.remove('theme-welcome-lock')}}
-  if(doc.readyState==='loading')doc.addEventListener('DOMContentLoaded',unlockWelcomeScroll,{once:true});else unlockWelcomeScroll();
-  window.addEventListener('pageshow',unlockWelcomeScroll);
-  // Leave normal link navigation and browser anchor handling intact; only move keyboard focus after a same-page jump.
-  doc.addEventListener('click',function(event){var a=event.target.closest&&event.target.closest('a[href^="#"]');if(!a)return;var hash=a.getAttribute('href');if(!hash||hash==='#')return;var target;try{target=doc.querySelector(hash)}catch(_){return}if(!target)return;window.setTimeout(function(){if(!target.hasAttribute('tabindex')&&target.matches('main,section,article,[id]'))target.setAttribute('tabindex','-1');try{target.focus({preventScroll:true})}catch(_){}},reduced?0:100)});
-  // Disable autoplaying background video on reduced-motion/data-saver devices and delay loading otherwise.
-  var video=doc.querySelector('video.hero-video-bg');
-  if(video){var conn=navigator.connection||navigator.mozConnection||navigator.webkitConnection;var saveData=!!(conn&&conn.saveData)||!!(conn&&/^(slow-2g|2g)$/.test(conn.effectiveType||''));if(reduced||saveData){try{video.pause()}catch(_){}video.removeAttribute('autoplay');video.preload='none';video.style.display='none';body.classList.add('hero-motion-paused')}else{video.preload='metadata';}}
-  // Offline feedback is informational; it never blocks browsing or form interactions.
-  var offline=null;
-  function showOffline(){if(offline)return;offline=doc.createElement('div');offline.className='narjis-offline-banner';offline.setAttribute('role','status');offline.setAttribute('aria-live','polite');offline.textContent='أنت غير متصل بالإنترنت. يمكنك تصفح الصفحات المحفوظة، لكن إرسال الطلب وواتساب يحتاجان إلى اتصال.';body.appendChild(offline)}
-  function hideOffline(){if(offline){offline.remove();offline=null}}
-  window.addEventListener('offline',showOffline);window.addEventListener('online',hideOffline);if(navigator.onLine===false)showOffline();
-  // PWA installation button appears only when the browser confirms it can prompt for installation.
-  var installPrompt=null, install=doc.createElement('button');install.type='button';install.className='narjis-install-app';install.hidden=true;install.textContent='تثبيت موقع النرجس';install.setAttribute('aria-label','تثبيت موقع النرجس على الجهاز');body.appendChild(install);
-  window.addEventListener('beforeinstallprompt',function(event){event.preventDefault();installPrompt=event;install.hidden=false});
-  install.addEventListener('click',async function(){if(!installPrompt)return;install.disabled=true;try{await installPrompt.prompt();await installPrompt.userChoice}catch(_){}installPrompt=null;install.hidden=true;install.disabled=false});
-  window.addEventListener('appinstalled',function(){install.hidden=true;installPrompt=null});
-  // Theme changes should also update the browser chrome color.
-  var themeMeta=doc.querySelector('meta[name="theme-color"]');
-  if(themeMeta&&window.MutationObserver){new MutationObserver(function(){themeMeta.setAttribute('content',root.getAttribute('data-theme')==='dark'?'#101518':'#5c3d48')}).observe(root,{attributes:true,attributeFilter:['data-theme']})}
-  // Register the install/offline shell only on secure hosts such as GitHub Pages.
-  if('serviceWorker' in navigator && (location.protocol==='https:'||location.hostname==='localhost')){
-    window.addEventListener('load',function(){navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(function(){/* site still works online if offline support is unavailable */})},{once:true});
-  }
-})();
-</script>
-<script id="alnarjis-order-draft-and-reference">
-(function(){
- 'use strict';
- var form=document.getElementById('orderForm');if(!form)return;
- var draftKey='alnarjis-order-draft-v2',refKey='alnarjis-order-reference-v1',submittedKey='alnarjis-order-submitted-reference-v1';
- var refInput=document.getElementById('orderReference'),refDisplay=document.getElementById('orderReferenceDisplay');
- function makeRef(){var d=new Date(),date=String(d.getFullYear())+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');var random='';try{var bytes=new Uint8Array(3);crypto.getRandomValues(bytes);random=Array.from(bytes).map(x=>x.toString(16).padStart(2,'0')).join('').slice(0,4).toUpperCase()}catch(_){random=Math.random().toString(36).slice(2,6).toUpperCase()}return 'ALN-'+date+'-'+random}
- var ref='';try{ref=sessionStorage.getItem(refKey)||'';if(!/^ALN-\d{8}-[A-Z0-9]{4}$/.test(ref)){ref=makeRef();sessionStorage.setItem(refKey,ref)}}catch(_){ref=makeRef()}
- if(refInput)refInput.value=ref;if(refDisplay)refDisplay.textContent=ref;
- var notice=document.getElementById('orderDraftNotice'),noticeText=document.getElementById('orderDraftMessage'),clearBtn=document.getElementById('clearOrderDraft');
- var restoring=false,dirty=false,saveTimer=0;
- function byId(id){return document.getElementById(id)}
- function snapshot(){
-  var values={};
-  Array.from(form.querySelectorAll('input[id],select[id],textarea[id]')).forEach(function(el){if(['hidden','file','submit','button','reset','password'].includes(el.type)||el.id==='orderReference'||el.type==='checkbox'||el.type==='radio')return;values[el.id]=el.value});
-  var garment=docSelected('#garmentChoices .choice.selected');
-  var image=docSelected('[data-image].selected');
-  var picks=Array.from(form.querySelectorAll('[data-pick].selected')).map(function(b){return {group:b.dataset.pick,text:(b.textContent||'').trim()}});
-  return {version:2,savedAt:Date.now(),values:values,garment:garment?(garment.textContent||'').trim():'',image:image?image.dataset.image:'',picks:picks,hadFile:!!(byId('designFile')&&byId('designFile').files&&byId('designFile').files.length)};
- }
- function docSelected(sel){return document.querySelector(sel)}
- function persist(){if(restoring||!dirty)return;try{var snap=snapshot();if(Object.keys(snap.values).length||snap.garment||snap.picks.length){sessionStorage.setItem(draftKey,JSON.stringify(snap))}}catch(_){}}
- function scheduleSave(){if(restoring)return;dirty=true;clearTimeout(saveTimer);saveTimer=setTimeout(persist,180)}
- function dispatch(el){el.dispatchEvent(new Event('input',{bubbles:true}));el.dispatchEvent(new Event('change',{bubbles:true}))}
- function restore(){
-  var saved;try{saved=JSON.parse(sessionStorage.getItem(draftKey)||'null')}catch(_){saved=null}
-  if(!saved||saved.version!==2||!saved.savedAt||Date.now()-saved.savedAt>4*60*60*1000){try{sessionStorage.removeItem(draftKey)}catch(_){}return}
-  restoring=true;
-  try{
-   Object.keys(saved.values||{}).forEach(function(id){var el=byId(id);if(!el||['hidden','file','submit','button','reset','password','checkbox','radio'].includes(el.type))return;if(el.matches(':disabled'))return;el.value=String(saved.values[id]);});
-   Object.keys(saved.values||{}).forEach(function(id){var el=byId(id);if(el&&['hidden','file','submit','button','reset','password','checkbox','radio'].indexOf(el.type)<0)dispatch(el)});
-   if(saved.garment){var gb=Array.from(form.querySelectorAll('#garmentChoices .choice')).find(function(b){return (b.textContent||'').trim()===saved.garment});if(gb)gb.click()}
-   if(saved.image){var ib=Array.from(form.querySelectorAll('[data-image]')).find(function(b){return b.dataset.image===saved.image});if(ib)ib.click()}
-   (saved.picks||[]).forEach(function(item){var b=Array.from(form.querySelectorAll('[data-pick]')).find(function(x){return x.dataset.pick===item.group&&(x.textContent||'').trim()===item.text});if(b)b.click()});
-   ['garmentOther','placementOther','sizeOther','fabricOther','serviceOther'].forEach(function(id){var el=byId(id);if(el&&el.value)dispatch(el)});
-   if(refInput)refInput.value=ref;if(refDisplay)refDisplay.textContent=ref;
-   if(notice){notice.hidden=false;noticeText.textContent='استعدنا مسودة طلبك من هذه الجلسة. راجع التفاصيل قبل الإرسال.'+(saved.hadFile?' صورة التصميم لا تحفظ تلقائيًا؛ أعد اختيارها.':'');}
-   dirty=true;
-  }catch(_){try{sessionStorage.removeItem(draftKey)}catch(__){}}
-  restoring=false;
- }
- form.addEventListener('input',scheduleSave,true);form.addEventListener('change',scheduleSave,true);
- form.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('.choice,[data-pick],[data-image],#quantityPlus,#quantityMinus')){setTimeout(scheduleSave,80)}},false);
- form.addEventListener('submit',function(e){if(e.defaultPrevented||!form.checkValidity())return;try{sessionStorage.setItem(submittedKey,ref)}catch(_){}var button=form.querySelector('button[type="submit"]');if(button){button.disabled=true;button.setAttribute('aria-busy','true');var old=button.textContent;button.textContent='جارٍ إرسال الطلب…';var status=byId('copyOrderStatus');if(status)status.textContent='جارٍ إرسال الطلب إلى فريق النرجس؛ يرجى عدم إغلاق الصفحة.';setTimeout(function(){if(document.visibilityState==='visible'&&button.isConnected){button.disabled=false;button.removeAttribute('aria-busy');button.textContent=old}},15000)}},false);
- if(clearBtn)clearBtn.addEventListener('click',function(){try{sessionStorage.removeItem(draftKey);sessionStorage.removeItem(refKey)}catch(_){}location.reload()});
- var copyRef=byId('copyOrderReference'),refStatus=byId('orderReferenceStatus');
- if(copyRef)copyRef.addEventListener('click',async function(){try{if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(ref);else{var t=document.createElement('textarea');t.value=ref;t.setAttribute('readonly','');t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();if(!document.execCommand('copy'))throw Error('copy');t.remove()}if(refStatus)refStatus.textContent='تم نسخ رقم المرجع.'}catch(_){if(refStatus)refStatus.textContent='رقم المرجع: '+ref}});
- restore();
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',unlockIfWelcomeGone,{once:true});
+  else unlockIfWelcomeGone();
+  window.addEventListener('pageshow',unlockIfWelcomeGone);
 })();
 </script>
 </body></html>
